@@ -61,16 +61,17 @@ public class CommandBox extends UiPart<Region> {
         case F:
             // CONTROL + 'KeyCode' will allow the user to use keyboard shortcuts
             keyEvent.consume();
-            if(keyEvent.isControlDown()) {
+            if (keyEvent.isControlDown()) {
                 replaceText("Find ");
             }
             break;
 
         case Q:
             keyEvent.consume();
-            if(keyEvent.isControlDown()){
+            if (keyEvent.isControlDown()) {
                 Platform.exit();
             }
+            break;
 
         default:
             // let JavaFx handle the keypress
