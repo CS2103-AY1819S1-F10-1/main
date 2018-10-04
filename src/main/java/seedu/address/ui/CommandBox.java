@@ -2,7 +2,6 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -56,21 +55,6 @@ public class CommandBox extends UiPart<Region> {
         case DOWN:
             keyEvent.consume();
             navigateToNextInput();
-            break;
-
-        case F:
-            // CONTROL + 'KeyCode' will allow the user to use keyboard shortcuts
-            keyEvent.consume();
-            if (keyEvent.isControlDown()) {
-                replaceText("Find ");
-            }
-            break;
-
-        case Q:
-            keyEvent.consume();
-            if (keyEvent.isControlDown()) {
-                Platform.exit();
-            }
             break;
 
         default:
