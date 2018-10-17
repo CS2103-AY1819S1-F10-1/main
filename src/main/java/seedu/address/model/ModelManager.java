@@ -13,6 +13,7 @@ import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.model.person.Person;
+import seedu.address.model.project.Project;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -22,6 +23,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     private final VersionedAddressBook versionedAddressBook;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Project> filteredProjects;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -34,6 +36,7 @@ public class ModelManager extends ComponentManager implements Model {
 
         versionedAddressBook = new VersionedAddressBook(addressBook);
         filteredPersons = new FilteredList<>(versionedAddressBook.getPersonList());
+        filteredProjects = new FilteredList<>(versionedAddressBook.getProjectList());
     }
 
     public ModelManager() {
@@ -82,6 +85,50 @@ public class ModelManager extends ComponentManager implements Model {
         versionedAddressBook.updatePerson(target, editedPerson);
         indicateAddressBookChanged();
     }
+
+    //=========== Project ====================================================================================
+
+    @Override
+    public boolean hasProject(Project project) {
+        requireNonNull(project);
+        return versionedAddressBook.hasProject(project);
+    }
+
+    /*@Override
+    public void deletePerson(Person target) {
+        versionedAddressBook.removePerson(target);
+        indicateAddressBookChanged();
+    }*/
+
+    @Override
+    public void addProject(Project project) {
+        versionedAddressBook.addProject(project);
+        updateFilteredProjectList(PREDICATE_SHOW_ALL_PROJECT);
+        indicateAddressBookChanged();
+    }
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Project> getFilteredProjectList() {
+        return FXCollections.unmodifiableObservableList(filteredProjects);
+    }
+
+    @Override
+    public void updateFilteredProjectList(Predicate<Project> predicate) {
+        requireNonNull(predicate);
+        filteredProjects.setPredicate(predicate);
+    }
+
+    /*@Override
+    public void updatePerson(Person target, Person editedPerson) {
+        requireAllNonNull(target, editedPerson);
+
+        versionedAddressBook.updatePerson(target, editedPerson);
+        indicateAddressBookChanged();
+    }*/
 
     //=========== Filtered Person List Accessors =============================================================
 

@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 public class ProjectName {
 
-    public static final String MESSAGE_NAME_CONSTRAINTS = "Project names should not be blank";
+    public static final String MESSAGE_PORJECT_NAME_CONSTRAINTS = "Project names should not be blank";
 
     /*
      * The first character of the project name must not be a whitespace,
@@ -22,7 +22,7 @@ public class ProjectName {
      */
     public ProjectName(String name) {
         requireNonNull(name);
-        checkArgument(isValidName(name), MESSAGE_NAME_CONSTRAINTS);
+        checkArgument(isValidName(name), MESSAGE_PORJECT_NAME_CONSTRAINTS);
         fullProjectName = name;
     }
 
