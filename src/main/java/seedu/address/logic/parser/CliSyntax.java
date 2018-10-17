@@ -12,4 +12,9 @@ public class CliSyntax {
     public static final Prefix PREFIX_ADDRESS = new Prefix("-a");
     public static final Prefix PREFIX_TAG = new Prefix("-t");
 
+    /* Prefix for project*/
+    public static final Prefix PREFIX_PROJECT_NAME = new Prefix("-pn");
+    public static final Prefix PREFIX_AUTHOR = new Prefix("-au");
+    public static final Prefix PREFIX_PROJECT_TAG = new Prefix("-t");
+
 }

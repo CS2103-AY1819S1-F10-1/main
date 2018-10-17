@@ -4,6 +4,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
+import seedu.address.model.project.Project;
 
 /**
  * The API of the Model component.
@@ -11,6 +12,9 @@ import seedu.address.model.person.Person;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<Project> PREDICATE_SHOW_ALL_PROJECT = unused -> true;
 
     /** Clears existing backing model and replaces with the provided new data. */
     void resetData(ReadOnlyAddressBook newData);
@@ -75,4 +79,26 @@ public interface Model {
      * Saves the current address book state for undo/redo.
      */
     void commitAddressBook();
+
+    //Project Methods
+    /**
+     * Returns true if a project with the same identity as {@code project} exists in the address book.
+     */
+    boolean hasProject(Project project);
+
+    /**
+     * Adds the given project.
+     * {@code project} must not already exist in the address book.
+     */
+    void addProject(Project project);
+
+    /** Returns an unmodifiable view of the filtered project list */
+    ObservableList<Project> getFilteredProjectList();
+
+    /**
+     * Updates the filter of the filtered project list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredProjectList(Predicate<Project> predicate);
+
 }
