@@ -16,25 +16,27 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#login-into-the-system-code-login-code">3.2. Login into the system : <code>login</code></a></li>
 <li><a href="#view-history-code-history-code">3.3. View history : <code>history</code></a></li>
-<li><a href="#adding-an-employee-code-add-code">3.4. Adding an employee : <code>add</code></a></li>
-<li><a href="#removing-an-employee-code-remove-code">3.5. Removing an employee : <code>remove</code></a></li>
+<li><a href="#adding-an-employee-to-a-department-code-add-code">3.4. Adding an employee to a department: <code>add</code></a></li>
+<li><a href="#removing-an-employee-from-my-department-code-remove-code">3.5. Removing an employee from my department: <code>remove</code></a></li>
 <li><a href="#list-effectiveness-of-sector-by-profit-code-sector-code">3.6. List effectiveness of sector by profit : <code>sector</code></a></li>
-<li><a href="#list-effectiveness-of-employees-code-employees-code">3.7. List effectiveness of employees : <code>employees</code></a></li>
+<li><a href="#sort-employee-display-list-code-sort-code">3.7. Sort employee display list : <code>sort</code></a></li>
 <li><a href="#list-details-of-employee-code-detail-code">3.8. List details of employee : <code>detail</code></a></li>
 <li><a href="#apply-for-leave-code-leave-code">3.9. Apply for leave : <code>leave</code></a></li>
-<li><a href="#find-employees-by-name-code-find-code">3.10. Find employees by name : <code>find</code></a></li>
-<li><a href="#edit-details-code-edit-code">3.11. Edit details : <code>edit</code></a></li>
-<li><a href="#change-password-code-password-code">3.12. Change password : <code>password</code></a></li>
-<li><a href="#view-leave-summary-code-leavesummary-code">3.13. View leave summary : <code>leavesummary</code></a></li>
-<li><a href="#view-income-summary-code-summary-code">3.14. View income summary : <code>summary</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#search-employees-by-name-code-search-code">3.10. Search employees by name : <code>search</code></a></li>
+<li><a href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></li>
+<li><a href="#edit-details-code-edit-code">3.12. Edit details : <code>edit</code></a></li>
+<li><a href="#change-password-code-password-code">3.13. Change password : <code>password</code></a></li>
+<li><a href="#view-leave-summary-code-leavesummary-code">3.14. View leave summary : <code>leavesummary</code></a></li>
+<li><a href="#view-income-summary-code-summary-code">3.15. View income summary : <code>summary</code></a></li>
+<li><a href="#view-deleted-employee-archive-code-archive-code">3.16. View deleted employee archive : <code>archive</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a>
 <ul class="sectlevel2">
 <li><a href="#employee-commands">5.1. Employee Commands</a></li>
-<li><a href="#manager-commands">5.2. Manager Commands</a></li>
+<li><a href="#employee-with-department-manager-permissions">5.2. Employee with "Department Manager" permissions</a></li>
 </ul>
 </li>
 </ul>
@@ -85,7 +87,7 @@ e.g. typing help and pressing Enter will open the help window.</p>
 <p><strong><code>employees</code></strong> : lists all employees.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>-n John Doe Marketing -s Sales</code> : adds an employee named John Doe into the marketing sector.</p>
+<p><strong><code>add</code></strong><code>-n John Doe Marketing</code> : adds an employee named John Doe into the department of the employee adding John.</p>
 </li>
 <li>
 <p><strong><code>find</code></strong><code>J*</code> : finds all employees that start with J.</p>
@@ -114,7 +116,7 @@ e.g. typing help and pressing Enter will open the help window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add -n NAME -s SECTOR</code>, <code>NAME</code>, <code>SECTOR</code> is a parameter which can be used as `add -n John -s Sales `.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add -n NAME</code>, <code>NAME</code>, <code>SECTOR</code> is a parameter which can be used as `add -n John -s Sales `.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>-n NAME [-t TAG]</code> can be used as <code>-n John Doe -t friend</code> or as <code>-n John Doe</code>.</p>
@@ -141,7 +143,7 @@ e.g. typing help and pressing Enter will open the help window.</p>
 <div class="sect2">
 <h3 id="login-into-the-system-code-login-code"><a class="link" href="#login-into-the-system-code-login-code">3.2. Login into the system : <code>login</code></a></h3>
 <div class="paragraph">
-<p>Login into the system using the username given</p>
+<p>Login into the system using the username given.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>login -u USERNAME</code></p>
@@ -186,15 +188,26 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-employee-code-add-code"><a class="link" href="#adding-an-employee-code-add-code">3.4. Adding an employee : <code>add</code></a></h3>
+<h3 id="adding-an-employee-to-a-department-code-add-code"><a class="link" href="#adding-an-employee-to-a-department-code-add-code">3.4. Adding an employee to a department: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an employee into the system.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add -n NAME -s SECTOR [-g GROUP] [-m MERITS] [-f FLAWS] [-p SALARY]</code></p>
+<p>Format: <code>add -n NAME [-e EMAIL] [-n NUMBER][-s SALARY]</code></p>
 </div>
-<div class="paragraph">
-<p>To use this command, you must be logged in as a manager</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "Department Manager" permissions.</p>
+</li>
+<li>
+<p>New employee will automatically be assigned to the department of the employee adding him/her.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -202,16 +215,16 @@ Format: <code>history</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add -n John Doe -s Sales -p 15000</code></p>
+<p><code>add -n Joshua -s 15000</code></p>
 </li>
 <li>
-<p><code>add -n Raynard -s Investment -m Self motivated -p 2000</code></p>
+<p><code>add -n Raynard -s 10000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-an-employee-code-remove-code"><a class="link" href="#removing-an-employee-code-remove-code">3.5. Removing an employee : <code>remove</code></a></h3>
+<h3 id="removing-an-employee-from-my-department-code-remove-code"><a class="link" href="#removing-an-employee-from-my-department-code-remove-code">3.5. Removing an employee from my department: <code>remove</code></a></h3>
 <div class="paragraph">
 <p>Removes an employee from the system.</p>
 </div>
@@ -223,7 +236,10 @@ Format: <code>history</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in as a manager</p>
+<p>To use this command, you must be logged in with "Department Manager" permissions.</p>
+</li>
+<li>
+<p>All removed employees will be stored in the archive, when employee in archive is removed again it will be taken out of archve.</p>
 </li>
 </ul>
 </div>
@@ -253,7 +269,7 @@ Format: <code>history</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in as a manager</p>
+<p>To use this command, you must be logged in with "Department Manager" permissions.</p>
 </li>
 </ul>
 </div>
@@ -261,45 +277,21 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-effectiveness-of-employees-code-employees-code"><a class="link" href="#list-effectiveness-of-employees-code-employees-code">3.7. List effectiveness of employees : <code>employees</code></a></h3>
+<h3 id="sort-employee-display-list-code-sort-code"><a class="link" href="#sort-employee-display-list-code-sort-code">3.7. Sort employee display list : <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Lists all employees, sorted by most profitable employees first.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>employees -s SORTBY</code></p>
+<p>Lists all employees, using a given criteria.</p>
 </div>
 <div class="paragraph">
-<p>To use this command, you must be logged in as a manager.
-By default, this sorts by their profitability, but it can also sort by details like name by specifying it in the -s parameter.</p>
+<p>Format: <code>sort -n NAME [-d DEPARTMENT]</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="paragraph">
+<p>There are many different criteries like name, department, etc.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="list-details-of-employee-code-detail-code"><a class="link" href="#list-details-of-employee-code-detail-code">3.8. List details of employee : <code>detail</code></a></h3>
 <div class="paragraph">
-<p>Lists the detailed information of an employee, including their merits/demerits and leave details.</p>
+<p>Lists the detailed information of an employee.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>detail -id ID [-n NAME]</code></p>
@@ -309,7 +301,7 @@ By default, this sorts by their profitability, but it can also sort by details l
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in as a manager</p>
+<p>To use this command, you must be logged in with "Department Manager" permissions.</p>
 </li>
 </ul>
 </div>
@@ -340,22 +332,19 @@ By default, this sorts by their profitability, but it can also sort by details l
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-employees-by-name-code-find-code"><a class="link" href="#find-employees-by-name-code-find-code">3.10. Find employees by name : <code>find</code></a></h3>
+<h3 id="search-employees-by-name-code-search-code"><a class="link" href="#search-employees-by-name-code-search-code">3.10. Search employees by name : <code>search</code></a></h3>
 <div class="paragraph">
-<p>Find all employees that have their name fir within an applied filter.</p>
+<p>Search and display all employees that match the given name criteria.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>find FILTER</code></p>
+<p>Format: <code>search NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>filter can be any name or parts of name. You can substitute * for any number of characters and _ for a single character.</p>
-</li>
-<li>
-<p>To use this command, you must be logged in as a manager.</p>
+<p>NAME can be any name or parts of name.</p>
 </li>
 </ul>
 </div>
@@ -363,12 +352,32 @@ By default, this sorts by their profitability, but it can also sort by details l
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-details-code-edit-code"><a class="link" href="#edit-details-code-edit-code">3.11. Edit details : <code>edit</code></a></h3>
+<h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></h3>
+<div class="paragraph">
+<p>Search all employees that have their name fir within an applied filter.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>filter -n NAME [-d DEPARTMENT]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>NAME can be any name or parts of name.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-details-code-edit-code"><a class="link" href="#edit-details-code-edit-code">3.12. Edit details : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Changes the users details (such as contact information).</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit [-p PHONE] [-e EMAIL] [-s SALARY] [-d DEPARTMENT]</code></p>
+<p>Format: <code>edit [-n NUMBER] [-e EMAIL]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -389,7 +398,7 @@ By default, this sorts by their profitability, but it can also sort by details l
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-password-code-password-code"><a class="link" href="#change-password-code-password-code">3.12. Change password : <code>password</code></a></h3>
+<h3 id="change-password-code-password-code"><a class="link" href="#change-password-code-password-code">3.13. Change password : <code>password</code></a></h3>
 <div class="paragraph">
 <p>Changes user password.</p>
 </div>
@@ -412,7 +421,7 @@ By default, this sorts by their profitability, but it can also sort by details l
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-leave-summary-code-leavesummary-code"><a class="link" href="#view-leave-summary-code-leavesummary-code">3.13. View leave summary : <code>leavesummary</code></a></h3>
+<h3 id="view-leave-summary-code-leavesummary-code"><a class="link" href="#view-leave-summary-code-leavesummary-code">3.14. View leave summary : <code>leavesummary</code></a></h3>
 <div class="paragraph">
 <p>Views the summary of off days current employees take for the month.</p>
 </div>
@@ -424,7 +433,7 @@ By default, this sorts by their profitability, but it can also sort by details l
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in as a manager</p>
+<p>To use this command, you must be logged in with "Department Manager" permissions.</p>
 </li>
 </ul>
 </div>
@@ -432,19 +441,28 @@ By default, this sorts by their profitability, but it can also sort by details l
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-income-summary-code-summary-code"><a class="link" href="#view-income-summary-code-summary-code">3.14. View income summary : <code>summary</code></a></h3>
+<h3 id="view-income-summary-code-summary-code"><a class="link" href="#view-income-summary-code-summary-code">3.15. View income summary : <code>summary</code></a></h3>
 <div class="paragraph">
 <p>View income summary for the month.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>summary</code></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">3.16. View deleted employee archive : <code>archive</code></a></h3>
+<div class="paragraph">
+<p>Displays the list of employees removed from the system. To delete an employee from the archive simply remove again.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>archive</code></p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in as an employee</p>
+<p>To use this command, you must be logged in with "Department Manager" permissions.</p>
 </li>
 </ul>
 </div>
@@ -452,7 +470,7 @@ By default, this sorts by their profitability, but it can also sort by details l
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program, automatically saving data and logging you out.</p>
 </div>
@@ -497,22 +515,33 @@ By default, this sorts by their profitability, but it can also sort by details l
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Login</strong> : <code>login -u USERNAME [-p]</code><br>
+<p><strong>Login</strong> : <code>login -u USERNAME</code><br>
 e.g. login -u Kok</p>
 </li>
 <li>
-<p><strong>History</strong> : <code>history</code></p>
+<p><strong>History</strong> : <code>history</code><br></p>
+</li>
+<li>
+<p><strong>Sort employee display list</strong> : <code>sort -n NAME [-d DEPARTMENT]</code><br></p>
 </li>
 <li>
 <p><strong>Apply for leave</strong> : <code>leave DATE to DATE</code><br>
 e.g. leave 1/1/2019 to 30/1/2019</p>
 </li>
 <li>
-<p><strong>Edit details</strong> : <code>edit [-p PHONE][-e EMAIL][-a ADDRESS]</code><br>
-e.g. edit -p 12312312</p>
+<p><strong>Search employees by name</strong> : <code>search NAME</code><br>
+e.g. search Joshua</p>
 </li>
 <li>
-<p><strong>Change password</strong> : <code>passwd</code></p>
+<p><strong>Filter employees by criteria</strong> : <code>filter -n NAME [-d DEPARTMENT]</code><br>
+e.g. filter -n Jeremy Choo -d Development</p>
+</li>
+<li>
+<p><strong>Edit details</strong> : <code>edit [-n NUMBER] [-e EMAIL]</code><br>
+e.g. edit -n 12312312</p>
+</li>
+<li>
+<p><strong>Change password</strong> : <code>password</code></p>
 </li>
 <li>
 <p><strong>View income summary</strong> : <code>summary</code></p>
@@ -524,37 +553,32 @@ e.g. edit -p 12312312</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manager-commands"><a class="link" href="#manager-commands">5.2. Manager Commands</a></h3>
+<h3 id="employee-with-department-manager-permissions"><a class="link" href="#employee-with-department-manager-permissions">5.2. Employee with "Department Manager" permissions</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Adding an employee</strong> : <code>add -n NAME -s SECTOR [-g GROUP] [-m MERITS] [-f FLAWS] [-p SALARY]</code><br>
-e.g. add -n Elliot -s Sales -g 1 -f Procrastinator</p>
+<p><strong>Adding an employee to a department</strong> : <code>add -n NAME [-e EMAIL] [-n NUMBER] [-s SALARY]</code><br>
+e.g. add -n Elliot -e <a href="mailto:Elliot@gmail.com">Elliot@gmail.com</a></p>
 </li>
 <li>
-<p><strong>Removing an employee</strong> : <code>remove -n [NAME] -id [ID]</code><br>
-e.g. remove id E01312</p>
+<p><strong>Removing an employee</strong> : <code>remove -id ID [-n NAME]</code><br>
+e.g. remove -id E01312</p>
 </li>
 <li>
 <p><strong>List effectiveness of sector by profit</strong> : <code>sector</code></p>
 </li>
 <li>
-<p><strong>List effectiveness of employees</strong> : <code>employees [-s SORTBY]</code><br>
-e.g. employees -s name</p>
-</li>
-<li>
-<p><strong>List employees</strong> : <code>detail [-n NAME][-id ID]</code><br>
+<p><strong>List employees</strong> : <code>detail -id ID [-n NAME]</code><br>
 e.g. detail -n Elliot</p>
 </li>
 <li>
-<p><strong>Find employees by name</strong> : <code>find FILTER</code><br>
-e.g. find Choo</p>
+<p><strong>View employee leave summary</strong> : <code>leavesummary</code><br></p>
 </li>
 <li>
-<p><strong>View employee leave summary</strong> : <code>leavesummary</code></p>
+<p><strong>View deleted employee archive</strong> : <code>archive</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:07:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:35:26 UTC</div></div></div></body></html>

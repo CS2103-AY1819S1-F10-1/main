@@ -30,7 +30,7 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
+<li><a href="#view-deleted-employee-archive-feature">3.2. View deleted employee archive feature</a></li>
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 </ul>
@@ -804,9 +804,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">3.2. View deleted employee archive feature</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The view deleted employee archive feature is facilitated by <code>VersionedAddressBook</code> and <code>UniqueArchiveList</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2173,14 +2173,14 @@ with text command</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort any display list of employees by a certain criteria (e.g. name, department, etc.)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Locate a particular employee easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort employees in the display list by a certain criteria (e.g. name, department, etc.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View the employees sequentially and increasing clarity</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Filter any list of employees by a certain criteria (e.g. name, department, etc.)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Locate employees quickly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filter employees in the display list by a certain criteria</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find details of a specific employee without going through every employee in the system</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2204,7 +2204,7 @@ with text command</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Administrative" permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Modify the access permissions of an employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Give the employee higher or lower access to features of the system, possibly in line with promotions or demotions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accommodate to the tasks that an employee is allowed to do, possibly in line with promotions or demotions</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2748,4 +2748,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:07:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:35:26 UTC</div></div></div></body></html>
