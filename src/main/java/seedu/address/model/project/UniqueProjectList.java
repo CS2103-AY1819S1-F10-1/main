@@ -8,8 +8,8 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.project.exceptions.DuplicateProjectException;
-import seedu.address.model.project.exceptions.ProjectNotFoundException;
+import seedu.address.model.project.exception.DuplicateProjectException;
+import seedu.address.model.project.exception.ProjectNotFoundException;
 
 /**
  * A list of projects that enforces uniqueness between its elements and does not allow nulls.
