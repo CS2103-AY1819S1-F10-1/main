@@ -919,7 +919,153 @@ The commands executable by the user will depend on their class.</p>
 <div class="sect2">
 <h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">3.3. View deleted employee archive feature</a></h3>
 <div class="paragraph">
+<p>Employees with the "Department manager" permissions are allowed to delete employees in the system - related to firing employees in real life. Deleted employees in the system will not be shown in the display list but be moved to an archive list instead. Objects in the archive list can then be restored to the system or be permanently deleted.</p>
+</div>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed implementation</a></h4>
+<div class="paragraph">
 <p>The view deleted employee archive feature is facilitated by <code>VersionedAddressBook</code> and <code>UniqueArchiveList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the UniqueArchiveList behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state and an empty <code>UniqueArchiveList</code> is maintained.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes delete 3 command to delete the 3rd person in the address book. The Person object from the <code>UniquePersonList</code> will be transferred to the <code>UniqueArchiveList</code> and now the <code>UniqueArchiveList</code> will store all the deleted persons details.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a.1 The user views <code>UniqueArchiveList</code> and executes delete 1 command to delete the 1st person in the archive list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a.2 The selected Person object in the <code>UniqueArchiveList</code> will be permanently deleted from the storage.</p>
+</div>
+<div class="paragraph">
+<p>Step 3b.1 The user views <code>UniqueArchiveList</code> and execute restore 1 command to restored 1st person in the archive list to the address book.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a.1 The selected Person object in the <code>UniqueArchiveList</code> will be transferred back to <code>UniquePersonList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes remove and restore command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/archiveActivityDiagram.png" alt="archiveActivityDiagram" width=""350">
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-model-2"><a class="link" href="#aspect-model-2">Aspect: Model</a></h5>
+<div class="paragraph">
+<p>Added a <code>UniqueArchiveList</code> object to a <code>VersionedAddressBook</code> object. <code>UniqueArchiveList</code> will store 0 or more <code>Person</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows the class <code>UniqueArchiveList</code> added to reflect the changes in the Model component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/modelStructure.png" alt="modelStructure" width=""350">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storage-2"><a class="link" href="#aspect-storage-2">Aspect: Storage</a></h5>
+<div class="paragraph">
+<p>Added a <code>XmlSerializableArchiveList</code> object to Storage component.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows the class <code>XmlSerializableArchiveList</code> added to reflect the changes in the Storage component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/storageStructure.png" alt="storageStructure" width=""350">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-ui"><a class="link" href="#aspect-ui">Aspect: UI</a></h5>
+<div class="paragraph">
+<p>Added a <code>ArchiveDisplay</code> object to <code>MainWindow</code> of UI component.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows the class <code>ArchiveDisplay</code> added to reflect the changes in the UI component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/uiStructure.png" alt="uiStructure" width=""350">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-lifetime-of-objects-in-archive-list"><a class="link" href="#aspect-lifetime-of-objects-in-archive-list">Aspect: Lifetime of objects in Archive list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Deleted permanently after being removed by user again.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Guaranteed no loss of data if an employee is accidentally deleted.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage as employee records stored a few years back could still be stored.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Deleted after a certain number of time has passed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More efficient memory usage wont store old employee records which could cause high memory usage.</p>
+</li>
+<li>
+<p>Cons: Loss of data possible if an employee is accidentally deleted and not restored right away.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-archive-commands"><a class="link" href="#aspect-data-structure-to-support-the-archive-commands">Aspect: Data structure to support the archive commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the archived employee objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Only require small modification in existing classes. Faster access to archive list as you don&#8217;t have to search every employee in the system to get the employees archived.</p>
+</li>
+<li>
+<p>Cons: We must maintain a separate list for archived objects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Assign an archive attribute to each employee object and show only in the system if archived attribute is false. In contrast show in the archive display list if archive attribute is true.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only need to change 1 attribute when an employee is deleted.</p>
+</li>
+<li>
+<p>Cons: "Archive" is an unusual attribute for a person and it will be time consuming to view the archive list as you have to go through all employees to check the archive attribute.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2861,4 +3007,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 12:22:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 13:16:36 UTC</div></div></div></body></html>
