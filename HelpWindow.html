@@ -165,6 +165,10 @@ e.g. typing help and pressing Enter will open the help window.</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:
+* <code>login -u User1</code></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="view-history-code-history-code"><a class="link" href="#view-history-code-history-code">3.3. View history : <code>history</code></a></h3>
@@ -282,10 +286,33 @@ Format: <code>history</code></p>
 <p>Lists all employees, using a given criteria.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>sort -n NAME [-d DEPARTMENT]</code></p>
+<p>Format: <code>sort -CRITERIA</code></p>
 </div>
 <div class="paragraph">
 <p>There are many different criteries like name, department, etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To sort by name, replace CRITERIA with n</p>
+</li>
+<li>
+<p>To sort by department, replace CRITERIA with d</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort -d</code></p>
+</li>
+<li>
+<p><code>sort -n</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -294,7 +321,7 @@ Format: <code>history</code></p>
 <p>Lists the detailed information of an employee.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>detail -id ID [-n NAME]</code></p>
+<p>Format: <code>detail -id ID</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -307,6 +334,16 @@ Format: <code>history</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>detail -id S12301</code></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="apply-for-leave-code-leave-code"><a class="link" href="#apply-for-leave-code-leave-code">3.9. Apply for leave : <code>leave</code></a></h3>
@@ -315,6 +352,16 @@ Format: <code>history</code></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>leave DATE to DATE</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Format of date: DD/MM/YYYY</p>
+</li>
+<li>
+<p>First DATE must be before second DATE</p>
+</li>
+</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -329,6 +376,16 @@ Format: <code>history</code></p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>leave 01/01/2018 to 02/02/2018</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -350,11 +407,24 @@ Format: <code>history</code></p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>search John Doe</code></p>
+</li>
+<li>
+<p><code>search doe</code></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></h3>
 <div class="paragraph">
-<p>Search all employees that have their name fir within an applied filter.</p>
+<p>Search all employees that have their name for within an applied filter.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>filter -n NAME [-d DEPARTMENT]</code></p>
@@ -377,7 +447,20 @@ Format: <code>history</code></p>
 <p>Changes the users details (such as contact information).</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit [-n NUMBER] [-e EMAIL]</code></p>
+<p>Format: <code>edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY][-t PROJECT]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the person at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -395,6 +478,19 @@ Format: <code>history</code></p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 -p91234567 -<a href="mailto:ejohndoe@example.com">ejohndoe@example.com</a></code></p>
+</li>
+<li>
+<p><code>edit 2 -nJames</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -581,4 +677,4 @@ e.g. detail -n Elliot</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 14:22:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:14:49 UTC</div></div></div></body></html>
