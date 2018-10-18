@@ -21,14 +21,24 @@ import seedu.address.model.tag.Tag;
 public class Project {
 
     // Identity fields
-    private final ProjectName pName;
-    private final Name author;
+    //private final ProjectName pName;
+    //private final Name author;
+
+    private final String pName;
+    private final String author;
 
     //Data fields
     private final Set<Tag> description = new HashSet<>();
 
 
-    public Project(ProjectName pName, Name author, Set<Tag> description) {
+    /*public Project(ProjectName pName, Name author, Set<Tag> description) {
+        requireAllNonNull(pName, author, description);
+        this.pName = pName;
+        this.author = author;
+        this.description.addAll(description);
+    }*/
+
+    public Project(String pName, String author, Set<Tag> description) {
         requireAllNonNull(pName, author, description);
         this.pName = pName;
         this.author = author;
@@ -36,11 +46,11 @@ public class Project {
     }
 
 
-    public ProjectName getpName() {
+    public String getpName() {
         return pName;
     }
 
-    public Name getAuthor() {
+    public String getAuthor() {
         return author;
     }
 

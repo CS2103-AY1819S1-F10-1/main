@@ -4,7 +4,6 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AUTHOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -35,7 +34,7 @@ public class AddProjectCommandParser implements Parser<AddProjectCommand> {
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_AUTHOR).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_PROJECT_TAG));
 
-        Project project = new Project(pName, name, tagList);
+        Project project = new Project(pName.toString(), name.toString(), tagList);
 
         return new AddProjectCommand(project);
     }

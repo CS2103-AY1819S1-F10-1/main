@@ -19,6 +19,7 @@ import seedu.address.model.person.Phone;
 import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.Salary;
 import seedu.address.model.project.Project;
+import seedu.address.model.project.ProjectName;
 
 /**
  * JAXB-friendly version of the Person.

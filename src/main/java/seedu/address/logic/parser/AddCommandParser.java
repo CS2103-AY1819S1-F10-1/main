@@ -20,6 +20,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Salary;
 import seedu.address.model.project.Project;
+import seedu.address.model.project.ProjectName;
 
 /**
  * Parses input arguments and creates a new AddCommand object

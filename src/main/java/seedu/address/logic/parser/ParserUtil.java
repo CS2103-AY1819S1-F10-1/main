@@ -119,17 +119,32 @@ public class ParserUtil {
      *
      * @throws ParseException if the given {@code tag} is invalid.
      */
-    public static Project parseProject(String project) throws ParseException {
+    public static ProjectName parseProjectName(String project) throws ParseException {
         requireNonNull(project);
-        String trimmedProject = project.trim();
-        if (!Project.isValidProjectName(trimmedProject)) {
-            throw new ParseException(Project.MESSAGE_PROJECT_CONSTRAINTS);
+        String trimmedProjectName = project.trim();
+        if (!ProjectName.isValidName(trimmedProjectName)) {
+            throw new ParseException(ProjectName.MESSAGE_PROJECT_NAME_CONSTRAINTS);
         }
-        return new Project(trimmedProject);
+        return new ProjectName(trimmedProjectName);
     }
 
     /**
-     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     * Parses a {@code String tag} into a {@code Tag}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tag} is invalid.
+     */
+    public static Project parseProject(String project) throws ParseException {
+        requireNonNull(project);
+        String trimmedProject = project.trim();
+        if (!ProjectName.isValidName(trimmedProject)) {
+            throw new ParseException(ProjectName.MESSAGE_PROJECT_NAME_CONSTRAINTS);
+        }
+        return new Project(trimmedProject, null, null);
+    }
+
+    /**
+     * Parses {@code CollectionzString> tags} into a {@code Set<Tag>}.
      */
     public static Set<Project> parseProjects(Collection<String> projects) throws ParseException {
         requireNonNull(projects);
@@ -141,17 +156,29 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String name} into a {@code Name}.
+     * Parses a {@code String tag} into a {@code Tag}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code name} is invalid.
+     * @throws ParseException if the given {@code tag} is invalid.
      */
-    public static ProjectName parseProjectName(String name) throws ParseException {
-        requireNonNull(name);
-        String trimmedName = name.trim();
-        if (!Name.isValidName(trimmedName)) {
-            throw new ParseException(ProjectName.MESSAGE_PORJECT_NAME_CONSTRAINTS);
+    public static Tag parseTag(String tag) throws ParseException {
+        requireNonNull(tag);
+        String trimmedTag = tag.trim();
+        if (!Tag.isValidTagName(trimmedTag)) {
+            throw new ParseException(Tag.MESSAGE_TAG_CONSTRAINTS);
         }
-        return new ProjectName(trimmedName);
+        return new Tag(trimmedTag);
+    }
+
+    /**
+     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     */
+    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
+        requireNonNull(tags);
+        final Set<Tag> tagSet = new HashSet<>();
+        for (String tagName : tags) {
+            tagSet.add(parseTag(tagName));
+        }
+        return tagSet;
     }
 }
