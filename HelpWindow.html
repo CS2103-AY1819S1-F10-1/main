@@ -21,7 +21,7 @@
 <li><a href="#list-effectiveness-of-sector-by-profit-code-sector-code">3.6. List effectiveness of sector by profit : <code>sector</code></a></li>
 <li><a href="#sort-employee-display-list-code-sort-code">3.7. Sort employee display list : <code>sort</code></a></li>
 <li><a href="#list-details-of-employee-code-detail-code">3.8. List details of employee : <code>detail</code></a></li>
-<li><a href="#apply-for-leave-code-leave-code">3.9. Apply for leave : <code>leave</code></a></li>
+<li><a href="#apply-for-leave-code-leave-add-code">3.9. Apply for leave : <code>leave add</code></a></li>
 <li><a href="#search-employees-by-name-code-search-code">3.10. Search employees by name : <code>search</code></a></li>
 <li><a href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></li>
 <li><a href="#edit-details-code-edit-code">3.12. Edit details : <code>edit</code></a></li>
@@ -197,7 +197,7 @@ Format: <code>history</code></p>
 <p>Adds an employee into the system.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add -n NAME [-e EMAIL] [-n NUMBER][-s SALARY]</code></p>
+<p>Format: <code>add -n NAME [-e EMAIL] [-n NUMBER] [-s SALARY]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -222,7 +222,7 @@ Format: <code>history</code></p>
 <p><code>add -n Joshua -s 15000</code></p>
 </li>
 <li>
-<p><code>add -n Raynard -s 10000</code></p>
+<p><code>add -n Raynard -e <a href="mailto:rnardha@gmail.com">rnardha@gmail.com</a> -n 91235678</code></p>
 </li>
 </ul>
 </div>
@@ -233,7 +233,7 @@ Format: <code>history</code></p>
 <p>Removes an employee from the system.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>remove -id ID [-n NAME]</code></p>
+<p>Format: <code>remove -id ID</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -243,7 +243,7 @@ Format: <code>history</code></p>
 <p>To use this command, you must be logged in with "Department Manager" permissions.</p>
 </li>
 <li>
-<p>All removed employees will be stored in the archive, when employee in archive is removed again it will be taken out of archve.</p>
+<p>All removed employees will be stored in the archive, when employee in archive is removed again it will be taken out of archive.</p>
 </li>
 </ul>
 </div>
@@ -289,7 +289,7 @@ Format: <code>history</code></p>
 <p>Format: <code>sort -CRITERIA</code></p>
 </div>
 <div class="paragraph">
-<p>There are many different criteries like name, department, etc.</p>
+<p>There are many different criteria like name, department, etc.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -346,29 +346,25 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apply-for-leave-code-leave-code"><a class="link" href="#apply-for-leave-code-leave-code">3.9. Apply for leave : <code>leave</code></a></h3>
+<h3 id="apply-for-leave-code-leave-add-code"><a class="link" href="#apply-for-leave-code-leave-add-code">3.9. Apply for leave : <code>leave add</code></a></h3>
 <div class="paragraph">
-<p>Apply for leave during a specific date.</p>
+<p>Apply for leave on specific dates.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>leave DATE to DATE</code></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Format of date: DD/MM/YYYY</p>
-</li>
-<li>
-<p>First DATE must be before second DATE</p>
-</li>
-</ul>
+<p>Format: <code>leave add -de DESCRIPTION -da DATE [-da DATE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The program will attempt to parse your time. If it cannot do so, you will be guided through an interactive prompt to set your leave dates.</p>
+<p>Format of date: YYYYMMDD</p>
+</li>
+<li>
+<p>The user must specify at least 1 <code>DATE</code>.</p>
+</li>
+<li>
+<p>If the <code>DATE</code> is of an illegal format, the command will be accepted.</p>
 </li>
 <li>
 <p>To use this command, you must be logged in as an employee.</p>
@@ -383,7 +379,7 @@ Format: <code>history</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>leave 01/01/2018 to 02/02/2018</code></p>
+<p>`leave add -de Family holiday -da 20181018 20181019 `</p>
 </li>
 </ul>
 </div>
@@ -413,7 +409,7 @@ Format: <code>history</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>search John Doe</code></p>
+<p><code>search jian yu</code></p>
 </li>
 <li>
 <p><code>search doe</code></p>
@@ -424,21 +420,32 @@ Format: <code>history</code></p>
 <div class="sect2">
 <h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></h3>
 <div class="paragraph">
-<p>Search all employees that have their name for within an applied filter.</p>
+<p>Displays employees with details that match certain criteria specified.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>filter -n NAME [-d DEPARTMENT]</code></p>
+<p>Format: <code>filter -CRITERIA FILTER_CRITERIA [-CRITERIA FILTER_CRITERIA]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>NAME can be any name or parts of name.</p>
+<p>Replace <code>CRITERIA</code> with <code>n</code> to filter by name.</p>
+</li>
+<li>
+<p>Replace <code>CRITERIA</code> with <code>d</code> to filter by department.</p>
+</li>
+<li>
+<p>Replace <code>FILTER_CRITERIA</code> with the name or department you want to filter.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>filter -n Tan</code>
+* <code>filter -n Albert -d Marketing</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -447,7 +454,7 @@ Format: <code>history</code></p>
 <p>Changes the users details (such as contact information).</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY][-t PROJECT]</code></p>
+<p>Format: <code>edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY]</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -482,15 +489,19 @@ Format: <code>history</code></p>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 -p91234567 -<a href="mailto:ejohndoe@example.com">ejohndoe@example.com</a></code></p>
+<p><code>edit 1 -p 91234567 -e <a href="mailto:johndoe@example.com">johndoe@example.com</a></code></p>
 </li>
 <li>
-<p><code>edit 2 -nJames</code></p>
+<p><code>edit 2 -n James</code></p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -618,23 +629,24 @@ e.g. login -u Kok</p>
 <p><strong>History</strong> : <code>history</code><br></p>
 </li>
 <li>
-<p><strong>Sort employee display list</strong> : <code>sort -n NAME [-d DEPARTMENT]</code><br></p>
+<p><strong>Sort employee display list</strong> : <code>sort -CRITERIA</code><br>
+e.g. sort -d</p>
 </li>
 <li>
-<p><strong>Apply for leave</strong> : <code>leave DATE to DATE</code><br>
-e.g. leave 1/1/2019 to 30/1/2019</p>
+<p><strong>Apply for leave</strong> : <code>leave add -de DESCRIPTION -da DATE [-da DATE]</code><br>
+e.g. leave add -de Family holiday -da 20181018 20181019</p>
 </li>
 <li>
 <p><strong>Search employees by name</strong> : <code>search NAME</code><br>
 e.g. search Joshua</p>
 </li>
 <li>
-<p><strong>Filter employees by criteria</strong> : <code>filter -n NAME [-d DEPARTMENT]</code><br>
+<p><strong>Filter employees by criteria</strong> : <code>filter -CRITERIA FILTER_CRITERIA [-CRITERIA FILTER_CRITERIA]</code><br>
 e.g. filter -n Jeremy Choo -d Development</p>
 </li>
 <li>
-<p><strong>Edit details</strong> : <code>edit [-n NUMBER] [-e EMAIL]</code><br>
-e.g. edit -n 12312312</p>
+<p><strong>Edit details</strong> : <code>edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY]</code><br>
+e.g. edit 1 -p 91234567 -e <a href="mailto:johndoe@example.com">johndoe@example.com</a></p>
 </li>
 <li>
 <p><strong>Change password</strong> : <code>password</code></p>
@@ -657,18 +669,18 @@ e.g. edit -n 12312312</p>
 e.g. add -n Elliot -e <a href="mailto:Elliot@gmail.com">Elliot@gmail.com</a></p>
 </li>
 <li>
-<p><strong>Removing an employee</strong> : <code>remove -id ID [-n NAME]</code><br>
+<p><strong>Removing an employee</strong> : <code>remove -id ID</code><br>
 e.g. remove -id E01312</p>
 </li>
 <li>
 <p><strong>List effectiveness of sector by profit</strong> : <code>sector</code></p>
 </li>
 <li>
-<p><strong>List employees</strong> : <code>detail -id ID [-n NAME]</code><br>
-e.g. detail -n Elliot</p>
+<p><strong>View details of an employee</strong> : <code>detail -id ID</code><br>
+e.g. detail -id E01312</p>
 </li>
 <li>
-<p><strong>View employee leave summary</strong> : <code>leavesummary</code><br></p>
+<p><strong>View employee leave summary</strong> : <code>leavesummary</code></p>
 </li>
 <li>
 <p><strong>View deleted employee archive</strong> : <code>archive</code></p>
@@ -677,4 +689,4 @@ e.g. detail -n Elliot</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:14:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:50:52 UTC</div></div></div></body></html>
