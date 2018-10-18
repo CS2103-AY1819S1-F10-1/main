@@ -30,9 +30,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#view-deleted-employee-archive-feature">3.2. View deleted employee archive feature</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#permission-system">3.2. Permission System</a></li>
+<li><a href="#view-deleted-employee-archive-feature">3.3. View deleted employee archive feature</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -804,20 +805,132 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">3.2. View deleted employee archive feature</a></h3>
+<h3 id="permission-system"><a class="link" href="#permission-system">3.2. Permission System</a></h3>
+<div class="paragraph">
+<p>There are several commands in OASIS that should not be executable by every user. E.g. Add and Delete commands should only be usable by user with the power to hire and dismiss other employees.
+Permission system is used to ensure that each user are only able to perform commands that they are authorised to when using OASIS.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current implementation</a></h4>
+<div class="sect4">
+<h5 id="aspect-model"><a class="link" href="#aspect-model">Aspect: Model</a></h5>
+<div class="paragraph">
+<p>Model of a person have been changed to reflect the permission that each user possesses.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram highlights the class added to reflect the changes to the model for <code>Person</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/permissionPersonModel.png" alt="permissionPersonModel" width="350">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storage"><a class="link" href="#aspect-storage">Aspect: Storage</a></h5>
+<div class="paragraph">
+<p>Permission have to be stored in the addressbook where the information for <code>Person</code> is stored. This is achieved through creation of <code>XmlAdaptedPermission</code>, which was utilised by <code>XmlAdaptedPerson</code> to store the information in an xml file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/permissionStorage.png" alt="permissionStorage" width=""350">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-logic"><a class="link" href="#aspect-logic">Aspect: Logic</a></h5>
+<div class="paragraph">
+<p>Commands will be required to create a <code>requiredPermission:PermissionSet</code> object, and populate it with all <code>Permission</code> the command requires user to have to execute the command.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario of how commands will be executed.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters a command <code>Delete 1</code> into the CLI.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The system retrieves current user&#8217;s <code>PermissionSet</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3. The system compares user&#8217;s <code>PermissionSet</code> with <code>Delete</code> command&#8217;s <code>requiredPermission</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Two different cases</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User have required permissions, execute command.</p>
+</li>
+<li>
+<p>User don&#8217;t have required permissions, show error message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user excutes a command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/permissionCommandActivityDiagram.png" alt="permissionCommandActivityDiagram" width="450">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Assign permission to each individual user, and restrict commands executable by user based on permission assigned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to control the commands a user can access.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that there is at least 1 user that can assign permissions to other users.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Create subclass of <code>Person</code> to be used to identify the role of the user. E.g. <code>Employee</code> and <code>Manager</code> class.
+The commands executable by the user will depend on their class.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Only require small modification in existing classes.</p>
+</li>
+<li>
+<p>Cons: Commands cannot be freely assigned to users as it is now dependent on which subclass the user is. E.g. we cannot create an <code>Employee</code> with a subset of the commands available to <code>Manager</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">3.3. View deleted employee archive feature</a></h3>
 <div class="paragraph">
 <p>The view deleted employee archive feature is facilitated by <code>VersionedAddressBook</code> and <code>UniqueArchiveList</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -848,7 +961,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2748,4 +2861,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 12:14:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 12:22:31 UTC</div></div></div></body></html>
