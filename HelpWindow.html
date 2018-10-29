@@ -14,22 +14,21 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#login-into-the-system-code-login-code">3.2. Login into the system : <code>login</code></a></li>
-<li><a href="#view-history-code-history-code">3.3. View history : <code>history</code></a></li>
-<li><a href="#adding-an-employee-to-a-department-code-add-code">3.4. Adding an employee to a department: <code>add</code></a></li>
-<li><a href="#removing-an-employee-from-my-department-code-remove-code">3.5. Removing an employee from my department: <code>remove</code></a></li>
-<li><a href="#list-effectiveness-of-sector-by-profit-code-sector-code">3.6. List effectiveness of sector by profit : <code>sector</code></a></li>
-<li><a href="#sort-employee-display-list-code-sort-code">3.7. Sort employee display list : <code>sort</code></a></li>
-<li><a href="#list-details-of-employee-code-detail-code">3.8. List details of employee : <code>detail</code></a></li>
-<li><a href="#apply-for-leave-code-leave-add-code">3.9. Apply for leave : <code>leave add</code></a></li>
-<li><a href="#search-employees-by-name-code-search-code">3.10. Search employees by name : <code>search</code></a></li>
-<li><a href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></li>
-<li><a href="#edit-details-code-edit-code">3.12. Edit details : <code>edit</code></a></li>
-<li><a href="#change-password-code-password-code">3.13. Change password : <code>password</code></a></li>
-<li><a href="#view-leave-summary-code-leavesummary-code">3.14. View leave summary : <code>leavesummary</code></a></li>
-<li><a href="#view-income-summary-code-summary-code">3.15. View income summary : <code>summary</code></a></li>
-<li><a href="#view-deleted-employee-archive-code-archive-code">3.16. View deleted employee archive : <code>archive</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#view-history-code-history-code">3.2. View history : <code>history</code></a></li>
+<li><a href="#adding-an-employee-to-a-department-code-add-code">3.3. Adding an employee to a department: <code>add</code></a></li>
+<li><a href="#removing-an-employee-from-my-department-code-remove-code">3.4. Removing an employee from my department: <code>remove</code></a></li>
+<li><a href="#list-effectiveness-of-sector-by-profit-code-sector-code">3.5. List effectiveness of sector by profit : <code>sector</code></a></li>
+<li><a href="#sort-employee-display-list-code-sort-code">3.6. Sort employee display list : <code>sort</code></a></li>
+<li><a href="#list-details-of-employee-code-detail-code">3.7. List details of employee : <code>detail</code></a></li>
+<li><a href="#apply-for-leave-code-leave-add-code">3.8. Apply for leave : <code>leave add</code></a></li>
+<li><a href="#search-employees-by-name-code-search-code">3.9. Search employees by name : <code>search</code></a></li>
+<li><a href="#filter-employees-by-criteria-code-filter-code">3.10. Filter employees by criteria : <code>filter</code></a></li>
+<li><a href="#edit-details-code-edit-code">3.11. Edit details : <code>edit</code></a></li>
+<li><a href="#change-password-code-password-code">3.12. Change password : <code>password</code></a></li>
+<li><a href="#view-leave-summary-code-leavesummary-code">3.13. View leave summary : <code>leavesummary</code></a></li>
+<li><a href="#view-income-summary-code-summary-code">3.14. View income summary : <code>summary</code></a></li>
+<li><a href="#view-deleted-employee-archive-code-archive-code">3.15. View deleted employee archive : <code>archive</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -65,7 +64,7 @@
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the app. The Graphical User Interface (GUI) should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -73,7 +72,10 @@
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press Enter to execute it.<br>
+<p>To login, enter in the username <code>Admin</code> and the password <code>Pa55w0rd</code>. Both values are case sensitive. These values are the default username and password combinations for the admin account, and are always available.</p>
+</li>
+<li>
+<p>After you have logged in, type a command in the command box and press Enter to execute it.<br>
 e.g. typing help and pressing Enter will open the help window.</p>
 </li>
 <li>
@@ -81,13 +83,10 @@ e.g. typing help and pressing Enter will open the help window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>login</code></strong> : login into the manager account. The default username and password is admin/admin.</p>
+<p><strong><code>list</code></strong> : lists all employees.</p>
 </li>
 <li>
-<p><strong><code>employees</code></strong> : lists all employees.</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>-n John Doe Marketing</code> : adds an employee named John Doe into the department of the employee adding John.</p>
+<p><strong><code>add</code></strong><code>-n John Doe Marketing</code> : adds an employee named John Doe into the marketing department.</p>
 </li>
 <li>
 <p><strong><code>find</code></strong><code>J*</code> : finds all employees that start with J.</p>
@@ -141,37 +140,7 @@ e.g. typing help and pressing Enter will open the help window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-into-the-system-code-login-code"><a class="link" href="#login-into-the-system-code-login-code">3.2. Login into the system : <code>login</code></a></h3>
-<div class="paragraph">
-<p>Login into the system using the username given.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>login -u USERNAME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Will prompt the user in an interactive prompt for the password</p>
-</li>
-<li>
-<p>Passwords not to be supplied in the command line (makes it vulnerable to viewing it through history.)</p>
-</li>
-<li>
-<p>Login must be done to enable the usage of some commands.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:
-* <code>login -u User1</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-history-code-history-code"><a class="link" href="#view-history-code-history-code">3.3. View history : <code>history</code></a></h3>
+<h3 id="view-history-code-history-code"><a class="link" href="#view-history-code-history-code">3.2. View history : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Prints all commands entered before as a history of commands.<br>
 Format: <code>history</code></p>
@@ -192,7 +161,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-employee-to-a-department-code-add-code"><a class="link" href="#adding-an-employee-to-a-department-code-add-code">3.4. Adding an employee to a department: <code>add</code></a></h3>
+<h3 id="adding-an-employee-to-a-department-code-add-code"><a class="link" href="#adding-an-employee-to-a-department-code-add-code">3.3. Adding an employee to a department: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds an employee into the system.</p>
 </div>
@@ -228,7 +197,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-an-employee-from-my-department-code-remove-code"><a class="link" href="#removing-an-employee-from-my-department-code-remove-code">3.5. Removing an employee from my department: <code>remove</code></a></h3>
+<h3 id="removing-an-employee-from-my-department-code-remove-code"><a class="link" href="#removing-an-employee-from-my-department-code-remove-code">3.4. Removing an employee from my department: <code>remove</code></a></h3>
 <div class="paragraph">
 <p>Removes an employee from the system.</p>
 </div>
@@ -261,7 +230,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-effectiveness-of-sector-by-profit-code-sector-code"><a class="link" href="#list-effectiveness-of-sector-by-profit-code-sector-code">3.6. List effectiveness of sector by profit : <code>sector</code></a></h3>
+<h3 id="list-effectiveness-of-sector-by-profit-code-sector-code"><a class="link" href="#list-effectiveness-of-sector-by-profit-code-sector-code">3.5. List effectiveness of sector by profit : <code>sector</code></a></h3>
 <div class="paragraph">
 <p>Lists all the sectors, sorted by more profitable sector first.</p>
 </div>
@@ -281,7 +250,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-employee-display-list-code-sort-code"><a class="link" href="#sort-employee-display-list-code-sort-code">3.7. Sort employee display list : <code>sort</code></a></h3>
+<h3 id="sort-employee-display-list-code-sort-code"><a class="link" href="#sort-employee-display-list-code-sort-code">3.6. Sort employee display list : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Lists all employees, using a given criteria.</p>
 </div>
@@ -316,7 +285,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-details-of-employee-code-detail-code"><a class="link" href="#list-details-of-employee-code-detail-code">3.8. List details of employee : <code>detail</code></a></h3>
+<h3 id="list-details-of-employee-code-detail-code"><a class="link" href="#list-details-of-employee-code-detail-code">3.7. List details of employee : <code>detail</code></a></h3>
 <div class="paragraph">
 <p>Lists the detailed information of an employee.</p>
 </div>
@@ -346,7 +315,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apply-for-leave-code-leave-add-code"><a class="link" href="#apply-for-leave-code-leave-add-code">3.9. Apply for leave : <code>leave add</code></a></h3>
+<h3 id="apply-for-leave-code-leave-add-code"><a class="link" href="#apply-for-leave-code-leave-add-code">3.8. Apply for leave : <code>leave add</code></a></h3>
 <div class="paragraph">
 <p>Apply for leave on specific dates.</p>
 </div>
@@ -385,7 +354,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-employees-by-name-code-search-code"><a class="link" href="#search-employees-by-name-code-search-code">3.10. Search employees by name : <code>search</code></a></h3>
+<h3 id="search-employees-by-name-code-search-code"><a class="link" href="#search-employees-by-name-code-search-code">3.9. Search employees by name : <code>search</code></a></h3>
 <div class="paragraph">
 <p>Search and display all employees that match the given name criteria.</p>
 </div>
@@ -418,7 +387,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.11. Filter employees by criteria : <code>filter</code></a></h3>
+<h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.10. Filter employees by criteria : <code>filter</code></a></h3>
 <div class="paragraph">
 <p>Displays employees with details that match certain criteria specified.</p>
 </div>
@@ -449,7 +418,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-details-code-edit-code"><a class="link" href="#edit-details-code-edit-code">3.12. Edit details : <code>edit</code></a></h3>
+<h3 id="edit-details-code-edit-code"><a class="link" href="#edit-details-code-edit-code">3.11. Edit details : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Changes the users details (such as contact information).</p>
 </div>
@@ -505,7 +474,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-password-code-password-code"><a class="link" href="#change-password-code-password-code">3.13. Change password : <code>password</code></a></h3>
+<h3 id="change-password-code-password-code"><a class="link" href="#change-password-code-password-code">3.12. Change password : <code>password</code></a></h3>
 <div class="paragraph">
 <p>Changes user password.</p>
 </div>
@@ -528,7 +497,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-leave-summary-code-leavesummary-code"><a class="link" href="#view-leave-summary-code-leavesummary-code">3.14. View leave summary : <code>leavesummary</code></a></h3>
+<h3 id="view-leave-summary-code-leavesummary-code"><a class="link" href="#view-leave-summary-code-leavesummary-code">3.13. View leave summary : <code>leavesummary</code></a></h3>
 <div class="paragraph">
 <p>Views the summary of off days current employees take for the month.</p>
 </div>
@@ -548,7 +517,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-income-summary-code-summary-code"><a class="link" href="#view-income-summary-code-summary-code">3.15. View income summary : <code>summary</code></a></h3>
+<h3 id="view-income-summary-code-summary-code"><a class="link" href="#view-income-summary-code-summary-code">3.14. View income summary : <code>summary</code></a></h3>
 <div class="paragraph">
 <p>View income summary for the month.</p>
 </div>
@@ -557,7 +526,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">3.16. View deleted employee archive : <code>archive</code></a></h3>
+<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">3.15. View deleted employee archive : <code>archive</code></a></h3>
 <div class="paragraph">
 <p>Displays the list of employees removed from the system. To delete an employee from the archive simply remove again.</p>
 </div>
@@ -577,7 +546,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program, automatically saving data and logging you out.</p>
 </div>
@@ -689,4 +658,4 @@ e.g. detail -id E01312</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 13:36:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-29 16:20:58 UTC</div></div></div></body></html>
