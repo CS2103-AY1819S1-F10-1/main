@@ -21,21 +21,22 @@
 <li><a href="#removing-an-employee-from-my-department-code-delete-code">3.6. Removing an employee from my department: <code>delete</code></a></li>
 <li><a href="#sort-employee-display-list-code-sort-code">3.7. Sort employee display list : <code>sort</code></a></li>
 <li><a href="#list-details-of-employee-code-select-code">3.8. List details of employee : <code>select</code></a></li>
-<li><a href="#apply-for-leave-code-leaveapply-code">3.9. Apply for leave : <code>leaveapply</code></a></li>
-<li><a href="#view-a-list-of-leave-applications-code-leavelist-code">3.10. View a list of leave applications : <code>leavelist</code></a></li>
-<li><a href="#approve-a-leave-application-code-leaveapprove-code">3.11. Approve a leave application : <code>leaveapprove</code></a></li>
-<li><a href="#reject-a-leave-application-code-leavereject-code">3.12. Reject a leave application : <code>leavereject</code></a></li>
-<li><a href="#search-employees-by-name-code-find-code">3.13. Search employees by name : <code>find</code></a></li>
-<li><a href="#filter-employees-by-criteria-code-filter-code">3.14. Filter employees by criteria : <code>filter</code></a></li>
-<li><a href="#edit-details-code-edit-code">3.15. Edit details : <code>edit</code></a></li>
-<li><a href="#modify-permissions-of-an-emplyee-code-modifypermission-code">3.16. Modify permissions of an emplyee : <code>modifypermission</code></a></li>
-<li><a href="#change-password-code-passwd-code">3.17. Change password : <code>passwd</code></a></li>
-<li><a href="#view-deleted-employee-archive-code-archive-code">3.18. View deleted employee archive : <code>archive</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.21. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#logout-from-the-system-code-logout-code">3.22. Logout from the system: <code>logout</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></li>
+<li><a href="#add-an-assignment-code-addassignment-code">3.9. Add an assignment : <code>addassignment</code></a></li>
+<li><a href="#apply-for-leave-code-leaveapply-code">3.10. Apply for leave : <code>leaveapply</code></a></li>
+<li><a href="#view-a-list-of-leave-applications-code-leavelist-code">3.11. View a list of leave applications : <code>leavelist</code></a></li>
+<li><a href="#approve-a-leave-application-code-leaveapprove-code">3.12. Approve a leave application : <code>leaveapprove</code></a></li>
+<li><a href="#reject-a-leave-application-code-leavereject-code">3.13. Reject a leave application : <code>leavereject</code></a></li>
+<li><a href="#search-employees-by-name-code-find-code">3.14. Search employees by name : <code>find</code></a></li>
+<li><a href="#filter-employees-by-criteria-code-filter-code">3.15. Filter employees by criteria : <code>filter</code></a></li>
+<li><a href="#edit-details-code-edit-code">3.16. Edit details : <code>edit</code></a></li>
+<li><a href="#modify-permissions-of-an-emplyee-code-modifypermission-code">3.17. Modify permissions of an emplyee : <code>modifypermission</code></a></li>
+<li><a href="#change-password-code-passwd-code">3.18. Change password : <code>passwd</code></a></li>
+<li><a href="#view-deleted-employee-archive-code-archive-code">3.19. View deleted employee archive : <code>archive</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.20. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.22. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#logout-from-the-system-code-logout-code">3.23. Logout from the system: <code>logout</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#future-commands-currently-not-implemented-yet">4. Future Commands (Currently not implemented yet)</a>
@@ -43,6 +44,8 @@
 <li><a href="#list-effectiveness-of-sector-by-profit-code-sector-code">4.1. List effectiveness of sector by profit : <code>sector</code></a></li>
 <li><a href="#view-leave-summary-code-leavesummary-code">4.2. View leave summary : <code>leavesummary</code></a></li>
 <li><a href="#view-income-summary-code-summary-code">4.3. View income summary : <code>summary</code></a></li>
+<li><a href="#listing-all-assignments-code-listassignment-code">4.4. Listing all assignments: <code>listassignment</code></a></li>
+<li><a href="#removing-an-assignment-code-deleteassignment-code">4.5. Removing an assignment: <code>deleteassignment</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -332,7 +335,40 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="apply-for-leave-code-leaveapply-code"><a class="link" href="#apply-for-leave-code-leaveapply-code">3.9. Apply for leave : <code>leaveapply</code></a></h3>
+<h3 id="add-an-assignment-code-addassignment-code"><a class="link" href="#add-an-assignment-code-addassignment-code">3.9. Add an assignment : <code>addassignment</code></a></h3>
+<div class="paragraph">
+<p>Adds an assignment into the system.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addassignment -an ASSIGNMENT_NAME -au AUTHOR -d DESCRIPTION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "Create assignment" permissions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addassignment -an KRYPTONE -au Jhonny English -d Data encription application.</code></p>
+</li>
+<li>
+<p><code>addassignment -n IRobot -au Tom Smith -d Autonomous robotic vacuum cleaner which has intelligent programming.</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="apply-for-leave-code-leaveapply-code"><a class="link" href="#apply-for-leave-code-leaveapply-code">3.10. Apply for leave : <code>leaveapply</code></a></h3>
 <div class="paragraph">
 <p>Apply for leave on specific dates.</p>
 </div>
@@ -368,7 +404,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-a-list-of-leave-applications-code-leavelist-code"><a class="link" href="#view-a-list-of-leave-applications-code-leavelist-code">3.10. View a list of leave applications : <code>leavelist</code></a></h3>
+<h3 id="view-a-list-of-leave-applications-code-leavelist-code"><a class="link" href="#view-a-list-of-leave-applications-code-leavelist-code">3.11. View a list of leave applications : <code>leavelist</code></a></h3>
 <div class="paragraph">
 <p>Displays a list leave applications that you have made.</p>
 </div>
@@ -388,7 +424,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="approve-a-leave-application-code-leaveapprove-code"><a class="link" href="#approve-a-leave-application-code-leaveapprove-code">3.11. Approve a leave application : <code>leaveapprove</code></a></h3>
+<h3 id="approve-a-leave-application-code-leaveapprove-code"><a class="link" href="#approve-a-leave-application-code-leaveapprove-code">3.12. Approve a leave application : <code>leaveapprove</code></a></h3>
 <div class="paragraph">
 <p>Sets the status of a leave application to the "Approved" status.</p>
 </div>
@@ -421,7 +457,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reject-a-leave-application-code-leavereject-code"><a class="link" href="#reject-a-leave-application-code-leavereject-code">3.12. Reject a leave application : <code>leavereject</code></a></h3>
+<h3 id="reject-a-leave-application-code-leavereject-code"><a class="link" href="#reject-a-leave-application-code-leavereject-code">3.13. Reject a leave application : <code>leavereject</code></a></h3>
 <div class="paragraph">
 <p>Sets the status of a leave application to the "Rejected" status.</p>
 </div>
@@ -454,7 +490,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="search-employees-by-name-code-find-code"><a class="link" href="#search-employees-by-name-code-find-code">3.13. Search employees by name : <code>find</code></a></h3>
+<h3 id="search-employees-by-name-code-find-code"><a class="link" href="#search-employees-by-name-code-find-code">3.14. Search employees by name : <code>find</code></a></h3>
 <div class="paragraph">
 <p>Search and display all employees that match the given name criteria.</p>
 </div>
@@ -487,7 +523,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.14. Filter employees by criteria : <code>filter</code></a></h3>
+<h3 id="filter-employees-by-criteria-code-filter-code"><a class="link" href="#filter-employees-by-criteria-code-filter-code">3.15. Filter employees by criteria : <code>filter</code></a></h3>
 <div class="paragraph">
 <p>Displays employees with details that match certain criteria specified.</p>
 </div>
@@ -526,7 +562,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-details-code-edit-code"><a class="link" href="#edit-details-code-edit-code">3.15. Edit details : <code>edit</code></a></h3>
+<h3 id="edit-details-code-edit-code"><a class="link" href="#edit-details-code-edit-code">3.16. Edit details : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Changes the users details (such as contact information).</p>
 </div>
@@ -578,7 +614,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="modify-permissions-of-an-emplyee-code-modifypermission-code"><a class="link" href="#modify-permissions-of-an-emplyee-code-modifypermission-code">3.16. Modify permissions of an emplyee : <code>modifypermission</code></a></h3>
+<h3 id="modify-permissions-of-an-emplyee-code-modifypermission-code"><a class="link" href="#modify-permissions-of-an-emplyee-code-modifypermission-code">3.17. Modify permissions of an emplyee : <code>modifypermission</code></a></h3>
 <div class="paragraph">
 <p>Modifies the permissions of an employee.</p>
 </div>
@@ -621,7 +657,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="change-password-code-passwd-code"><a class="link" href="#change-password-code-passwd-code">3.17. Change password : <code>passwd</code></a></h3>
+<h3 id="change-password-code-passwd-code"><a class="link" href="#change-password-code-passwd-code">3.18. Change password : <code>passwd</code></a></h3>
 <div class="paragraph">
 <p>Changes user password.</p>
 </div>
@@ -653,7 +689,7 @@ Passwords should not to be supplied in the command line (makes it vulnerable to 
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">3.18. View deleted employee archive : <code>archive</code></a></h3>
+<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">3.19. View deleted employee archive : <code>archive</code></a></h3>
 <div class="paragraph">
 <p>Displays the list of employees removed from the system. To delete an employee from the archive simply remove again.</p>
 </div>
@@ -673,7 +709,7 @@ Passwords should not to be supplied in the command line (makes it vulnerable to 
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.19. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.20. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -718,7 +754,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.20. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.21. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -750,7 +786,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.21. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.22. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Deletes all employees from the system.<br></p>
 </div>
@@ -770,7 +806,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="logout-from-the-system-code-logout-code"><a class="link" href="#logout-from-the-system-code-logout-code">3.22. Logout from the system: <code>logout</code></a></h3>
+<h3 id="logout-from-the-system-code-logout-code"><a class="link" href="#logout-from-the-system-code-logout-code">3.23. Logout from the system: <code>logout</code></a></h3>
 <div class="paragraph">
 <p>Logouts from the system, returning to the login screen.
 Once this command is ran, the history log of the commands and undo or redo history will be cleared.</p>
@@ -780,7 +816,7 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program, automatically saving data and logging you out.</p>
 </div>
@@ -840,6 +876,46 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </div>
 <div class="paragraph">
 <p>Format: <code>summary</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-assignments-code-listassignment-code"><a class="link" href="#listing-all-assignments-code-listassignment-code">4.4. Listing all assignments: <code>listassignment</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all assignments in the system.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>listassignment</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "View Assignment" permissions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-an-assignment-code-deleteassignment-code"><a class="link" href="#removing-an-assignment-code-deleteassignment-code">4.5. Removing an assignment: <code>deleteassignment</code></a></h3>
+<div class="paragraph">
+<p>Removes an assignment from the system.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteassignment INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "Remove Assignment" permissions.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1026,4 +1102,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 08:05:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 10:04:18 UTC</div></div></div></body></html>
