@@ -504,6 +504,15 @@ Format: <code>list</code></p>
 <li>
 <p>NAME can be any name or parts of name.</p>
 </li>
+<li>
+<p>You can use the * character to match any number of characters (0 or more)</p>
+</li>
+<li>
+<p>You can also use the _ character to match any single character</p>
+</li>
+<li>
+<p>Find is case insensitive</p>
+</li>
 </ul>
 </div>
 </div>
@@ -514,10 +523,13 @@ Format: <code>list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find jian yu</code></p>
+<p><code>find jian yu</code>: Displays everyone that has 'jian' or 'yu' in their name</p>
 </li>
 <li>
-<p><code>find doe</code></p>
+<p><code>find d*</code> Displays everyone whose&#8217;s names start with d.</p>
+</li>
+<li>
+<p>'find T_m' Displays 'Tom' and 'Tim', but not 'Tian'</p>
 </li>
 </ul>
 </div>
@@ -1102,4 +1114,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 10:04:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 10:22:31 UTC</div></div></div></body></html>
