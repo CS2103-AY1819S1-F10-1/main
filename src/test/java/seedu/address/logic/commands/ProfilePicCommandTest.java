@@ -1,5 +1,9 @@
 package seedu.address.logic.commands;
 
+import static seedu.address.testutil.TypicalPersons.ALICE;
+
+import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +13,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
+import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.User;
 import seedu.address.testutil.TestUtil;
 
@@ -47,8 +52,16 @@ public class ProfilePicCommandTest {
     }
 
     @Test
-    public void build_command_success() throws Exception {
+    public void command_user_success() throws Exception {
+        model.addPerson(ALICE);
+        model.setLoggedInUser(new User(ALICE));
         ProfilePicCommand profilePicCommand = new ProfilePicCommand(SANDBOX_IMAGE);
+        profilePicCommand.execute(model, commandHistory);
+
+        assert model.getAddressBook().getPersonList().size() == 1;
+        Optional<ProfilePic> profilePic = model.getAddressBook().getPersonList().get(0).getProfilePic();
+        assert profilePic.isPresent();
+        assert profilePic.get().value.endsWith(".jpg");
     }
 
     @Test
