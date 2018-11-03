@@ -53,7 +53,7 @@ public class ProfilePicCommand extends Command {
         String mimetype = new MimetypesFileTypeMap().getContentType(target);
         String type = mimetype.split("/")[0];
         if (!type.equals("image")) {
-            throw new ParseException(NOT_IMAGE_ERROR);
+            throw new ParseException(String.format(NOT_IMAGE_ERROR, location));
         }
 
         theFile = target;

@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import seedu.address.TestApp;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -14,10 +15,12 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.User;
+import seedu.address.testutil.TestUtil;
+import seedu.address.testutil.TypicalPersons;
 import seedu.address.ui.testutil.EventsCollectorRule;
 
 public class ProfilePicCommandTest {
-    public static final String SANDBOX_IMAGE = "src/test/data/sandbox/doge.jpg";
+    public static final String SANDBOX_IMAGE = TestUtil.getFilePathInSandboxFolder("doge.jpg").toString();
 
     private Model model = new ModelManager();
     private Model expectedModel = new ModelManager();
@@ -36,6 +39,17 @@ public class ProfilePicCommandTest {
             assert false;
         } catch (ParseException pe) {
             assert pe.getMessage().equals(String.format(ProfilePicCommand.INVALID_PATH_ERROR, "random random random"));
+        }
+    }
+
+    @Test
+    public void wrong_file_error() throws Exception {
+        String location = TestApp.SAVE_ARCHIVE_LOCATION_FOR_TESTING.toString();
+        try {
+            ProfilePicCommand ppc = new ProfilePicCommand(location);
+            assert false;
+        } catch (ParseException pe) {
+            assert pe.getMessage().equals(String.format(ProfilePicCommand.NOT_IMAGE_ERROR, location));
         }
     }
 
