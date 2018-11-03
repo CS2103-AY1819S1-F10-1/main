@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.testutil.TypicalPersons.ALICE;
 
+import java.nio.file.Paths;
 import java.util.Optional;
 
 import org.junit.Before;
@@ -20,7 +21,7 @@ import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.TestUtil;
 
 public class ProfilePicCommandTest {
-    public static final String SANDBOX_IMAGE = TestUtil.getFilePathInSandboxFolder("doge.jpg").toString();
+    public static final String SANDBOX_IMAGE = Paths.get("src", "test", "data", "doge.jpg").toString();
 
     private Model model = new ModelManager();
     private Model expectedModel = new ModelManager();
