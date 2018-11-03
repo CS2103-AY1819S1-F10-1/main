@@ -1,6 +1,5 @@
 package seedu.address.commons.util;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
@@ -81,6 +80,12 @@ public class FileUtil {
         Files.write(file, content.getBytes(CHARSET));
     }
 
+    /**
+     * Copies a file to another file
+     * @param origin The file to copy from
+     * @param to The location to copy to
+     * @throws IOException if an error occurs during the copying
+     */
     public static void copy(Path origin, Path to) throws IOException {
         byte[] data = Files.readAllBytes(origin);
         FileUtil.createIfMissing(to);
