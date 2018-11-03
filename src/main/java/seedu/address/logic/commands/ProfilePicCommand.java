@@ -31,6 +31,7 @@ public class ProfilePicCommand extends Command {
 
     public static final String INVALID_PATH_ERROR = "%s does not lead to a valid file!";
     public static final String NOT_IMAGE_ERROR = "%s isn't an image file!";
+    public static final String ADMIN_ERROR = "You can't update the profile pics of Admins!";
     public static final String UPDATE_SUCCESSFUL = "Profile pic successfully updated!";
 
     File theFile;
@@ -54,8 +55,12 @@ public class ProfilePicCommand extends Command {
     }
 
     @Override
-    public CommandResult runBody(Model model, CommandHistory history) {
+    public CommandResult runBody(Model model, CommandHistory history) throws CommandException {
         User currentUser = model.getLoggedInUser();
+
+        if (currentUser.isAdminUser()) {
+            throw new CommandException(ADMIN_ERROR);
+        }
 
         ProfilePic newProfilePic = new ProfilePic(theFile.getPath());
         Person nextPerson = new Person(currentUser.getName(), currentUser.getPhone(), currentUser.getEmail(),
