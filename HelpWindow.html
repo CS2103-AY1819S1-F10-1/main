@@ -131,7 +131,7 @@ e.g. typing help and pressing Enter will open the help window.</p>
 <p><strong><code>add</code></strong><code>-n John Doe -p 98765432 -e <a href="mailto:johnd@example.com">johnd@example.com</a> -a 311, Clementi Ave 2, #02-25 -s 10000</code> : adds an employee named John Doe with the email <a href="mailto:johnd@example.com">johnd@example.com</a>, the address 311, Clementi Ave 2, #02-25, with a salary of 10,000.</p>
 </li>
 <li>
-<p><strong><code>find</code></strong><code>J*</code> : finds all employees that start with J.</p>
+<p><strong><code>find</code></strong><code>J*</code> : finds all employees where any of their names start with J.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -495,7 +495,7 @@ Format: <code>list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>NAME can be any name or parts of name.</p>
+<p>NAME can be any name or parts of name that are separated by whitespace (such as a space charaacter).</p>
 </li>
 <li>
 <p>You can use the * character to match any number of characters (0 or more)</p>
@@ -516,13 +516,13 @@ Format: <code>list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find jian yu</code>: Displays everyone that has 'jian' or 'yu' in their name</p>
+<p><code>find jian yu</code>: Displays everyone whose names contain "jian" or "yu", surrounded by whitespace.</p>
 </li>
 <li>
-<p><code>find d*</code> Displays everyone whose&#8217;s names start with d.</p>
+<p><code>find d*</code> Displays all employees where any of their names start with d.</p>
 </li>
 <li>
-<p>'find T_m' Displays 'Tom' and 'Tim', but not 'Tian'</p>
+<p><code>find T_m</code> Displays 'Tom' and 'tim', but not 'Tian'</p>
 </li>
 </ul>
 </div>
@@ -1259,4 +1259,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 10:39:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 11:25:42 UTC</div></div></div></body></html>
