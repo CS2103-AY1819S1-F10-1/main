@@ -1,10 +1,6 @@
 package seedu.address.logic.commands;
 
-import static org.junit.Assert.assertNull;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 import seedu.address.TestApp;
@@ -13,11 +9,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
-import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.User;
 import seedu.address.testutil.TestUtil;
-import seedu.address.testutil.TypicalPersons;
-import seedu.address.ui.testutil.EventsCollectorRule;
 
 public class ProfilePicCommandTest {
     public static final String SANDBOX_IMAGE = TestUtil.getFilePathInSandboxFolder("doge.jpg").toString();
