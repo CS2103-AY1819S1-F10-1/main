@@ -14,6 +14,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Password;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.Salary;
 import seedu.address.model.person.Username;
 import seedu.address.model.project.Project;
@@ -42,6 +43,7 @@ public class PersonBuilder {
     private Set<Project> projects;
     private PermissionSet pSet;
     private List<LeaveApplication> leaveApplications;
+    private Optional<ProfilePic> profilePic;
 
     public PersonBuilder() {
         name = new Name(DEFAULT_NAME);
@@ -54,6 +56,7 @@ public class PersonBuilder {
         projects = new HashSet<>();
         pSet = new PermissionSet();
         leaveApplications = new ArrayList<>();
+        profilePic = Optional.empty();
     }
 
     /**
@@ -70,6 +73,7 @@ public class PersonBuilder {
         projects = new HashSet<>(personToCopy.getProjects());
         pSet = personToCopy.getPermissionSet();
         leaveApplications = personToCopy.getLeaveApplications();
+        profilePic = Optional.empty();
     }
 
     /**
@@ -162,11 +166,19 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code ProfilePic} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withProfilePic(ProfilePic pp) {
+        this.profilePic = Optional.of(pp);
+        return this;
+    }
+
+    /**
      * Build the person object.
      */
     public Person build() {
         return new Person(name, phone, email, address, salary, username, password, projects, pSet, leaveApplications,
-                Optional.empty());
+                profilePic);
     }
 
 }

@@ -13,8 +13,10 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
+import seedu.address.model.person.Person;
 import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.User;
+import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.TestUtil;
 
 public class ProfilePicCommandTest {
@@ -52,6 +54,19 @@ public class ProfilePicCommandTest {
     }
 
     @Test
+    public void command_admin_fail() throws Exception {
+        loginAsAdmin();
+
+        ProfilePicCommand profilePicCommand = new ProfilePicCommand(SANDBOX_IMAGE);
+        try {
+            profilePicCommand.execute(model, commandHistory);
+            assert false;
+        } catch (CommandException ce) {
+            assert ce.getMessage().equals(ProfilePicCommand.ADMIN_ERROR);
+        }
+    }
+
+    @Test
     public void command_user_success() throws Exception {
         model.addPerson(ALICE);
         model.setLoggedInUser(new User(ALICE));
@@ -65,15 +80,14 @@ public class ProfilePicCommandTest {
     }
 
     @Test
-    public void command_admin_fail() throws Exception {
-        loginAsAdmin();
+    public void remove_pic_success() throws Exception {
+        Person aliceWithPic = new PersonBuilder(ALICE).withProfilePic(new ProfilePic(SANDBOX_IMAGE)).build();
+        model.addPerson(aliceWithPic);
+        model.setLoggedInUser(new User(aliceWithPic));
 
-        ProfilePicCommand profilePicCommand = new ProfilePicCommand(SANDBOX_IMAGE);
-        try {
-            profilePicCommand.execute(model, commandHistory);
-            assert false;
-        } catch (CommandException ce) {
-            assert ce.getMessage().equals(ProfilePicCommand.ADMIN_ERROR);
-        }
+        ProfilePicCommand profilePicCommand = new ProfilePicCommand("");
+        profilePicCommand.execute(model, commandHistory);
+        assert model.getAddressBook().getPersonList().size() == 1;
+        assert !model.getAddressBook().getPersonList().get(0).getProfilePic().isPresent();
     }
 }
