@@ -145,16 +145,6 @@ public class XmlAdaptedPersonTest {
     }
 
     @Test
-    public void toModelType_invalidProfilePic_throwsIllegalValueException() {
-        XmlAdaptedPerson person =
-                new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
-                        VALID_SALARY, VALID_USERNAME, VALID_PASSWORD, VALID_PROJECTS, INVALID_PROFILE_PIC,
-                        VALID_PERMISSION, VALID_LEAVE_APPLICATIONS);
-        String expectedMessage = ProfilePic.MESSAGE_PROFILEPIC_CONSTRAINTS;
-        Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
-    }
-
-    @Test
     public void toModelType_invalidUsername_throwsIllegalValueException() {
         XmlAdaptedPerson person =
             new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL,
