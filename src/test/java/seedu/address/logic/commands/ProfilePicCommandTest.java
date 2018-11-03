@@ -18,7 +18,6 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.User;
 import seedu.address.testutil.PersonBuilder;
-import seedu.address.testutil.TestUtil;
 
 public class ProfilePicCommandTest {
     public static final String SANDBOX_IMAGE = Paths.get("src", "test", "data", "doge.jpg").toString();
