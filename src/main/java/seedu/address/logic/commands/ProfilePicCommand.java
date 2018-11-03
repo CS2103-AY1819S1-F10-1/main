@@ -3,7 +3,6 @@ package seedu.address.logic.commands;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Optional;
 
 import javax.activation.MimetypesFileTypeMap;
@@ -34,11 +33,11 @@ public class ProfilePicCommand extends Command {
     public static final String ADMIN_ERROR = "You can't update the profile pics of Admin!";
     public static final String UPDATE_SUCCESSFUL = "Profile pic successfully updated!";
 
-    File theFile;
+    private File theFile;
 
     public ProfilePicCommand(String location) throws ParseException {
         // Exception for removing a profile pic
-        if(location.trim().equals("")) {
+        if (location.trim().equals("")) {
             theFile = null;
             return;
         }
@@ -51,7 +50,7 @@ public class ProfilePicCommand extends Command {
         }
 
         // Check it's an image
-        String mimetype= new MimetypesFileTypeMap().getContentType(target);
+        String mimetype = new MimetypesFileTypeMap().getContentType(target);
         String type = mimetype.split("/")[0];
         if (!type.equals("image")) {
             throw new ParseException(NOT_IMAGE_ERROR);
@@ -70,7 +69,7 @@ public class ProfilePicCommand extends Command {
 
         Optional<ProfilePic> newProfilePic;
 
-        if(theFile == null) {
+        if (theFile == null) {
             newProfilePic = Optional.empty();
         } else {
             //Copy it over to saved location
