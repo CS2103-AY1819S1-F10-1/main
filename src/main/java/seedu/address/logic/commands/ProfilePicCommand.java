@@ -37,7 +37,7 @@ public class ProfilePicCommand extends Command {
 
     public ProfilePicCommand(String location) throws ParseException {
         String currentPath = new File(".").getAbsolutePath();
-        File target = new File(currentPath.substring(0, currentPath.length() - 1) + location);
+        File target = new File(currentPath.substring(0, currentPath.length() - 1) + location.trim());
 
         if (!target.exists() || target.isDirectory()) {
             throw new ParseException(String.format(INVALID_PATH_ERROR, location));
