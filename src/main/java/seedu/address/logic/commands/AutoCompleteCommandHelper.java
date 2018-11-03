@@ -21,6 +21,7 @@ public class AutoCompleteCommandHelper {
         LogoutCommand.COMMAND_WORD,
         ModifyPermissionCommand.COMMAND_WORD,
         PasswordCommand.COMMAND_WORD,
+        ProfilePicCommand.COMMAND_WORD,
         RedoCommand.COMMAND_WORD,
         SelectCommand.COMMAND_WORD,
         SelfEditCommand.COMMAND_WORD,
