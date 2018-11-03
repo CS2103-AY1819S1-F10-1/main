@@ -3,20 +3,16 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Represents a Person's profile picture path in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidPath(String)}
+ * Guarantees: immutable
  */
 public class ProfilePic {
 
-    public static final String MESSAGE_PROFILEPIC_CONSTRAINTS =
-            "Profile picture should be sized 500x300";
-
-    /*
-     * The first character of the profile picture path must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
-     */
-    public static final String PATH_VALIDATION_REGEX = "[^\\s].*";
+    public static final Path IMAGE_FILE_PATH = Paths.get("data/images");
 
     public final String value;
 
@@ -27,15 +23,14 @@ public class ProfilePic {
      */
     public ProfilePic(String path) {
         requireNonNull(path);
-        checkArgument(isValidPath(path), MESSAGE_PROFILEPIC_CONSTRAINTS);
         this.value = path;
     }
 
     /**
-     * Returns true if a given string is a valid path.
+     * Returns true.
      */
     public static boolean isValidPath(String test) {
-        return test.matches(PATH_VALIDATION_REGEX);
+        return true;
     }
 
 
