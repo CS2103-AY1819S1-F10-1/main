@@ -74,13 +74,12 @@ public class ProfilePicCommand extends Command {
         } else {
             //Copy it over to saved location
             try {
-                String data = FileUtil.readFromFile(theFile.toPath());
                 String filename = theFile.getName();
                 String extension = filename.substring(filename.lastIndexOf("."));
                 Path newPath = ProfilePic.IMAGE_FILE_PATH.resolve(currentUser.getUsername().username + extension);
-                FileUtil.createIfMissing(newPath);
-                FileUtil.writeToFile(newPath, data);
-                newProfilePic = Optional.of(new ProfilePic(theFile.getPath()));
+                FileUtil.copy(theFile.toPath(), newPath);
+                Path currentPath = new File(".").toPath();
+                newProfilePic = Optional.of(new ProfilePic(currentPath.relativize(newPath).toString()));
             } catch (IOException ioe) {
                 ioe.printStackTrace();
                 throw new CommandException("Error reading file: " + ioe.getMessage(), ioe);
