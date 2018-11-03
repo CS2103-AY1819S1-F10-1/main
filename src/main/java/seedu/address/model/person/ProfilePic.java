@@ -25,13 +25,6 @@ public class ProfilePic {
         this.value = path;
     }
 
-    /**
-     * Returns true.
-     */
-    public static boolean isValidPath(String test) {
-        return true;
-    }
-
 
     @Override
     public String toString() {
