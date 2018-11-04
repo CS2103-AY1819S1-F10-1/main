@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import org.junit.Test;
 
 import seedu.address.model.AddressBook;
-import seedu.address.model.ArchiveList;
 import seedu.address.model.ReadOnlyArchiveList;
 import seedu.address.model.person.Person;
 import seedu.address.model.util.SampleDataUtil;
