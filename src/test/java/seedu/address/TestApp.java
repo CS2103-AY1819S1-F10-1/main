@@ -77,6 +77,7 @@ public class TestApp extends MainApp {
         double y = Screen.getPrimary().getVisualBounds().getMinY();
         userPrefs.updateLastUsedGuiSetting(new GuiSettings(600.0, 600.0, (int) x, (int) y));
         userPrefs.setAddressBookFilePath(saveFileLocation);
+        userPrefs.setArchiveListFilePath(saveArchiveLocation);
         userPrefs.setAdminPassword(User.ADMIN_DEFUALT_PASSWORD);
         return userPrefs;
     }
