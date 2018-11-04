@@ -52,7 +52,7 @@ import seedu.address.ui.UiManager;
  */
 public class MainApp extends Application {
 
-    public static final Version VERSION = new Version(0, 6, 0, true);
+    public static final Version VERSION = new Version(1, 3, 0, true);
 
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
@@ -124,6 +124,14 @@ public class MainApp extends Application {
             logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
             initialData = new AddressBook();
             initAssignmentList = new AssignmentList();
+            initialArchive = new ArchiveList();
+        }
+
+        try {
+            initialArchive = storage.readArchiveList().orElseGet(SampleDataUtil::getSampleArchiveList);
+        } catch (DataConversionException e) {
+            initialArchive = new ArchiveList();
+        } catch (IOException e) {
             initialArchive = new ArchiveList();
         }
 

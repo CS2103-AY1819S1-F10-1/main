@@ -193,9 +193,6 @@ public class XmlAdaptedPerson {
 
         Optional<ProfilePic> modelProfilePic = Optional.empty();
         if (profilePic != null) {
-            if (!ProfilePic.isValidPath(profilePic)) {
-                throw new IllegalValueException(ProfilePic.MESSAGE_PROFILEPIC_CONSTRAINTS);
-            }
             modelProfilePic = Optional.of(new ProfilePic(profilePic));
         }
 

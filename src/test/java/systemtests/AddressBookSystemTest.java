@@ -71,7 +71,8 @@ public abstract class AddressBookSystemTest {
     @Before
     public void setUp() {
         setupHelper = new SystemTestSetupHelper();
-        testApp = setupHelper.setupApplication(this::getInitialData, this::getArchiveData, getDataFileLocation());
+        testApp = setupHelper.setupApplication(this::getInitialData, this::getArchiveData, getDataFileLocation(),
+            getArchiveFileLocation());
         mainWindowHandle = setupHelper.setupMainWindowHandle();
 
         waitUntilBrowserLoaded(getBrowserPanel());
@@ -100,6 +101,13 @@ public abstract class AddressBookSystemTest {
      */
     protected Path getDataFileLocation() {
         return TestApp.SAVE_LOCATION_FOR_TESTING;
+    }
+
+    /**
+     * Returns the directory of the archive file.
+     */
+    protected Path getArchiveFileLocation() {
+        return TestApp.SAVE_ARCHIVE_LOCATION_FOR_TESTING;
     }
 
     public void refreshAllQueries() {

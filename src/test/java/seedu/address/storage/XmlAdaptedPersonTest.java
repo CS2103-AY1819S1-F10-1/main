@@ -19,7 +19,6 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Password;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.ProfilePic;
 import seedu.address.model.person.Salary;
 import seedu.address.model.person.Username;
 import seedu.address.testutil.Assert;
@@ -32,7 +31,6 @@ public class XmlAdaptedPersonTest {
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_USERNAME = " hi";
     private static final String INVALID_PERMISSION = "INVALID_PERMISSION";
-    private static final String INVALID_PROFILE_PIC = " ";
     private static final String VALID_NAME = BENSON.getName().toString();
     private static final String VALID_PHONE = BENSON.getPhone().toString();
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
@@ -140,16 +138,6 @@ public class XmlAdaptedPersonTest {
         XmlAdaptedPerson person = new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL,
                 VALID_ADDRESS, null, VALID_USERNAME, VALID_PASSWORD, VALID_PROJECTS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Salary.class.getSimpleName());
-        Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
-    }
-
-    @Test
-    public void toModelType_invalidProfilePic_throwsIllegalValueException() {
-        XmlAdaptedPerson person =
-                new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
-                        VALID_SALARY, VALID_USERNAME, VALID_PASSWORD, VALID_PROJECTS, INVALID_PROFILE_PIC,
-                        VALID_PERMISSION, VALID_LEAVE_APPLICATIONS);
-        String expectedMessage = ProfilePic.MESSAGE_PROFILEPIC_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
     }
 

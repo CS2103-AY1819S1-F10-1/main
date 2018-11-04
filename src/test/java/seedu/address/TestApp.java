@@ -45,11 +45,13 @@ public class TestApp extends MainApp {
     }
 
     public TestApp(Supplier<ReadOnlyAddressBook> initialDataSupplier,
-                   Supplier<ReadOnlyArchiveList> initialArchiveSupplier, Path saveFileLocation) {
+                   Supplier<ReadOnlyArchiveList> initialArchiveSupplier, Path saveFileLocation,
+                   Path saveArchiveLocation) {
         super();
         this.initialDataSupplier = initialDataSupplier;
         this.initialArchiveSupplier = initialArchiveSupplier;
         this.saveFileLocation = saveFileLocation;
+        this.saveArchiveLocation = saveArchiveLocation;
 
         // If some initial local data has been provided, write those to the file
         if (initialDataSupplier.get() != null) {
@@ -77,6 +79,7 @@ public class TestApp extends MainApp {
         double y = Screen.getPrimary().getVisualBounds().getMinY();
         userPrefs.updateLastUsedGuiSetting(new GuiSettings(600.0, 600.0, (int) x, (int) y));
         userPrefs.setAddressBookFilePath(saveFileLocation);
+        userPrefs.setArchiveListFilePath(saveArchiveLocation);
         userPrefs.setAdminPassword(User.ADMIN_DEFUALT_PASSWORD);
         return userPrefs;
     }
