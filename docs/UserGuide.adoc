@@ -248,6 +248,24 @@ Examples:
 * `myself -p 91234567 -e johndoe@example.com`
 * `myself -n James`
 
+=== Edit your profile picture : `profilepic`
+
+Changes your profile pic to a certain image.
+
+Format: `profilepic [PATH]`
+
+* PATH is a relative link from the current application location (OASIS.jar) to the image file.
+* PATH must link to an image.
+* If PATH is not specified, removes your profile pic
+
+****
+* This command is not usable as admin.
+****
+Examples:
+
+* `profilepic`
+* `profilepic` doge.jpg
+
 === Edit details : `edit`
 
 Changes the users details (such as contact information).
