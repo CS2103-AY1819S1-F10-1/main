@@ -44,7 +44,7 @@ public class ProfilePicCommandTest {
 
     @Test
     public void wrong_file_error() throws Exception {
-        String location = TestApp.SAVE_ARCHIVE_LOCATION_FOR_TESTING.toString();
+        String location = TestApp.SAVE_LOCATION_FOR_TESTING.toString();
         try {
             ProfilePicCommand ppc = new ProfilePicCommand(location);
             assert false;
