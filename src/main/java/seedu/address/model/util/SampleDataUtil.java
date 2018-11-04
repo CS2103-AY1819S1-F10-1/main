@@ -90,6 +90,7 @@ public class SampleDataUtil {
 
     public static ReadOnlyArchiveList getSampleArchiveList() {
         ArchiveList sampleAl = new ArchiveList();
+        System.out.println("Get sample archive list");
         for (Person samplePerson : getSampleArchive()) {
             sampleAl.addPerson(samplePerson);
         }

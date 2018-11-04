@@ -127,6 +127,14 @@ public class MainApp extends Application {
             initialArchive = new ArchiveList();
         }
 
+        try {
+            initialArchive = storage.readArchiveList().orElseGet(SampleDataUtil::getSampleArchiveList);
+        } catch (DataConversionException e) {
+            initialArchive = new ArchiveList();
+        } catch (IOException e) {
+            initialArchive = new ArchiveList();
+        }
+
         return new ModelManager(initialData, initAssignmentList, initialArchive, userPrefs);
     }
 

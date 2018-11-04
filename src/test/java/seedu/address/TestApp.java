@@ -45,11 +45,13 @@ public class TestApp extends MainApp {
     }
 
     public TestApp(Supplier<ReadOnlyAddressBook> initialDataSupplier,
-                   Supplier<ReadOnlyArchiveList> initialArchiveSupplier, Path saveFileLocation) {
+                   Supplier<ReadOnlyArchiveList> initialArchiveSupplier, Path saveFileLocation,
+                   Path saveArchiveLocation) {
         super();
         this.initialDataSupplier = initialDataSupplier;
         this.initialArchiveSupplier = initialArchiveSupplier;
         this.saveFileLocation = saveFileLocation;
+        this.saveArchiveLocation = saveArchiveLocation;
 
         // If some initial local data has been provided, write those to the file
         if (initialDataSupplier.get() != null) {
