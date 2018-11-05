@@ -17,6 +17,10 @@ public class AddAssignmentCommand extends Command {
 
     public static final String COMMAND_WORD = "addassignment";
 
+    public static final String REQUIRED_FIELDS_FORMAT = PREFIX_ASSIGNMENT_NAME + " ASSIGNMENT NAME "
+            + PREFIX_AUTHOR + " AUTHOR "
+            + PREFIX_ASSIGNMENT_DESCRIPTION + " DESCRIPTION ";
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an assignment to OASIS. "
             + "Parameters: "
             + PREFIX_ASSIGNMENT_NAME + " ASSIGNMENT NAME "

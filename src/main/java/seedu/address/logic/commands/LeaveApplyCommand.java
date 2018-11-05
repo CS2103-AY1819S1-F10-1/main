@@ -32,6 +32,8 @@ public class LeaveApplyCommand extends Command {
 
     public static final String COMMAND_WORD = "leaveapply";
 
+    public static final String REQUIRED_FIELDS_FORMAT = PREFIX_LEAVE_DESCRIPTION + " DESCRIPTION ";
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Apply for leave. "
             + "Parameters: "
             + PREFIX_LEAVE_DESCRIPTION + " DESCRIPTION "

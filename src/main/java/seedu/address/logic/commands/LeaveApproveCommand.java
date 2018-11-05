@@ -33,6 +33,8 @@ public class LeaveApproveCommand extends Command {
 
     public static final String COMMAND_WORD = "leaveapprove";
 
+    public static final String REQUIRED_FIELDS_FORMAT = "INDEX";
+
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Approve the leave of the leave application identified "
             + "by the index number used in the displayed leave application list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
