@@ -31,12 +31,9 @@ public class CommandBoxHandle extends NodeHandle<TextField> {
         guiRobot.interact(() -> getRootNode().setText(command));
         guiRobot.pauseForHuman();
 
-        //First enter for autocomplete, second to run command.
+        guiRobot.pauseForHuman();
         guiRobot.type(KeyCode.ENTER);
-        if (AutoCompleteCommandHelper.autoCompleteWord(command).size() > 0) {
-            guiRobot.pauseForHuman();
-            guiRobot.type(KeyCode.ENTER);
-        }
+
     }
 
     /**
