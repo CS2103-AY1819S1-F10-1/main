@@ -3,7 +3,6 @@ package guitests.guihandles;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import seedu.address.logic.commands.AutoCompleteCommandHelper;
 
 /**
  * A handle to the {@code CommandBox} in the GUI.

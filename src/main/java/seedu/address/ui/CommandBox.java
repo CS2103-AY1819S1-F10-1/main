@@ -2,14 +2,16 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
+
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
-import org.controlsfx.control.textfield.AutoCompletionBinding;
-import org.controlsfx.control.textfield.TextFields;
+
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.NewResultAvailableEvent;
 import seedu.address.logic.ListElementPointer;
@@ -130,9 +132,12 @@ public class CommandBox extends UiPart<Region> {
     }
 
 
+    /**
+     * This method highlights the value of the prefix before current caret position.
+     */
     private void highlightPreviousPrefixValue() {
         int currentCaretPos = commandTextField.getCaretPosition();
-        char text[] = commandTextField.getText().toCharArray();
+        char[] text = commandTextField.getText().toCharArray();
         boolean foundCurrentPrefix = false;
         boolean foundPreviousPrefix = false;
         for (int i = currentCaretPos; i >= 0; i--) {
@@ -155,9 +160,12 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
+    /**
+     * This method highlights the value of the prefix after current caret position.
+     */
     private void highlightNextPrefixValue() {
         int currentCaretPos = commandTextField.getCaretPosition();
-        char text[] = commandTextField.getText().toCharArray();
+        char[] text = commandTextField.getText().toCharArray();
         boolean foundPrefix = false;
         boolean foundFirstCharacter = false;
         int firstIndex = -1;
