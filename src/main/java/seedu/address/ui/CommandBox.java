@@ -1,9 +1,6 @@
 package seedu.address.ui;
 
-import java.util.HashSet;
 import java.util.logging.Logger;
-
-import org.controlsfx.control.textfield.TextFields;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -11,7 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
-
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.NewResultAvailableEvent;
 import seedu.address.logic.ListElementPointer;
@@ -38,11 +36,28 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private TextField commandTextField;
 
+    private AutoCompletionBinding<String> acbCommandTextField;
+
     public CommandBox(Logic logic) {
         super(FXML);
         this.logic = logic;
 
-        TextFields.bindAutoCompletion(commandTextField, partialWord -> {
+        enableAutoComplete();
+        // calls #setStyleToDefault() whenever there is a change to the text of the command box.
+        commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
+        commandTextField.focusedProperty().addListener(((observable, wasFocused, isFocused) -> {
+            if (!isFocused) {
+                commandTextField.requestFocus();
+            }
+        }));
+        historySnapshot = logic.getHistorySnapshot();
+    }
+
+    /**
+     * Enable autocomplete function
+     */
+    public void enableAutoComplete() {
+        acbCommandTextField = TextFields.bindAutoCompletion(commandTextField, partialWord -> {
             if (isNavigatingHistory) {
                 isNavigatingHistory = false;
                 return null;
@@ -51,10 +66,20 @@ public class CommandBox extends UiPart<Region> {
             return AutoCompleteCommandHelper.autoCompleteWord(partialWord.getUserText());
         });
 
+        acbCommandTextField.setOnAutoCompleted((value) -> onAutoCompleted(value.getCompletion()));
+    }
 
-        // calls #setStyleToDefault() whenever there is a change to the text of the command box.
-        commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
-        historySnapshot = logic.getHistorySnapshot();
+    /**
+     * Disable auto complete function. Mainly used for testing purposes.
+     */
+    public void disableAutoComplete() {
+        acbCommandTextField.dispose();
+    }
+
+    private void onAutoCompleted(String command) {
+        String format = AutoCompleteCommandHelper.getFormatForCommand(command);
+        commandTextField.appendText(" " + format);
+        commandTextField.positionCaret(command.length());
     }
 
     /**
@@ -89,8 +114,99 @@ public class CommandBox extends UiPart<Region> {
                 Platform.exit();
             }
             break;
+
+        case TAB:
+            keyEvent.consume();
+            if (keyEvent.isShiftDown()) {
+                highlightPreviousPrefixValue();
+            } else {
+                highlightNextPrefixValue();
+            }
+            break;
+
         default:
             // let JavaFx handle the keypress
+        }
+    }
+
+
+    private void highlightPreviousPrefixValue() {
+        int currentCaretPos = commandTextField.getCaretPosition();
+        char text[] = commandTextField.getText().toCharArray();
+        boolean foundCurrentPrefix = false;
+        boolean foundPreviousPrefix = false;
+        for (int i = currentCaretPos; i >= 0; i--) {
+            if (!foundCurrentPrefix) {
+                if (text[i] == '-') {
+                    foundCurrentPrefix = true;
+                }
+                continue;
+            }
+
+            if (!foundPreviousPrefix) {
+                if (text[i] == '-') {
+                    foundPreviousPrefix = true;
+                }
+                continue;
+            }
+            commandTextField.positionCaret(i);
+            highlightNextPrefixValue();
+            break;
+        }
+    }
+
+    private void highlightNextPrefixValue() {
+        int currentCaretPos = commandTextField.getCaretPosition();
+        char text[] = commandTextField.getText().toCharArray();
+        boolean foundPrefix = false;
+        boolean foundFirstCharacter = false;
+        int firstIndex = -1;
+        int lastIndex = -1;
+
+        for (int i = currentCaretPos; i < text.length; i++) {
+            if (!foundPrefix) {
+                if (text[i] == '-') {
+
+                    while (text[i] != ' ' && i < text.length) {
+                        i++;
+                    }
+                    if (i >= text.length) {
+                        break;
+                    }
+
+                    foundPrefix = true;
+                }
+                continue;
+            }
+
+            if (!foundFirstCharacter) {
+                while (text[i] == ' ' && i < text.length) {
+                    i++;
+                }
+                if (i >= text.length) {
+                    break;
+                }
+                firstIndex = i;
+                foundFirstCharacter = true;
+                continue;
+            }
+
+            if (text[i] == '-') {
+                break;
+            }
+
+            if (text[i] != ' ') {
+                lastIndex = i + 1;
+            }
+
+        }
+
+        final int finalFirstIndex = firstIndex;
+        final int finalLastIndex = lastIndex;
+        if (firstIndex > 0 && lastIndex > 0) {
+            Platform.runLater(() -> {
+                commandTextField.selectRange(finalFirstIndex, finalLastIndex);
+            });
         }
     }
 
@@ -181,6 +297,5 @@ public class CommandBox extends UiPart<Region> {
 
         styleClass.add(ERROR_STYLE_CLASS);
     }
-
 
 }
