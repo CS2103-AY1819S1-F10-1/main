@@ -208,7 +208,7 @@ Format: <code>history</code></p>
 <p>Adds an employee into the system.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add -n NAME -e EMAIL -n NUMBER -s SALARY -a ADDRESS [-u USERNAME] [-t PROJECT]</code></p>
+<p>Format: <code>add -n NAME -e EMAIL -n NUMBER -s SALARY -a ADDRESS [-u USERNAME] [-t ASSIGNMENT]</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -268,7 +268,7 @@ Format: <code>list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in with "Assign permission" permission.</p>
+<p>To use this command, you must be logged in with "ASSIGN_PERMISSION" permissions.</p>
 </li>
 </ul>
 </div>
@@ -549,7 +549,7 @@ Format: <code>list</code></p>
 <p>Changes the details of the currently logged in user</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>myself [-p PHONE] [-e EMAIL] [-a ADDRESS] [-t PROJECT]</code></p>
+<p>Format: <code>myself [-p PHONE] [-e EMAIL] [-a ADDRESS] [-t ASSIGNMENT]</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -592,7 +592,7 @@ Format: <code>list</code></p>
 <p>Changes the users details (such as contact information).</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY] [-t PROJECT]</code></p>
+<p>Format: <code>edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY] [-t ASSIGNMENT]</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -673,15 +673,15 @@ Format: <code>list</code></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CREATE_ASSIGNMENT (Currently not used)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to create a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to create a assignment</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ASSIGN_ASSIGNMENT (Currently not used)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to assign employee to a project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to assign employee to a assignment</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">VIEW_ASSIGNMENT (Currently not used)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to view all projects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to view all assignments</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ASSIGN_PERMISSION</p></td>
@@ -1045,7 +1045,7 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in with "View Assignment" permissions.</p>
+<p>To use this command, you must be logged in with "VIEW_ASSIGNMENT" permissions.</p>
 </li>
 </ul>
 </div>
@@ -1065,7 +1065,7 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <div class="ulist">
 <ul>
 <li>
-<p>To use this command, you must be logged in with "Remove Assignment" permissions.</p>
+<p>To use this command, you must be logged in with "REOMVE_ASSIGNMENT" permissions.</p>
 </li>
 </ul>
 </div>
@@ -1211,7 +1211,7 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add employee</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ADD_EMPLOYEE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add -n NAME -e EMAIL -n NUMBER -s SALARY [-t PROJECT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add -n NAME -e EMAIL -n NUMBER -s SALARY [-t ASSIGNMENT]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add -n Joshua -s 15000 -e <a href="mailto:josh@gmail.com">josh@gmail.com</a> -n
  81234567 -a 81 Joshua&#8217;s Road  Singapore 123456</p></td>
 </tr>
@@ -1224,7 +1224,7 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Edit employee</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_EMPLOYEE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY] [-t PROJECT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY] [-t ASSIGNMENT]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit 1 -p 91234567 -e <a href="mailto:johndoe@example.com">johndoe@example.com</a></p></td>
 </tr>
 <tr>
@@ -1267,4 +1267,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 11:25:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-08 11:28:24 UTC</div></div></div></body></html>
