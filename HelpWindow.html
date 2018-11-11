@@ -161,10 +161,13 @@ e.g. typing help and pressing Enter will open the help window.</p>
 <p><strong><code>list</code></strong> : lists all employees.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>-n John Doe -p 98765432 -e <a href="mailto:johnd@example.com">johnd@example.com</a> -a 311, Clementi Ave 2, #02-25 -s 10000</code> : adds an employee named John Doe with the email <a href="mailto:johnd@example.com">johnd@example.com</a>, the address 311, Clementi Ave 2, #02-25, with a salary of 10,000.</p>
+<p><strong><code>add -n John Doe -p 98765432 -e <a href="mailto:johnd@example.com">johnd@example.com</a> -a 311, Clementi Ave 2, #02-25 -s 10000</code></strong> : adds an employee named John Doe with the email <a href="mailto:johnd@example.com">johnd@example.com</a>, the address 311, Clementi Ave 2, #02-25, with a salary of 10,000.</p>
 </li>
 <li>
-<p><strong><code>find</code></strong><code>J*</code> : finds all employees where any of their names start with J.</p>
+<p><strong><code>find J</strong></code>* : finds all employees where any of their names start with J.</p>
+</li>
+<li>
+<p><strong><code>delete 1</code></strong> : Deletes employee at the first location on the current displayed list.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -374,7 +377,7 @@ Format: <code>list</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Removes an employee from the system.</p>
+<p>Removes an employee from the current displayed list.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>delete INDEX</code></p>
@@ -387,7 +390,10 @@ Format: <code>list</code></p>
 <p>To use this command, you must be logged in and have the "DELETE_EMPLOYEE" permission.</p>
 </li>
 <li>
-<p>All deleted employees will be stored in the archive, when employee in archive is deleted again it will be taken out of archive.</p>
+<p>Delete employees from the active list will be moved to archive list.</p>
+</li>
+<li>
+<p>Deleted employees from the archive list will be deleted from the system.</p>
 </li>
 </ul>
 </div>
@@ -1178,6 +1184,17 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <div class="paragraph">
 <p>Format: <code>archive</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Replaces current view on the left panel to the archive list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="restoring-employee-to-active-list-code-restore-code"><a class="link" href="#restoring-employee-to-active-list-code-restore-code">4.4. Restoring employee to active list: <code>restore</code></a></h3>
@@ -1192,7 +1209,7 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <div class="ulist">
 <ul>
 <li>
-<p>All restored employees will be taken back to the active list.</p>
+<p>Restored employee will be moved back to the active list.</p>
 </li>
 </ul>
 </div>
@@ -1489,4 +1506,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </thead>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:22:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:26:32 UTC</div></div></div></body></html>

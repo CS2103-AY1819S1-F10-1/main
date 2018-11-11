@@ -18,68 +18,93 @@
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The following section shows my major code contributions to OASIS.</p>
-</div>
-<div class="sect2">
-<h3 id="major-enhancement-added-strong-the-ability-to-delete-employees-and-add-them-to-the-archive-list-strong"><a class="link" href="#major-enhancement-added-strong-the-ability-to-delete-employees-and-add-them-to-the-archive-list-strong">Major enhancement: Added <strong>the ability to delete employees and add them to the archive list</strong></a></h3>
-<div class="sect3">
-<h4 id="behaviour"><a class="link" href="#behaviour">Behaviour:</a></h4>
-<div class="paragraph">
-<p>Allows a user with <code>Department Manager</code> permissions to delete an employee and it will be automatically added to the <code>archivelist</code> which can be viewed at a later time.</p>
-</div>
-<div class="paragraph">
-<p>User can then view the <code>archivelist</code> by clicking on "ArchiveList" button on the List Picker Panel as shown below:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/viewArchive.png" alt="viewArchive" width="700">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="justification"><a class="link" href="#justification">Justification:</a></h4>
-<div class="paragraph">
-<p>We want the Users to have the option of deleting an employee from the system but keeping his/her information incase of future need for it.</p>
-</div>
-<div class="paragraph">
-<p>Having the <code>archivelist</code> achieves that for us, an employee will remain in the system even after being deleted from the <code>archivelist</code>.</p>
-</div>
-<div class="paragraph">
-<p>Our users will also be able to permanently delete employee information if they choose to by deleting them from the <code>archivelist</code>.</p>
-</div>
-<div class="paragraph">
-<p>Lastly, if there is a need to restore the employee back to the <code>activelist</code> a user with the right permissions can restore the employee from the <code>archivelist</code> to the <code>activelist</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="highlights"><a class="link" href="#highlights">Highlights:</a></h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor enhancement:</a></h3>
-<div class="sect3">
-<h4 id="features"><a class="link" href="#features">Features:</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="code-contributed"><a class="link" href="#code-contributed">Code contributed:</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>[<a href="https://github.com">Functional code</a>]</p>
-</li>
+<p><strong>Code contributed</strong>:</p>
+<div class="ulist">
+<ul>
 <li>
-<p>[<a href="https://github.com">Test code</a>]</p>
+<p>[<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=jroberts91">Functional code</a>]</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="strong-other-contributions-strong"><a class="link" href="#strong-other-contributions-strong"><strong>Other contributions</strong>:</a></h4>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: Added <strong>the ability to archive and restore employees</strong></p>
 <div class="ulist">
 <ul>
+<li>
+<p>Added <strong>the ability to delete active employees and archive them</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Behaviour:
+Allows a user with <code>Delete_employee</code> permission to delete an active employee and send it to the archive list.</p>
+</li>
+<li>
+<p>Justification:
+This feature improves OASIS significantly as it mimics firing of employees and keeping their information which is an important aspect of employee management.</p>
+</li>
+<li>
+<p>Highlights:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added <strong>the ability to restore employees</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Behaviour:
+Allows a user with <code>Restore_employee</code> permission to restore an archived employee and send it to the active list.</p>
+</li>
+<li>
+<p>Justification:
+This feature improves OASIS significantly as it mimics firing of employees and keeping their information which is an important aspect of employee management.</p>
+</li>
+<li>
+<p>Highlights:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added <strong>the ability to permanently delete archived employees</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Behaviour:
+Allows a user with <code>Delete_employee</code> permission to permanently remove archived employee from the application.</p>
+</li>
+<li>
+<p>Justification:
+This feature improves OASIS significantly as it mimics firing of employees and keeping their information which is an important aspect of employee management.</p>
+</li>
+<li>
+<p>Highlights:</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Minor enhancements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added list picker in UI which allows the user to change data shown in person list panel by just clicking on the list picker.</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>Project management:</p>
 <div class="ulist">
@@ -138,7 +163,8 @@
 </li>
 </ul>
 </div>
-</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -151,7 +177,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The following sections represent my contributions to the User Guide. They demonstrate my ability to write end-user documentation.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -166,40 +192,34 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The next section serves to showcase my additions to the Developer Guide. They act as an exhibit to show my capability in writing good technical documentation, along with the technical depth of my contributions.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">View deleted employee archive feature</a></h3>
+<h3 id="view-deleted-employee-archive"><a class="link" href="#view-deleted-employee-archive">View deleted employee archive</a></h3>
 <div class="paragraph">
 <p>Employees with the "Department manager" permissions are allowed to delete employees in the system - related to firing employees in real life. Deleted employees in the system will not be shown in the display list but be moved to an archive list instead. Objects in the archive list can then be restored to the system or be permanently deleted.</p>
 </div>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed implementation</a></h4>
 <div class="paragraph">
-<p>The view deleted employee archive feature is facilitated by <code>VersionedAddressBook</code> and <code>UniqueArchiveList</code>.</p>
+<p>The view deleted employee archive feature is facilitated by <code>VersionedArchiveList</code> and `UniquePersonList.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the UniqueArchiveList behaves at each step.</p>
+<p>Given below is an example usage scenario and how the <code>VersionedArchiveList</code> and <code>UniquePersonList</code> behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state and an empty <code>UniqueArchiveList</code> is maintained.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedArchiveList</code> will be initialized with the initial archive list state and an empty <code>UniquePersonList</code> is maintained.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes delete 3 command to delete the 3rd person in the address book. The Person object from the <code>UniquePersonList</code> will be transferred to the <code>UniqueArchiveList</code> and now the <code>UniqueArchiveList</code> will store all the deleted persons details.</p>
+<p>Step 2. The user executes delete 3 command on the active list to delete the 3rd person in the active list. The Person object from the <code>UniquePersonList</code> in <code>VersionedAddressBook</code> will be transferred to the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> and store the deleted Person&#8217;s data.</p>
 </div>
 <div class="paragraph">
-<p>Step 3a.1 The user views <code>UniqueArchiveList</code> and executes delete 1 command to delete the 1st person in the archive list.</p>
+<p>Step 3. The user executes archive command to view the <code>UniquePersonList</code> in <code>VersionedArchiveList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3a.2 The selected Person object in the <code>UniqueArchiveList</code> will be permanently deleted from the storage.</p>
-</div>
-<div class="paragraph">
-<p>Step 3b.1 The user views <code>UniqueArchiveList</code> and execute restore 1 command to restored 1st person in the archive list to the address book.</p>
-</div>
-<div class="paragraph">
-<p>Step 3a.1 The selected Person object in the <code>UniqueArchiveList</code> will be transferred back to <code>UniquePersonList</code>.</p>
+<p>Step 4. OASIS shows delete person in step 2 in the archive list</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes remove and restore command:</p>
@@ -209,13 +229,16 @@
 <img src="../images/archiveActivityDiagram.PNG" alt="archiveActivityDiagram" width=""350">
 </div>
 </div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the archive operation works:</p>
+</div>
 <div class="sect4">
 <h5 id="aspect-model"><a class="link" href="#aspect-model">Aspect: Model</a></h5>
 <div class="paragraph">
-<p>Added a <code>UniqueArchiveList</code> object to a <code>VersionedAddressBook</code> object. <code>UniqueArchiveList</code> will store 0 or more <code>Person</code> objects.</p>
+<p>Added a <code>VersionedArchiveList</code> object. <code>UniquePersonList</code> in <code>VersionedArchiveList</code> will store 0 or more <code>Person</code> objects.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows the class <code>UniqueArchiveList</code> added to reflect the changes in the Model component:</p>
+<p>The following diagram shows the class <code>VersionedArchiveList</code> added to reflect the changes in the Model component:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -226,28 +249,14 @@
 <div class="sect4">
 <h5 id="aspect-storage"><a class="link" href="#aspect-storage">Aspect: Storage</a></h5>
 <div class="paragraph">
-<p>Added a <code>XmlSerializableArchiveList</code> object to Storage component.</p>
+<p>Added <code>ArchiveListStorage</code> interface, <code>XmlArchiveListStorage</code> and <code>XmlSerializableArchiveList</code> classes to Storage component.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows the class <code>XmlSerializableArchiveList</code> added to reflect the changes in the Storage component:</p>
+<p>The following diagram shows the interface and classes added to the Storage component:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/storageModelChangeJosh.PNG" alt="storageModelChangeJosh" width=""350">
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-ui"><a class="link" href="#aspect-ui">Aspect: UI</a></h5>
-<div class="paragraph">
-<p>Added a <code>ArchiveDisplay</code> object to <code>MainWindow</code> of UI component.</p>
-</div>
-<div class="paragraph">
-<p>The following diagram shows the class <code>ArchiveDisplay</code> added to reflect the changes in the UI component:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/uiModelChangeJosh.PNG" alt="uiModelChangeJosh" width=""350">
 </div>
 </div>
 </div>
@@ -305,7 +314,7 @@
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Assign an archive attribute to each employee object and show only in the system if archived attribute is false. In contrast show in the archive display list if archive attribute is true.</p>
+<p><strong>Alternative 2:</strong> Assign an archive attribute to each employee object in the addressbook and show only in the system if archived attribute is false. In contrast show in the archive display list if archive attribute is true.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -323,4 +332,4 @@
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:22:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 14:26:32 UTC</div></div></div></body></html>
