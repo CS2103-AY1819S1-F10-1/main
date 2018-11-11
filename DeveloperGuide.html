@@ -38,12 +38,13 @@
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#permission-system">4.2. Permission System</a></li>
 <li><a href="#supporting-features-for-permission-system">4.3. Supporting features for Permission System</a></li>
-<li><a href="#assignment-management">4.4. Assignment Management</a></li>
-<li><a href="#view-deleted-employee-archive-feature">4.5. View deleted employee archive feature</a></li>
-<li><a href="#login-logout-feature">4.6. Login/Logout feature</a></li>
-<li><a href="#leave-application">4.7. Leave Application</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#command-shortcuts">4.4. Command Shortcuts</a></li>
+<li><a href="#assignment-management">4.5. Assignment Management</a></li>
+<li><a href="#view-deleted-employee-archive-feature">4.6. View deleted employee archive feature</a></li>
+<li><a href="#login-logout-feature">4.7. Login/Logout feature</a></li>
+<li><a href="#leave-application">4.8. Leave Application</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1019,15 +1020,55 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="assignment-management"><a class="link" href="#assignment-management">4.4. Assignment Management</a></h3>
+<h3 id="command-shortcuts"><a class="link" href="#command-shortcuts">4.4. Command Shortcuts</a></h3>
 <div class="paragraph">
-<p>Assignment management is an important feature in company management system. As such there are four critical features of assignment management. These features are <code>addassignment</code>, <code>listassignment</code>, <code>deleteassignment</code> and <code>assignassignment</code>.</p>
+<p>With various keyboard combinations user will be able to invoke commands' keyword.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Keyboard shortcuts in OASIS is implemented in the KeyEvent handler within the <code>CommandBox</code> class.</p>
+</div>
+<div class="paragraph">
+<p>When key combination is pressed, the text in the Command Box will be replaced with the corresponding command word.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-ui"><a class="link" href="#aspect-logic-ui">4.4.2. Aspect: Logic &amp; UI</a></h4>
+<div class="paragraph">
+<p>Within the <code>CommandBox</code> class, there is KeyEvent handler method which will detect keyboard strokes. If the key pressed is a valid
+combination, then the text in the command box will be replaced with the text corresponding to one of the existing commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.3. Design Consideration</a></h4>
+<div class="paragraph">
+<p>Current Implementation: Use the KeyEvent handler in the <code>CommandBox</code> class.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy and simple to implement.</p>
+</li>
+<li>
+<p>Cons: As the number of commands increases over time, there will not be
+enough key combination to accommodate all the commands.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="assignment-management"><a class="link" href="#assignment-management">4.5. Assignment Management</a></h3>
+<div class="paragraph">
+<p>Assignment management is an important feature in company management system. As such there are four critical features of assignment management. These features are <code>addassignment</code>,
+<code>listassignments</code>, <code>deleteassignment</code> and <code>editassignment</code>.</p>
 </div>
 <div class="paragraph">
 <p>These commands could only be executed by user with the appropriate permission.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.4.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.5.1. Proposed Implementation</a></h4>
 <div class="sect4">
 <h5 id="aspect-model-2"><a class="link" href="#aspect-model-2">Aspect: Model</a></h5>
 <div class="paragraph">
@@ -1038,7 +1079,7 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ProjectModel.PNG" alt="ProjectModel" width="450">
+<img src="images/AssignmentModel.png" alt="AssignmentModel" width="450">
 </div>
 </div>
 </div>
@@ -1058,7 +1099,7 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-2"><a class="link" href="#aspect-logic-2">4.4.2. Aspect: Logic</a></h4>
+<h4 id="aspect-logic-2"><a class="link" href="#aspect-logic-2">4.5.2. Aspect: Logic</a></h4>
 <div class="paragraph">
 <p>When user enter the commands related to assignment, the commands will be parser to correct execution. Below are the examples scenarios:</p>
 </div>
@@ -1130,7 +1171,7 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.3. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.5.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-3"><a class="link" href="#aspect-storage-3">Aspect: Storage</a></h5>
 <div class="ulist">
@@ -1167,12 +1208,12 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">4.5. View deleted employee archive feature</a></h3>
+<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">4.6. View deleted employee archive feature</a></h3>
 <div class="paragraph">
 <p>Employees with the "Department manager" permissions are allowed to delete employees in the system - related to firing employees in real life. Deleted employees in the system will not be shown in the display list but be moved to an archive list instead. Objects in the archive list can then be restored to the system or be permanently deleted.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">4.5.1. Proposed implementation</a></h4>
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">4.6.1. Proposed implementation</a></h4>
 <div class="paragraph">
 <p>The view deleted employee archive feature is facilitated by <code>VersionedAddressBook</code> and <code>UniqueArchiveList</code>.</p>
 </div>
@@ -1249,7 +1290,7 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-lifetime-of-objects-in-archive-list"><a class="link" href="#aspect-lifetime-of-objects-in-archive-list">Aspect: Lifetime of objects in Archive list</a></h5>
 <div class="ulist">
@@ -1319,9 +1360,9 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">4.6. Login/Logout feature</a></h3>
+<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">4.7. Login/Logout feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Login/Logout feature is facilitated through the use of creating a login screen before the application begins, ensuring that the user starts by logging into his account.</p>
 </div>
@@ -1418,7 +1459,7 @@ The following detailed steps show how the program works as the user login.:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-login-screen-is-displayed"><a class="link" href="#aspect-how-the-login-screen-is-displayed">Aspect: How the login screen is displayed</a></h5>
 <div class="paragraph">
@@ -1577,13 +1618,13 @@ The following detailed steps show how the program works as the user login.:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">4.6.3. Username and Password storage</a></h4>
+<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">4.7.3. Username and Password storage</a></h4>
 <div class="paragraph">
 <p>To store username and password, the class <code>Person</code> has been extended to include a Username and Password variable as well. These two variables represent the Username and Password stored in the system for that Person.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="admin-account"><a class="link" href="#admin-account">4.6.4. Admin account</a></h4>
+<h4 id="admin-account"><a class="link" href="#admin-account">4.7.4. Admin account</a></h4>
 <div class="paragraph">
 <p>There is a possibility that the entire system is cleared of all employees (i.e when initializing, or an accidental deleting of all employees). To resolve this issue, an admin account is added that will ensure that there is always a user that can login in. The admin account cannot be removed and always has full access rights. By default, the username of the admin account is <code>Admin</code> and the password is <code>Pa55w0rd</code>.</p>
 </div>
@@ -1601,7 +1642,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.5. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.5. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-where-the-admin-account-password-can-be-stored"><a class="link" href="#aspect-where-the-admin-account-password-can-be-stored">Aspect: Where the admin account password can be stored.</a></h5>
 <div class="paragraph">
@@ -1656,7 +1697,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="passwd-command"><a class="link" href="#passwd-command">4.6.6. passwd Command</a></h4>
+<h4 id="passwd-command"><a class="link" href="#passwd-command">4.7.6. passwd Command</a></h4>
 <div class="paragraph">
 <p>To change the password, a passwd command is required. However, this command is very different from the other commands. Specifically, it requires a chain of input, and subsequent inputs from the user should not be stored in history (otherwise the user&#8217;s password are easily retrievable).</p>
 </div>
@@ -1674,7 +1715,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.7. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.7. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-the-passwd-command"><a class="link" href="#aspect-how-to-implement-the-passwd-command">Aspect: How to implement the passwd Command</a></h5>
 <div class="ulist">
@@ -1710,7 +1751,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="password-security"><a class="link" href="#password-security">4.6.8. Password Security</a></h4>
+<h4 id="password-security"><a class="link" href="#password-security">4.7.8. Password Security</a></h4>
 <div class="paragraph">
 <p>There is a need to have passwords be stored securely as opposed to being stored in plain text. The standard today is to have password be salted and hashed, which is also the standard that OASIS is implemented in.</p>
 </div>
@@ -1737,7 +1778,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.6.9. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.9. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-much-security-is-required-for-the-password"><a class="link" href="#aspect-how-much-security-is-required-for-the-password">Aspect: How much security is required for the password</a></h5>
 <div class="ulist">
@@ -1787,9 +1828,9 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-application"><a class="link" href="#leave-application">4.7. Leave Application</a></h3>
+<h3 id="leave-application"><a class="link" href="#leave-application">4.8. Leave Application</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A leave application is represented by a <code>LeaveApplication</code> model object. The following sequence diagram illustrates how an application for leave by an employee works:</p>
 </div>
@@ -1830,7 +1871,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-a-code-leaveapplication-code-is-stored"><a class="link" href="#aspect-how-a-code-leaveapplication-code-is-stored">Aspect: How a <code>LeaveApplication</code> is stored</a></h5>
 <div class="ulist">
@@ -1880,14 +1921,14 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1918,7 +1959,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3036,4 +3077,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:37:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:09:13 UTC</div></div></div></body></html>
