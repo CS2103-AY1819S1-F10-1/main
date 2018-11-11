@@ -12,6 +12,7 @@
 <li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
 <li><a href="#an-introduction-to-oasis">1.1. An Introduction to OASIS</a></li>
+<li><a href="#symbols-used-in-this-guide">1.2. Symbols used in this guide</a></li>
 </ul>
 </li>
 <li><a href="#quick-start">2. Quick Start</a></li>
@@ -79,6 +80,37 @@
 <div class="content">
 <img src="images/introToOASIS.png" alt="introToOASIS" width="900">
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="symbols-used-in-this-guide"><a class="link" href="#symbols-used-in-this-guide">1.2. Symbols used in this guide</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Denotes something that you may want to take note of.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Denotes a warning for something critical.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -386,14 +418,39 @@ Format: <code>list</code></p>
 <p>Format of date: YYYY-MM-DD (Dashes are required)</p>
 </li>
 <li>
-<p>You must specify at least 1 <code>DATE</code>. Your leave will be applied for all the dates specified after each <code>-da</code>.</p>
-</li>
-<li>
-<p>If the <code>DATE</code> is of an illegal format, the command will be rejected.</p>
+<p>Your leave will be applied for all the dates specified after each <code>-da</code>.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You must specify at least 1 <code>DATE</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the <code>DATE</code> is of an illegal format, the command will be rejected.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -414,16 +471,19 @@ Format: <code>list</code></p>
 <div class="paragraph">
 <p>Format: <code>leavelist</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
 <p>If you have the "VIEW_EMPLOYEE_LEAVE" permission, all other employee leave applications will be shown too.</p>
-</li>
-</ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -442,14 +502,25 @@ Format: <code>list</code></p>
 <p>Approves the leave application at the specified INDEX. The index refers to the index number shown in the displayed leave application list (see <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a>). The index must be a positive integer.</p>
 </li>
 <li>
-<p>To use this command, you must have "APPROVE_LEAVE" permissions.</p>
-</li>
-<li>
 <p>Note that leave applications that have already been rejected can still be approved afterwards.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To use this command, you must have "APPROVE_LEAVE" permissions.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -478,14 +549,25 @@ Format: <code>list</code></p>
 <p>Rejects the leave application at the specified INDEX. The index refers to the index number shown in the displayed leave application list (see <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a>). The index must be a positive integer.</p>
 </li>
 <li>
-<p>To use this command, you must have "APPROVE_LEAVE" permissions.</p>
-</li>
-<li>
 <p>Note that leave applications that have already been approved can still be rejected afterwards.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To use this command, you must have "APPROVE_LEAVE" permissions.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1285,4 +1367,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 17:27:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 04:22:07 UTC</div></div></div></body></html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Jeremy Choo - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">OASIS</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-1/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Jeremy Choo - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-oasis"><a class="link" href="#project-oasis">PROJECT: OASIS</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Office Assistance Specialized Integration System (OASIS) is an all-in-one app for companies to manage employee&#8217;s leave applications, projects and user accounts for each employee. OASIS uses a CLI interface.</p>
+</div>
+<div class="paragraph">
+<p>This project portfolio summarizes my contributions to the project in terms of coding, documentation for both develoeprs and end-users, as well as testing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section shows my major code contributions to OASIS.</p>
+</div>
+<div class="sect2">
+<h3 id="major-enhancement-user-accounts"><a class="link" href="#major-enhancement-user-accounts">Major enhancement: User accounts</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added <strong>full fledged functionality for user accounts.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows each employee to identify themselves with a username and password, similar to most modern systems. It provides:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Username and Password</strong> implementation for each employee.</p>
+</li>
+<li>
+<p>Ability to <strong>login and logout</strong> into each employee&#8217;s accounts.</p>
+</li>
+<li>
+<p>A way to <strong>secure the employee&#8217;s account</strong> through the changing of passwords.</p>
+</li>
+<li>
+<p>Complete modern-day security using <strong>salted and hashed passwords</strong> with 256-byte salts and SHA hashing algorithm.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: It is critcial to ensure the privacy of employees to ensure that their private information remains secure and only viewable by specific people. Thus, this feature allows the use of user accounts to verify that there is appropriate authorization, ensuring that employee data data isn&#8217;t publicly viewable.</p>
+</li>
+<li>
+<p>Highlights: The password command requires large changes to ensure that passwords input by the user aren&#8217;t viewable through the history command. To solve this gacefully, I implemented a feature for <code>LogicManager</code> to have a List of interceptors, which are a <code>FunctionalInterface</code> that allows the processing of a Command. This allows the password changing command to work without adding excessive coupling between <code>Command</code> and <code>LogicManager</code>. Security for each user was essental to ensure that a user cannot read commands entered by another user. This was implemented by clearing user-specific data after logout.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor enhancement:</a></h3>
+<div class="paragraph">
+<p>The following section shows all the other minor enhancements done for the project that are not part of my major enhancement above.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=choojeremy">Reposense link</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set up the project on GitHub, including the creation of the organization, labels, auto-publishing of docs, and the <a href="https://github.com/nus-cs2103-AY1819S1/addressbook-level4/pull/86">team PR</a></p>
+</li>
+<li>
+<p>Managed releases <code>v1.0</code> - <code>v1.4</code> (5 releases) on GitHub</p>
+</li>
+<li>
+<p>Set up RepoSense for the group, allowing for code to be properly attributed <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/35">#35</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Provided updates to the User Guide: <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/125">#125</a></p>
+</li>
+<li>
+<p>Updated documentation based on errors I encountered and how to resolve it to help future contributors <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/2">#2</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>PR standards:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All of my pull requests have referenced clearly to which issues they&#8217;re attempt to address and have resulted in no loss of code coverage. Major examples: (<a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/84">#84</a> <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/106">#106</a> <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/118">#118</a> <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/119">#119</a> <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/139">#139</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow for easier searching of employees by updated the find command to support <code>*</code> and <code>_</code> as wildcards. <code>*</code> as a generic wildcards for any number of characters (including 0), while <code>_</code> acts as a generic wildcard for a single character.</p>
+</li>
+<li>
+<p>Converted the parser to use <code>-</code> instead of <code>/</code> to read arguments, similar to the command line in modern day operating systems.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed to forum discussions (example:  <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/74#issuecomment-428847858">1</a>)</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-F10-2/main/issues/108">1</a> <a href="https://github.com/CS2103-AY1819S1-F10-2/main/issues/173">2</a> <a href="https://github.com/CS2103-AY1819S1-F10-2/main/issues/174">3</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Travis CI, AppVeyor and Coveralls to the team repo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The following sections represent my contributions to the User Guide. They demonstrate my ability to write end-user documentation.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+User Guide should include the specific commands that I implemented
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="symbols-used-in-this-guide"><a class="link" href="#symbols-used-in-this-guide">Symbols used in this guide</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Denotes something that you may want to take note of.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Denotes a warning for something critical.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">Quick Start</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java version 9 or later installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest oasis.jar <a href="https://github.com/CS2103-AY1819S1-F10-1/main/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+</li>
+<li>
+<p>Double-click the file to start the app. The following Graphical User Interface (GUI) should appear in a few seconds:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>To login, enter in the username <code>Admin</code> and the password <code>Pa55w0rd</code>. Both values are case sensitive. These values are the default username and password combinations for the admin account, and are always available.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The next section serves to showcase my additions to the Developer Guide. They act as an exhibit to show my capability in writing good technical documentation, along with the technical depth of my contributions.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">Login/Logout feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Login/Logout feature is facilitated through the use of creating a login screen before the application begins, ensuring that the user starts by logging into his account.</p>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the MainWindow class through <code>fillLoginParts()</code>, <code>removeLoginWindow()</code>, <code>removeInnerElements()</code>, <code>processLogin(LoginEvent)</code> and <code>processLogout(LogoutEvent)</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+While the login screen is displayed, other usual UI elements, such as the <code>browserPanel</code>, <code>PersonListPanel</code>, <code>ResultDisplay</code>, <code>StatusBarFooter</code>, <code>CommandBox</code> are not initialized at all, so they cannot be accessed.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To ensure that most tests still work with a login system, the <code>MainWindowHandle</code>, used by all GUI tests, automatically logs the user in right after the UI element loads.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following steps show how the program works as the user login:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When the program is started, UIManager creates the MainWindow and tells it to <code>fillLoginParts()</code>.</p>
+</li>
+<li>
+<p>The user enters his details, and clicks login.</p>
+</li>
+<li>
+<p>This causes the <code>LoginForm</code> to fire a <code>LoginEvent</code> onto the central EventBus, with the username and password saved into the <code>LoginEvent</code>.</p>
+</li>
+<li>
+<p>The Logic Manager catches the LoginEvent. It then checks if the username and password combination matches a person in the system, or the admin user. To do so, it communicates with the <code>model</code> to retrieve everyone in the system.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If there is no successful match, then a <code>FailedLoginEvent</code> is fired. The LoginForm catches this Event and displays the error message provided by the FailedLoginEvent.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>If there is a successful match, then a <code>SuccessfulLoginEvent</code> is fired. This event contains the person that is currently logging in, wrapped in a User object.</p>
+</li>
+<li>
+<p>The <code>mainWindow</code> class catches the <code>SuccessfulLoginEvent</code> and processes it, removing the login UI Elements and replacing it with <code>fillInnerParts()</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram fully shows the steps involved:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoginSequenceDiagram.png" alt="LoginSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>When the user wishes to logout, he enters logout, which triggers the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>LogoutEvent</code> is fired by the <code>LogoutCommand</code>.</p>
+</li>
+<li>
+<p>The <code>mainWindow</code> class catches the <code>LogoutCommand</code> and processes it, removing the main UI elements and replacing it with the <code>fillLoginParts()</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-login-screen-is-displayed"><a class="link" href="#aspect-how-the-login-screen-is-displayed">Aspect: How the login screen is displayed</a></h5>
+<div class="paragraph">
+<p>The login screen needs to be displayed to the user in some fashion.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Create a login screen before initializing other UI elements on the fly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: One single window. Clear to the user which window to focus on. Most applications work this way, so it should be familiar to the majority of our users.</p>
+</li>
+<li>
+<p>Cons: Harder to implement. Need to take into account other possible UI elements, preload only those that are required, and ensure that tests stay supported.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Build another UI Window just for login. Before logging in, this window will popup up. Once the user has logged in, the login window will close and the main window will pop up.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Far easier to implement. Login system abstracted away from other functionality.</p>
+</li>
+<li>
+<p>Cons: It will be hard to maintain the same window size as the login window, if the user resizes it. More coupling would be required to maintain the same window size. Very odd and unfamiliar to most users. No application today opens a login window, then on successful login, closes that login window and opens a new one, meant for the user to use. This can cause a lot of user confusion. They may think that:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The new window is representing error message, it should not have opened.</p>
+</li>
+<li>
+<p>The application had an error and unexpectedly shutdown.</p>
+</li>
+<li>
+<p>The new window is from another application that the user has running on his computer.</p>
+</li>
+<li>
+<p>They did something wrong (perhaps they pressed the button to close the window instead?)</p>
+</li>
+<li>
+<p>The developers are idiots.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-ui-elements-to-build-the-login-system"><a class="link" href="#aspect-ui-elements-to-build-the-login-system">Aspect: UI Elements to build the login system</a></h5>
+<div class="paragraph">
+<p>When OASIS boots up, the login screen needs to be displayed. The UI elements used to build this login screen needs to be decided on where they should go on the screen.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Using the same placeholders already available, place the appropriate UI elements on the screen.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Utilizes the same placeholders currently in the system, so will adapt the same way to window re-sizing.</p>
+</li>
+<li>
+<p>Cons: Looks uglier than if the window was created solely to enter login data</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Build the window from scratch to show login UI elements.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Nicer, the UI elements are built for login</p>
+</li>
+<li>
+<p>Cons: Harder to implement. Need a good graphic designer to plan out how said nice login screen would look like, otherwise it&#8217;d just look bad and you might as well go with Alternative 1.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-the-ui-and-logic-elements-should-communicate"><a class="link" href="#aspect-how-the-ui-and-logic-elements-should-communicate">Aspect: How the UI and Logic elements should communicate.</a></h5>
+<div class="paragraph">
+<p>Whenever a login is done by the User, the <code>UI</code>, <code>Logic</code> and <code>Model</code> elements need to communicate to handle the event.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>UI</code> needs to provide the User Input information.</p>
+</li>
+<li>
+<p>The <code>Logic</code> needs to perform the check of whether this is a valid Username and Password combination.</p>
+</li>
+<li>
+<p>The <code>Model</code> needs to provide the data for the logic to do it&#8217;s work.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There needs to be a solution to handle this cleanly and without causing unnecessary coupling, as this will likely be required to be extended upon in the long run.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Utilize the EventBus to allow <code>UI</code>, <code>Model</code> and <code>Logic</code> to communicate</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces coupling, as UI, Model and Logic doesn&#8217;t need to know about each other. If required, other classes can also listen for the Event and process accordingly</p>
+</li>
+<li>
+<p>Cons: Needs some work to implement. Requires building up new classes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Let UI, Logic and Model know about each other, allowing them to call the relevant methods and do the relevant checks</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Grealy increases coupling. Not a good design decision, as it will make it harder to maintain the code in the future.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Build a command like system (similar to how Commands are implemented in the system) for UI to talk to Logic. Logic then uses the Command system to reply back to UI.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces the amount of coupling added into the system. Provides a way for UI to get Logic to do things, in case more functionality is added that uses UI input.</p>
+</li>
+<li>
+<p>Cons: Very time consuming to implement. Hard to design as there is no clear functionality that might also need this system in the future.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">Username and Password storage</a></h4>
+<div class="paragraph">
+<p>To store username and password, the class <code>Person</code> has been extended to include a Username and Password variable as well. These two variables represent the Username and Password stored in the system for that Person.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="admin-account"><a class="link" href="#admin-account">Admin account</a></h4>
+<div class="paragraph">
+<p>There is a possibility that the entire system is cleared of all employees (i.e when initializing, or an accidental deleting of all employees). To resolve this issue, an admin account is added that will ensure that there is always a user that can login in. The admin account cannot be removed and always has full access rights. By default, the username of the admin account is <code>Admin</code> and the password is <code>Pa55w0rd</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The password of the admin account can be modified through the <code>passwd</code> command.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-where-the-admin-account-password-can-be-stored"><a class="link" href="#aspect-where-the-admin-account-password-can-be-stored">Aspect: Where the admin account password can be stored.</a></h5>
+<div class="paragraph">
+<p>Since the admin account would cause the system to be very insecure if it&#8217;s password couldn&#8217;t be changed, the admin account password must be changeable and stored somewhere, so that it persists across sessions. But where?</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Place the storage in User Preferences</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. A nice, centralized place to store general application information.</p>
+</li>
+<li>
+<p>Cons: If the file is deleted, then the password will revert back to the default, which leaves the admin account vulnerable.</p>
+</li>
+<li>
+<p>As we plan to store the system in a central server, the admin account&#8217;s information will be stored in the server, and not locally. As this is intended to change before the final release, we went for the option that is the simplest to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Add it into the address book.xml file</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: If the password was attempted to be removed through the deletion of the file, then this will also delete everyone in the system as well, thus rendering the access to the admin account useless.</p>
+</li>
+<li>
+<p>Cons: Since the file is stored in an xml format, it is easy for any dedicated attacker to find and remove the password information, reverting it to the default. Harder to implement, as would require large changes in the address book parser.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Store it within environment variables</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Somewhat harder to find. Ensures that admin password remains even when the data files are deleted.</p>
+</li>
+<li>
+<p>Cons: The admin password would not transfer over systems for the average user. It would be difficult and require technical knowledge of the user to get it to transfer.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="passwd-command"><a class="link" href="#passwd-command">passwd Command</a></h4>
+<div class="paragraph">
+<p>To change the password, a passwd command is required. However, this command is very different from the other commands. Specifically, it requires a chain of input, and subsequent inputs from the user should not be stored in history (otherwise the user&#8217;s password are easily retrievable).</p>
+</div>
+<div class="paragraph">
+<p>This is, however, not easy to handle. This command history is automatically populated by <code>LogicManager</code>, which <code>Command.execute</code> does not have access to. To complicate things further, <code>CommandParser</code> doesn&#8217;t handle exceptions like storing a command for future use, or redirecting user input to a specific Command.</p>
+</div>
+<div class="paragraph">
+<p>To resolve this issue, <code>CommandResult</code> is extended to hold interceptors - a list of <code>ProcessCommand</code>. <code>ProcessCommand</code> is a functional interface, similar to Function except that it can throw a specific error as well. To implement passwd, it returns an implementor of <code>ProcessCommand</code> to <code>CommandResult</code>, which forwards it to <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>LogicManager</code> now accepts <code>ProcessCommand</code> from <code>CommandResult</code>, adding them to a list. As long as there exists at least one <code>ProcessCommand</code>, further messages are pushed to <code>ProcessCommand</code> instead of processed normally, and they aren&#8217;t added to history.</p>
+</div>
+<div class="paragraph">
+<p>Other possible design considerations are shown below.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-the-passwd-command"><a class="link" href="#aspect-how-to-implement-the-passwd-command">Aspect: How to implement the passwd Command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Build a foundation of <code>ProcessCommand</code> that will intercept user input and process it instead. If it does so, <code>LogicManager</code> doesn&#8217;t add the command to history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Doesn&#8217;t increase coupling unnecessarily. Allows other functions to utilize this, allowing other commands to also easily extend to a chain of user inputs.</p>
+</li>
+<li>
+<p>Cons: Harder to implement. Somewhat hard to understand, as it requires knowledge of lambdas and functional interfaces.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Apply a hack for passwd where <code>LogicManager</code> checks that if a passwd command is ongoing, it redirects there instead.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Greatly increases coupling. If further commands were to require the same functionality, this hack would need to be done again for that function.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 04:22:07 UTC</div></div></div></body></html>
