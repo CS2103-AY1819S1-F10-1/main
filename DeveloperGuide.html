@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>=</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title></title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">OASIS</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-1/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>= <span class="image"><img src="images/DeveloperGuideHeader.png" alt="DeveloperGuideHeader" width="900"></span></h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">OASIS</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-1/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1><span class="image"><img src="images/DeveloperGuideHeader.png" alt="DeveloperGuideHeader" width="900"></span></h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>NUS School of Computing AY1819S1 F10-1 Team</code>      Since: <code>Aug 2018</code>      Licence: <code>MIT</code></p>
@@ -41,11 +41,12 @@
 <li><a href="#supporting-commands-for-permission-system">4.4. Supporting commands for Permission System</a></li>
 <li><a href="#command-shortcuts">4.5. Command Shortcuts</a></li>
 <li><a href="#assignment-management">4.6. Assignment Management</a></li>
-<li><a href="#view-deleted-employee-archive">4.7. View deleted employee archive</a></li>
-<li><a href="#login-logout-feature">4.8. Login/Logout feature</a></li>
-<li><a href="#leave-application">4.9. Leave Application</a></li>
-<li><a href="#logging">4.10. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.11. Configuration</a></li>
+<li><a href="#archive-employee-feature">4.7. Archive employee feature</a></li>
+<li><a href="#restore-employee-feature">4.8. Restore employee feature</a></li>
+<li><a href="#login-logout-feature">4.9. Login/Logout feature</a></li>
+<li><a href="#leave-application">4.10. Leave Application</a></li>
+<li><a href="#logging">4.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1438,26 +1439,26 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive"><a class="link" href="#view-deleted-employee-archive">4.7. View deleted employee archive</a></h3>
+<h3 id="archive-employee-feature"><a class="link" href="#archive-employee-feature">4.7. Archive employee feature</a></h3>
 <div class="paragraph">
-<p>Employees with the "Department manager" permissions are allowed to delete employees in the system - related to firing employees in real life. Deleted employees in the system will not be shown in the display list but be moved to an archive list instead. Objects in the archive list can then be restored to the system or be permanently deleted.</p>
+<p>Employees with the "Delete_employee" permissions are allowed to delete employees in the system - related to firing employees in real life. Deleted employees from the active list will be moved to the archived list.</p>
 </div>
 <div class="sect3">
 <h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">4.7.1. Proposed implementation</a></h4>
 <div class="paragraph">
-<p>The view deleted employee archive feature is facilitated by <code>VersionedArchiveList</code> and `UniquePersonList.</p>
+<p>The archive employee feature is facilitated by <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the <code>VersionedArchiveList</code> and <code>UniquePersonList</code> behaves at each step.</p>
+<p>Given below is an example usage scenario and how the <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code> behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedArchiveList</code> will be initialized with the initial archive list state and an empty <code>UniquePersonList</code> is maintained.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedArchiveList</code> and <code>VerisionedAddressBook</code> will be initialized with the initial archive list and address book state. The <code>UniquePersonList</code> in both classes will be populated with data from read by storage.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes delete 3 command on the active list to delete the 3rd person in the active list. The Person object from the <code>UniquePersonList</code> in <code>VersionedAddressBook</code> will be transferred to the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> and store the deleted Person&#8217;s data.</p>
+<p>Step 2. The user executes delete 3 command on the active list to delete the 3rd person in the active list. The selected Person object from the <code>UniquePersonList</code> in <code>VersionedAddressBook</code> will be transferred to the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> and store the deleted Person’s data.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes archive command to view the <code>UniquePersonList</code> in <code>VersionedArchiveList</code>.</p>
+<p>Step 3. The user executes archive command to change view from active list to the archive list.</p>
 </div>
 <div class="paragraph">
 <p>Step 4. OASIS shows delete person in step 2 in the archive list</p>
@@ -1469,9 +1470,6 @@ enough key combination to accommodate all the commands.</p>
 <div class="content">
 <img src="images/archiveActivityDiagram.PNG" alt="archiveActivityDiagram" width=""350">
 </div>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the archive operation works:</p>
 </div>
 <div class="sect4">
 <h5 id="aspect-model-3"><a class="link" href="#aspect-model-3">Aspect: Model</a></h5>
@@ -1573,9 +1571,130 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">4.8. Login/Logout feature</a></h3>
+<h3 id="restore-employee-feature"><a class="link" href="#restore-employee-feature">4.8. Restore employee feature</a></h3>
+<div class="paragraph">
+<p>Employees with the "Restore_employee" permissions can restore employees from the archive list into the active list - related to hiring back old employees in real life. The restored employee will be moved back to the active list and removed from the archive list. Employees with “Delete_employee” permissions can also completely remove employees in the archive list, permanently removing them from OASIS.</p>
+</div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.8.1. Current Implementation</a></h4>
+<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">4.8.1. Proposed implementation</a></h4>
+<div class="paragraph">
+<p>The Restore or completely remove employee feature is facilitated by <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code> behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedArchiveList</code> and <code>VersionedAddressBook</code> will be initialized with the initial archive list and address book state. The <code>UniquePersonList</code> in both classes will be populated with data from read by storage.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes archive command to change view from active list to the archive list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a1. The user executes restore 1 command to restore the first person in the archive list. The selected Person object from the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> will be transferred to the <code>UniquePersonList</code> in <code>VersionedAddressBook</code> and be back in the active list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a2. The user executes list command to change view from archive list to active list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a3. The employee restored in Step 3a1 is shown in active list</p>
+</div>
+<div class="paragraph">
+<p>Step 3b1. The user executes delete 1 command to completely remove the first person in the archive list from OASIS. The selected Person object from the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> will be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Step3b2. Archive list updated and deleted employee is removed.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes remove and restore command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/archiveActivityDiagram.PNG" alt="archiveActivityDiagram" width=""350">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the archive operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/restoreSequenceDiagram.jpg" alt="restoreSequenceDiagram" width=""350">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.2. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-lifetime-of-objects-in-archive-list-2"><a class="link" href="#aspect-lifetime-of-objects-in-archive-list-2">Aspect: Lifetime of objects in Archive list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Deleted permanently after being removed by user again.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Guaranteed no loss of data if an employee is accidentally deleted.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage as employee records stored a few years back could still be stored.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Deleted after a certain number of time has passed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More efficient memory usage wont store old employee records which could cause high memory usage.</p>
+</li>
+<li>
+<p>Cons: Loss of data possible if an employee is accidentally deleted and not restored right away.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-archive-commands-2"><a class="link" href="#aspect-data-structure-to-support-the-archive-commands-2">Aspect: Data structure to support the archive commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the archived employee objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Only require small modification in existing classes. Faster access to archive list as you don&#8217;t have to search every employee in the system to get the employees archived.</p>
+</li>
+<li>
+<p>Cons: We must maintain a separate list for archived objects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Assign an archive attribute to each employee object in the addressbook and show only in the system if archived attribute is false. In contrast show in the archive display list if archive attribute is true.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only need to change 1 attribute when an employee is deleted.</p>
+</li>
+<li>
+<p>Cons: "Archive" is an unusual attribute for a person and it will be time consuming to view the archive list as you have to go through all employees to check the archive attribute.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">4.9. Login/Logout feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Login/Logout feature is facilitated through the use of creating a login screen before the application begins, ensuring that the user starts by logging into his account.</p>
 </div>
@@ -1672,7 +1791,7 @@ The following detailed steps show how the program works as the user login.:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-login-screen-is-displayed"><a class="link" href="#aspect-how-the-login-screen-is-displayed">Aspect: How the login screen is displayed</a></h5>
 <div class="paragraph">
@@ -1828,13 +1947,13 @@ The following detailed steps show how the program works as the user login.:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">4.8.3. Username and Password storage</a></h4>
+<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">4.9.3. Username and Password storage</a></h4>
 <div class="paragraph">
 <p>To store username and password, the class <code>Person</code> has been extended to include a Username and Password variable as well. These two variables represent the Username and Password stored in the system for that Person.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="admin-account"><a class="link" href="#admin-account">4.8.4. Admin account</a></h4>
+<h4 id="admin-account"><a class="link" href="#admin-account">4.9.4. Admin account</a></h4>
 <div class="paragraph">
 <p>There is a possibility that the entire system is cleared of all employees (i.e when initializing, or an accidental deleting of all employees). To resolve this issue, an admin account is added that will ensure that there is always a user that can login in. The admin account cannot be removed and always has full access rights. By default, the username of the admin account is <code>Admin</code> and the password is <code>Pa55w0rd</code>.</p>
 </div>
@@ -1852,7 +1971,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.5. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.9.5. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-where-the-admin-account-password-can-be-stored"><a class="link" href="#aspect-where-the-admin-account-password-can-be-stored">Aspect: Where the admin account password can be stored.</a></h5>
 <div class="paragraph">
@@ -1907,7 +2026,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="passwd-command"><a class="link" href="#passwd-command">4.8.6. passwd Command</a></h4>
+<h4 id="passwd-command"><a class="link" href="#passwd-command">4.9.6. passwd Command</a></h4>
 <div class="paragraph">
 <p>To change the password, a passwd command is required. However, this command is very different from the other commands. Specifically, it requires a chain of input, and subsequent inputs from the user should not be stored in history (otherwise the user&#8217;s password are easily retrievable).</p>
 </div>
@@ -1925,7 +2044,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.8.7. Design Considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.9.7. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-the-passwd-command"><a class="link" href="#aspect-how-to-implement-the-passwd-command">Aspect: How to implement the passwd Command</a></h5>
 <div class="ulist">
@@ -1961,7 +2080,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="password-security"><a class="link" href="#password-security">4.8.8. Password Security</a></h4>
+<h4 id="password-security"><a class="link" href="#password-security">4.9.8. Password Security</a></h4>
 <div class="paragraph">
 <p>There is a need to have passwords be stored securely as opposed to being stored in plain text. The standard today is to have password be salted and hashed, which is also the standard that OASIS is implemented in.</p>
 </div>
@@ -1988,7 +2107,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.8.9. Design Considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.9.9. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-much-security-is-required-for-the-password"><a class="link" href="#aspect-how-much-security-is-required-for-the-password">Aspect: How much security is required for the password</a></h5>
 <div class="ulist">
@@ -2038,12 +2157,12 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-application"><a class="link" href="#leave-application">4.9. Leave Application</a></h3>
+<h3 id="leave-application"><a class="link" href="#leave-application">4.10. Leave Application</a></h3>
 <div class="paragraph">
 <p>In OASIS, an employee can make a leave application by specifying a description, as well as the dates, that he or she wishes to apply for. Users are also able to view a list of all their own leave applications and their details, while those with the required permissions have the added ability to view all leave applications of all employees, as well as approve or reject leave applications.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A leave application is represented by a <code>LeaveApplication</code> model object, as follows:</p>
 </div>
@@ -2206,7 +2325,7 @@ The <code>leaveapprove</code> and <code>leavereject</code> commands behave is ne
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-leave-applications-are-stored"><a class="link" href="#aspect-how-leave-applications-are-stored">Aspect: How leave applications are stored</a></h5>
 <div class="ulist">
@@ -2301,14 +2420,14 @@ Alternative 2 is actually cleaner to implement and understand. However, Alternat
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.10. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.11, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -2339,7 +2458,7 @@ Alternative 2 is actually cleaner to implement and understand. However, Alternat
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.11. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3486,4 +3605,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:11:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 17:19:53 UTC</div></div></div></body></html>
