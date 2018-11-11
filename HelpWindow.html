@@ -262,6 +262,9 @@ Format: <code>history</code></p>
 <li>
 <p>The username cannot be "Admin", as that is reserved for the admin account.</p>
 </li>
+<li>
+<p>The user is created with the default password of Pa55w0rd</p>
+</li>
 </ul>
 </div>
 </div>
@@ -272,10 +275,10 @@ Format: <code>history</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add -n Joshua -s 15000 -e <a href="mailto:josh@gmail.com">josh@gmail.com</a> -n 81234567 -a 81 Joshua&#8217;s Road  Singapore 123456</code></p>
+<p><code>add -n Joshua -s 15000 -e <a href="mailto:josh@gmail.com">josh@gmail.com</a> -p 81234567 -a 81 Joshua&#8217;s Road  Singapore 123456</code></p>
 </li>
 <li>
-<p><code>add -n Raynard -e <a href="mailto:rnardha@gmail.com">rnardha@gmail.com</a> -n 91235678 -s 1000 -a somewhere on earth -u Nard</code></p>
+<p><code>add -n Raynard -e <a href="mailto:rnardha@gmail.com">rnardha@gmail.com</a> -p 91235678 -s 1000 -a somewhere on earth -u Nard</code></p>
 </li>
 </ul>
 </div>
@@ -818,12 +821,22 @@ Format: <code>list</code></p>
 <div class="paragraph">
 <p>Format: <code>passwd</code></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>The password must contain at least 1 captial letter, one lowercase letter and one digit. It must also be at least 8 characters long.</p>
+</li>
+</ul>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
 <p>You will be prompted for your current password, and then your new one.</p>
+</li>
+<li>
+<p>The default password for all accounts is Pa55w0rd.</p>
 </li>
 </ul>
 </div>
@@ -1367,4 +1380,4 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:32:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:37:46 UTC</div></div></div></body></html>
