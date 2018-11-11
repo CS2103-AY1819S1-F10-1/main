@@ -36,15 +36,16 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
-<li><a href="#permission-system">4.2. Permission System</a></li>
-<li><a href="#supporting-features-for-permission-system">4.3. Supporting features for Permission System</a></li>
-<li><a href="#command-shortcuts">4.4. Command Shortcuts</a></li>
-<li><a href="#assignment-management">4.5. Assignment Management</a></li>
-<li><a href="#view-deleted-employee-archive-feature">4.6. View deleted employee archive feature</a></li>
-<li><a href="#login-logout-feature">4.7. Login/Logout feature</a></li>
-<li><a href="#leave-application">4.8. Leave Application</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#command-auto-complete">4.2. Command Auto Complete</a></li>
+<li><a href="#permission-system">4.3. Permission System</a></li>
+<li><a href="#supporting-commands-for-permission-system">4.4. Supporting commands for Permission System</a></li>
+<li><a href="#command-shortcuts">4.5. Command Shortcuts</a></li>
+<li><a href="#assignment-management">4.6. Assignment Management</a></li>
+<li><a href="#view-deleted-employee-archive-feature">4.7. View deleted employee archive feature</a></li>
+<li><a href="#login-logout-feature">4.8. Login/Logout feature</a></li>
+<li><a href="#leave-application">4.9. Leave Application</a></li>
+<li><a href="#logging">4.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -815,31 +816,129 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="permission-system"><a class="link" href="#permission-system">4.2. Permission System</a></h3>
+<h3 id="command-auto-complete"><a class="link" href="#command-auto-complete">4.2. Command Auto Complete</a></h3>
+<div class="paragraph">
+<p>When user type in the command box, OASIS will predict what commands the user is going to run, and display a drop down list containing all suggestions.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Auto complete functionality in OASIS is supported by both <code>org.controlsfx.control.textfield.TextFields</code> API and <code>AutoCompleteCommandHelper</code> class.</p>
+</div>
+<div class="paragraph">
+<p>When text is typed into the Command Box (<code>commandTextField</code> object), it will display a drop down list of possible commands, that is retrieved from <code>AutoCompleteCommandHelper</code> class.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.controlsfx.control.textfield.TextFields</code> API is utilised to display the drop down list.</p>
+</li>
+<li>
+<p><code>AutoCompleteCommandHelper</code> class is used to generate the <code>Set</code> of possible commands with the input given in <code>CommandBox</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="aspect-logic-ui"><a class="link" href="#aspect-logic-ui">Aspect: Logic &amp; UI</a></h5>
+<div class="paragraph">
+<p>When <code>CommandBox</code> class is being constructed, <code>bindAutoCompletion</code> method provided by <code>TextFields</code> API will be utilised to create an auto-completion binding between the <code>commandTextField</code> object and <code>AutoCompleteCommandHelper#autoCompleteWord</code> method.</p>
+</div>
+<div class="paragraph">
+<p>With this binding, whenever <code>commandTextField</code> is updated, it will display a drop down list of possible commands retrieved from <code>AutoCompleteCommandHelper#autoCompleteWord</code> if it exist.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Make use of <code>TextFields</code> API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Pros: Can view ALL possible commands.</p>
+</li>
+<li>
+<p>Cons: There is a slight delay before the drop down list appear. Can potentially slow down users who type fast.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Immediately place predicted command as text into <code>commandTextField</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No delay, predicted command is immediately displayed.</p>
+</li>
+<li>
+<p>Cons: Only able to view 1 possible command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="permission-system"><a class="link" href="#permission-system">4.3. Permission System</a></h3>
 <div class="paragraph">
 <p>There are several commands in OASIS that should not be executable by every user. E.g. Add and Delete commands should only be usable by user with the power to hire and dismiss other employees.
 Permission system is used to ensure that each user are only able to perform commands that they are authorised to when using OASIS.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current implementation</a></h4>
 <div class="sect4">
 <h5 id="aspect-model"><a class="link" href="#aspect-model">Aspect: Model</a></h5>
 <div class="paragraph">
 <p>Model of a person have been changed to reflect the permission that each user possesses.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram highlights the class added to reflect the changes to the model for <code>Person</code>.</p>
+<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/permissionPersonModel.png" alt="permissionPersonModel" width="350">
+<img src="images/permissionPersonModel.png" alt="permissionPersonModel" width="750">
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Permission</code> class contains the all possible Permissions that are available to a Person.</p>
+</li>
+<li>
+<p>All values in <code>PermissionSet</code> must be from <code>Permission</code> class.</p>
+</li>
+<li>
+<p><code>PresetPermission</code> is a enumeration class that resides in <code>PermissionSet</code>. <code>PresetPermission</code> is utilised by <code>PermissionSet</code> class to generate a <code>PermissionSet</code> object that represents the set of permission that a certain type of User will possess.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As of v1.4, <code>PresetPermission</code> only contains the following preset: <code>Admin</code>, <code>Manager</code> and <code>Employee</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="aspect-storage"><a class="link" href="#aspect-storage">Aspect: Storage</a></h5>
 <div class="paragraph">
 <p>Permission have to be stored in the addressbook where the information for <code>Person</code> is stored. This is achieved through creation of <code>XmlAdaptedPermission</code>, which was utilised by <code>XmlAdaptedPerson</code> to store the information in an xml file.</p>
+</div>
+<div class="paragraph">
+<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -860,22 +959,36 @@ Permission system is used to ensure that each user are only able to perform comm
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> AddCommand(Person person) {
     requireNonNull(person);
-    requiredPermission.addPermissions(<span class="predefined-type">Permission</span>.ADD_EMPLOYEE);
+    requiredPermission.addPermissions(<span class="predefined-type">Permission</span>.ADD_EMPLOYEE); <i class="conum" data-value="1"></i><b>(1)</b>
     toAdd = person;
 }</code></pre>
 </div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The method to assign permission to a command</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The code to ensure that each command is only executed by user with the correct permission is located in <code>Command#execute</code>.</p>
+</div>
+<div class="paragraph">
+<p>When any command executes, the command will first check if the logged in user possess the correct authorization by comparing <code>requiredPermission</code> with the user&#8217;s <code>permissionSet</code> object, before performing the command.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example scenario of how commands will be executed.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user enters a command <code>Delete 1</code> into the CLI.</p>
+<p>Step 1. The user enters a command <code>delete 1</code> into the CLI.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The system retrieves current user&#8217;s <code>PermissionSet</code></p>
 </div>
 <div class="paragraph">
-<p>Step 3. The system compares user&#8217;s <code>PermissionSet</code> with <code>Delete</code> command&#8217;s <code>requiredPermission</code>.</p>
+<p>Step 3. The system compares user&#8217;s <code>PermissionSet</code> with <code>DeleteCommand</code> 's <code>requiredPermission</code>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -905,7 +1018,7 @@ Permission system is used to ensure that each user are only able to perform comm
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -940,12 +1053,12 @@ The commands executable by the user will depend on their class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="supporting-features-for-permission-system"><a class="link" href="#supporting-features-for-permission-system">4.3. Supporting features for Permission System</a></h3>
+<h3 id="supporting-commands-for-permission-system"><a class="link" href="#supporting-commands-for-permission-system">4.4. Supporting commands for Permission System</a></h3>
 <div class="paragraph">
-<p>The following are features that have been implemented to support the Permission System.</p>
+<p>The following are commands that have been implemented to support the Permission System.</p>
 </div>
 <div class="sect3">
-<h4 id="modify-permissions-of-employee"><a class="link" href="#modify-permissions-of-employee">4.3.1. Modify Permissions of employee</a></h4>
+<h4 id="modify-permissions-of-employee"><a class="link" href="#modify-permissions-of-employee">4.4.1. Modify Permissions of employee</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to change the Permission that have been allocated to an employee.</p>
 </div>
@@ -962,7 +1075,7 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </table>
 </div>
 <div class="sect4">
-<h5 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h5>
+<h5 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h5>
 <div class="paragraph">
 <p>This feature allows the user to indicate what permission to add and remove based on the prefix.</p>
 </div>
@@ -976,19 +1089,40 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </li>
 </ul>
 </div>
+<div class="sect5">
+<h6 id="aspect-logic-2"><a class="link" href="#aspect-logic-2">Aspect: Logic</a></h6>
 <div class="paragraph">
-<p>To implement this new command syntax, <code>ModifyPermissionCommandParser</code> utilises <code>ArgumentTokenizer#tokenize</code> to generate a <code>ArgumentMultiMap</code>. The <code>ArgumentMultiMap</code> 's <code>key</code> contains the prefix, and <code>value</code> contains the list of keywords that succeeded the prefix. There will also be a <code>preamble</code> which can be used to retrieve the <code>index</code> of the targeted employee.</p>
+<p>To implement this new command syntax, <code>ModifyPermissionCommandParser</code> utilises <code>ArgumentTokenizer#tokenize</code> to generate a <code>ArgumentMultiMap</code>. The <code>ArgumentMultiMap</code> 's <code>key</code> contains the prefix, and <code>value</code> contains the list of keywords that succeeded the prefix. There will also be a <code>preamble</code> which is used to retrieve the <code>index</code> of the targeted employee.</p>
 </div>
 <div class="paragraph">
-<p>The list of keywords is then used to create <code>permissionToAdd:Set&lt;Permission&gt;</code> and <code>permissionToRemove:Set&lt;Permission&gt;</code>, depending on their prefix. The 2 sets, together with the index, will be then be used to create <code>ModifyPermissionCommand</code>.</p>
+<p>All the keywords is then added to either <code>permissionToAdd:Set&lt;Permission&gt;</code> or <code>permissionToRemove:Set&lt;Permission&gt;</code> depending on their prefix. The 2 sets, together with the index, will be then be used to create <code>ModifyPermissionCommand</code>.</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Might want to insert code snippet here</pre>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A ParseException will be thrown if any of the permission names are invalid.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>When <code>ModifyPermissionCommand</code> is executed, it will then modify the permission of targeted employee, adding permission in <code>permissionToAdd</code> and removing permissions in <code>permissionToRemove</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The command will be executed successfully if at least one permission is added or removed.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following is a sequence diagram that visualizes how this operation works.</p>
@@ -1000,8 +1134,42 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 </div>
+<div class="sect4">
+<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Allow both adding and removing of multiple permissions with one command with the use of prefixes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only need to learn how to use 1 command. Can perform both adding and removing of permissions with a single command.</p>
+</li>
+<li>
+<p>Cons: Harder to implement then other alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Create 2 separate commands to handle adding and removing of permission. (E.g. <code>AddPermissionCommand</code> and <code>RemovePermissionCommand</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: User will have to remember 2 commands. In addition to this, User also have to execute at least 2 commands if they wish to both add and remove permission.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="view-permissions-of-employee"><a class="link" href="#view-permissions-of-employee">4.3.2. View Permissions of employee</a></h4>
+<h4 id="view-permissions-of-employee"><a class="link" href="#view-permissions-of-employee">4.4.2. View Permissions of employee</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to view the permissions that have been allocated to an employee.</p>
 </div>
@@ -1017,15 +1185,77 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </tr>
 </table>
 </div>
+<div class="sect4">
+<h5 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h5>
+<div class="paragraph">
+<p>To use this command, the user only have to give an <code>INDEX</code> parameter.</p>
+</div>
+<div class="sect5">
+<h6 id="aspect-logic-3"><a class="link" href="#aspect-logic-3">Aspect: Logic</a></h6>
+<div class="paragraph">
+<p>To process this command, <code>ViewPermissionCommandParser</code> simply utilise <code>ParserUtil#parseIndex</code> to parse the argument into the <code>index</code> of the target employee.</p>
+</div>
+<div class="paragraph">
+<p>The index will then be used to create a <code>ViewPermissionCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>When <code>ViewPermissionCommand</code> is executed, it will retrieve the targeted employee from the <code>Model</code>, and print out the list of permission that the employee possesses.</p>
+</div>
+<div class="paragraph">
+<p>The following is a sequence diagram that visualizes how this operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/viewPermissionSequenceDiagram.png" alt="viewPermissionSequenceDiagram" width=""350">
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-5"><a class="link" href="#design-considerations-5">Design Considerations</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Display permissions in the command box result text field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Can only view permissions of a single employee at a time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Display all permissions in the Person card.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to view all permissions, of all employee in one go.</p>
+</li>
+<li>
+<p>Pros: No commands required.</p>
+</li>
+<li>
+<p>Cons: Person card can get very cluttered if employee have many permissions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-shortcuts"><a class="link" href="#command-shortcuts">4.4. Command Shortcuts</a></h3>
+<h3 id="command-shortcuts"><a class="link" href="#command-shortcuts">4.5. Command Shortcuts</a></h3>
 <div class="paragraph">
 <p>With various keyboard combinations user will be able to invoke commands' keyword.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Keyboard shortcuts in OASIS is implemented in the KeyEvent handler within the <code>CommandBox</code> class.</p>
 </div>
@@ -1034,14 +1264,14 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-ui"><a class="link" href="#aspect-logic-ui">4.4.2. Aspect: Logic &amp; UI</a></h4>
+<h4 id="aspect-logic-ui-2"><a class="link" href="#aspect-logic-ui-2">4.5.2. Aspect: Logic &amp; UI</a></h4>
 <div class="paragraph">
 <p>Within the <code>CommandBox</code> class, there is KeyEvent handler method which will detect keyboard strokes. If the key pressed is a valid
 combination, then the text in the command box will be replaced with the text corresponding to one of the existing commands.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">4.4.3. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.5.3. Design Consideration</a></h4>
 <div class="paragraph">
 <p>Current Implementation: Use the KeyEvent handler in the <code>CommandBox</code> class.</p>
 </div>
@@ -1059,7 +1289,7 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="assignment-management"><a class="link" href="#assignment-management">4.5. Assignment Management</a></h3>
+<h3 id="assignment-management"><a class="link" href="#assignment-management">4.6. Assignment Management</a></h3>
 <div class="paragraph">
 <p>Assignment management is an important feature in company management system. As such there are four critical features of assignment management. These features are <code>addassignment</code>,
 <code>listassignments</code>, <code>deleteassignment</code> and <code>editassignment</code>.</p>
@@ -1068,7 +1298,7 @@ enough key combination to accommodate all the commands.</p>
 <p>These commands could only be executed by user with the appropriate permission.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.5.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.6.1. Proposed Implementation</a></h4>
 <div class="sect4">
 <h5 id="aspect-model-2"><a class="link" href="#aspect-model-2">Aspect: Model</a></h5>
 <div class="paragraph">
@@ -1099,7 +1329,7 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="aspect-logic-2"><a class="link" href="#aspect-logic-2">4.5.2. Aspect: Logic</a></h4>
+<h4 id="aspect-logic-4"><a class="link" href="#aspect-logic-4">4.6.2. Aspect: Logic</a></h4>
 <div class="paragraph">
 <p>When user enter the commands related to assignment, the commands will be parser to correct execution. Below are the examples scenarios:</p>
 </div>
@@ -1171,7 +1401,7 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.5.3. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.6.3. Design Consideration</a></h4>
 <div class="sect4">
 <h5 id="aspect-storage-3"><a class="link" href="#aspect-storage-3">Aspect: Storage</a></h5>
 <div class="ulist">
@@ -1208,12 +1438,12 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">4.6. View deleted employee archive feature</a></h3>
+<h3 id="view-deleted-employee-archive-feature"><a class="link" href="#view-deleted-employee-archive-feature">4.7. View deleted employee archive feature</a></h3>
 <div class="paragraph">
 <p>Employees with the "Department manager" permissions are allowed to delete employees in the system - related to firing employees in real life. Deleted employees in the system will not be shown in the display list but be moved to an archive list instead. Objects in the archive list can then be restored to the system or be permanently deleted.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">4.6.1. Proposed implementation</a></h4>
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">4.7.1. Proposed implementation</a></h4>
 <div class="paragraph">
 <p>The view deleted employee archive feature is facilitated by <code>VersionedAddressBook</code> and <code>UniqueArchiveList</code>.</p>
 </div>
@@ -1290,7 +1520,7 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-lifetime-of-objects-in-archive-list"><a class="link" href="#aspect-lifetime-of-objects-in-archive-list">Aspect: Lifetime of objects in Archive list</a></h5>
 <div class="ulist">
@@ -1360,9 +1590,9 @@ enough key combination to accommodate all the commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">4.7. Login/Logout feature</a></h3>
+<h3 id="login-logout-feature"><a class="link" href="#login-logout-feature">4.8. Login/Logout feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Login/Logout feature is facilitated through the use of creating a login screen before the application begins, ensuring that the user starts by logging into his account.</p>
 </div>
@@ -1459,7 +1689,7 @@ The following detailed steps show how the program works as the user login.:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-login-screen-is-displayed"><a class="link" href="#aspect-how-the-login-screen-is-displayed">Aspect: How the login screen is displayed</a></h5>
 <div class="paragraph">
@@ -1618,13 +1848,13 @@ The following detailed steps show how the program works as the user login.:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">4.7.3. Username and Password storage</a></h4>
+<h4 id="username-and-password-storage"><a class="link" href="#username-and-password-storage">4.8.3. Username and Password storage</a></h4>
 <div class="paragraph">
 <p>To store username and password, the class <code>Person</code> has been extended to include a Username and Password variable as well. These two variables represent the Username and Password stored in the system for that Person.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="admin-account"><a class="link" href="#admin-account">4.7.4. Admin account</a></h4>
+<h4 id="admin-account"><a class="link" href="#admin-account">4.8.4. Admin account</a></h4>
 <div class="paragraph">
 <p>There is a possibility that the entire system is cleared of all employees (i.e when initializing, or an accidental deleting of all employees). To resolve this issue, an admin account is added that will ensure that there is always a user that can login in. The admin account cannot be removed and always has full access rights. By default, the username of the admin account is <code>Admin</code> and the password is <code>Pa55w0rd</code>.</p>
 </div>
@@ -1642,7 +1872,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.5. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.5. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-where-the-admin-account-password-can-be-stored"><a class="link" href="#aspect-where-the-admin-account-password-can-be-stored">Aspect: Where the admin account password can be stored.</a></h5>
 <div class="paragraph">
@@ -1697,7 +1927,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="passwd-command"><a class="link" href="#passwd-command">4.7.6. passwd Command</a></h4>
+<h4 id="passwd-command"><a class="link" href="#passwd-command">4.8.6. passwd Command</a></h4>
 <div class="paragraph">
 <p>To change the password, a passwd command is required. However, this command is very different from the other commands. Specifically, it requires a chain of input, and subsequent inputs from the user should not be stored in history (otherwise the user&#8217;s password are easily retrievable).</p>
 </div>
@@ -1715,7 +1945,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.7. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.8.7. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-the-passwd-command"><a class="link" href="#aspect-how-to-implement-the-passwd-command">Aspect: How to implement the passwd Command</a></h5>
 <div class="ulist">
@@ -1751,7 +1981,7 @@ The password of the admin account can be modified through the <code>passwd</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="password-security"><a class="link" href="#password-security">4.7.8. Password Security</a></h4>
+<h4 id="password-security"><a class="link" href="#password-security">4.8.8. Password Security</a></h4>
 <div class="paragraph">
 <p>There is a need to have passwords be stored securely as opposed to being stored in plain text. The standard today is to have password be salted and hashed, which is also the standard that OASIS is implemented in.</p>
 </div>
@@ -1778,7 +2008,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.9. Design Considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.8.9. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-much-security-is-required-for-the-password"><a class="link" href="#aspect-how-much-security-is-required-for-the-password">Aspect: How much security is required for the password</a></h5>
 <div class="ulist">
@@ -1828,9 +2058,9 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-application"><a class="link" href="#leave-application">4.8. Leave Application</a></h3>
+<h3 id="leave-application"><a class="link" href="#leave-application">4.9. Leave Application</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>A leave application is represented by a <code>LeaveApplication</code> model object. The following sequence diagram illustrates how an application for leave by an employee works:</p>
 </div>
@@ -1871,7 +2101,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-a-code-leaveapplication-code-is-stored"><a class="link" href="#aspect-how-a-code-leaveapplication-code-is-stored">Aspect: How a <code>LeaveApplication</code> is stored</a></h5>
 <div class="ulist">
@@ -1921,14 +2151,14 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1959,7 +2189,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3077,4 +3307,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:09:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:28:27 UTC</div></div></div></body></html>

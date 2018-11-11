@@ -1,0 +1,843 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Kok Jian Yu - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">OASIS</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-F10-1/main/"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Kok Jian Yu - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-oasis"><a class="link" href="#project-oasis">PROJECT: OASIS</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Office Assistance Specialized Integration System (OASIS) is an all-in-one HR management tool targeted at Small and Medium sized companies. OASIS simplifies and makes it easy for the user to perform tasks such as Employee management, Project management and Leave management.</p>
+</div>
+<div class="paragraph">
+<p>This portfolio serves as a summary to showcase my contribution for <a href="https://github.com/CS2103-AY1819S1-F10-1/main">OASIS</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following section shows my code contribution for OASIS.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=kokjianyu&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-11&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Link</a>]</p>
+</div>
+<div class="sect2">
+<h3 id="major-enhancement-permission-system"><a class="link" href="#major-enhancement-permission-system">Major Enhancement: Permission System</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong>: Added <strong>ability to control the commands</strong> each employee can <strong>perform</strong> through usage of Permissions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensures that commands are executed only by employees with the permission required for it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>There are many commands in OASIS that should only be performable by employees with certain
+authorization. Usage of permission allows the admins to easily ensure that previously stated criteria is met.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement requires modification to different components of the application, Model, Storage and Logic.
+Therefore, implementation was challenging as it requires in-depth knowledge of the different components.</p>
+</li>
+<li>
+<p>This feature is coded to be simple to use and extensible. New permissions can be added simply into <code>Permission</code> enum class, and any new Command class only need to 1 line of code to utilise this enhancement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancement</strong>: Added ability to <strong>modify the permissions</strong> granted to an employee</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Modify the permissions of the employee.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows upper management of company to easily control the permission given to an employee.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Enhancement</strong>: Added ability to <strong>view the permissions</strong> granted to an employee</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Display the list of permissions that an employee have.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users might need to know the permissions that have been assigned to an employee. This enhancement
+give them a method to check it easily.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor Enhancement:</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enhancement</strong>: Added Command Auto-Complete feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When user type in the command box, OASIS will predict what commands the user is going to run, and display a drop down list containing all suggestions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Users might find it hard to memorize commands in OASIS. Having this enhancement will make it easier for them to find the commands they want to execute.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update <code>DeleteCommand</code> to prevent user from deleting themself (Pull requests <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/141">#141</a>)</p>
+</li>
+<li>
+<p>Wrote tests for all features implemented by me.(Pull requests <a href="https://https://github.com/CS2103-AY1819S1-F10-1/main/pull/121">#121</a>, <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/112">#112</a>, <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/85">#85</a>, <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/77">#77</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/137">1</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/136">2</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/134">3</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/135">4</a>,
+<a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/133">5</a>,
+<a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/141">6</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The sections shown below are my contribution to the User Guide. They showcase my ability to write documentation for end-users with minimal technical knowledge.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Command Auto Complete</strong></p>
+</div>
+<div class="paragraph">
+<p>OASIS has provided you with a command auto complete feature to aid you with the usage of commands. With this functionality, you no longer have to memorise any commands!</p>
+</div>
+<div class="paragraph">
+<p>When you type commands into the command box, a drop down list of possible commands will appear, as shown in the screenshot below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/autoCompleteDropDownList.png" alt="autoCompleteDropDownList" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>When the drop down list is shown, you can do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use <code>↑</code> and <code>↓</code> to navigate through the list</p>
+</li>
+<li>
+<p>Press <kbd>Enter</kbd> to select the highlighted option</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After selecting the command, you will see that the command will be displayed in the command box.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/autoCompleteFinished.png" alt="autoCompleteFinished" width="150">
+</div>
+</div>
+<div class="paragraph">
+<p>If you wish to see a list of all commands, simply type <kbd>Space</kbd> into an empty command box. You should see the list as shown in the screenshot.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/autoCompleteDropDownListAllCommand.png" alt="autoCompleteDropDownListAllCommand" width="300">
+</div>
+</div>
+<div class="sect2">
+<h3 id="modify-permissions-of-an-emplyee-code-modifypermission-code"><a class="link" href="#modify-permissions-of-an-emplyee-code-modifypermission-code">Modify permissions of an emplyee : <code>modifypermission</code></a></h3>
+<div class="paragraph">
+<p>This command allows you to modify the permissions of an employee.</p>
+</div>
+<div class="paragraph">
+<p>Format : <code>modifypermission INDEX [-a PERMISSION_TO_ADD]&#8230;&#8203; [-r PERMISSION_TO_REMOVE]&#8230;&#8203;</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Modifies the permission of the person at the specified INDEX. The index refers to the index number shown in the displayed person list. The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following is the list of Permissions available.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Permission</th>
+<th class="tableblock halign-left valign-top">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADD_EMPLOYEE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to add employee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE_EMPLOYEE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to delete employee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_EMPLOYEE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to edit information of an employee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VIEW_EMPLOYEE_LEAVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to view other employee&#8217;s applications for leave</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APPROVE_LEAVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to approve and reject leave application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADD_ASSIGNMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to add assignments into OASIS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE_ASSIGNMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to delete assignments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_ASSIGNMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to edit assignments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASSIGN_PERMISSION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows user to assign permission to employees</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "ASSIGN_PERMISSION" permission.</p>
+</li>
+<li>
+<p>At least one of the parameters must be provided</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>modifypermission 1 -a ADD_EMPLOYEE</p>
+</li>
+<li>
+<p>modifypermission 2 -a DELETE_EMPLOYEE -r ADD_EMPLOYEE</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-all-the-permissions-that-an-employee-has-code-viewpermission-code"><a class="link" href="#view-all-the-permissions-that-an-employee-has-code-viewpermission-code">View all the permissions that an employee has : <code>viewpermission</code></a></h3>
+<div class="paragraph">
+<p>Displays all the permissions that an employee has been assigned.</p>
+</div>
+<div class="paragraph">
+<p>Format: viewpermission INDEX</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "ASSIGN_PERMISSION" permissions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>viewpermission 2</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The sections shown below are my contribution to the Developer Guide. They showcase both my ability to write technical documentation targeted at future Developers(NUS Computer Science Students) of OASIS, and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="permission-system"><a class="link" href="#permission-system">Permission System</a></h3>
+<div class="paragraph">
+<p>There are several commands in OASIS that should not be executable by every user. E.g. Add and Delete commands should only be usable by user with the power to hire and dismiss other employees.
+Permission system is used to ensure that each user are only able to perform commands that they are authorised to when using OASIS.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="sect4">
+<h5 id="aspect-model"><a class="link" href="#aspect-model">Aspect: Model</a></h5>
+<div class="paragraph">
+<p>Model of a person have been changed to reflect the permission that each user possesses.</p>
+</div>
+<div class="paragraph">
+<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/permissionPersonModel.png" alt="permissionPersonModel" width="750">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Permission</code> class contains the all possible Permissions that are available to a Person.</p>
+</li>
+<li>
+<p>All values in <code>PermissionSet</code> must be from <code>Permission</code> class.</p>
+</li>
+<li>
+<p><code>PresetPermission</code> is a enumeration class that resides in <code>PermissionSet</code>. <code>PresetPermission</code> is utilised by <code>PermissionSet</code> class to generate a <code>PermissionSet</code> object that represents the set of permission that a certain type of User will possess.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As of v1.4, <code>PresetPermission</code> only contains the following preset: <code>Admin</code>, <code>Manager</code> and <code>Employee</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storage"><a class="link" href="#aspect-storage">Aspect: Storage</a></h5>
+<div class="paragraph">
+<p>Permission have to be stored in the addressbook where the information for <code>Person</code> is stored. This is achieved through creation of <code>XmlAdaptedPermission</code>, which was utilised by <code>XmlAdaptedPerson</code> to store the information in an xml file.</p>
+</div>
+<div class="paragraph">
+<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/permissionStorage.png" alt="permissionStorage" width=""350">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-logic"><a class="link" href="#aspect-logic">Aspect: Logic</a></h5>
+<div class="paragraph">
+<p>Commands will be required to populate a <code>requiredPermission:PermissionSet</code> object with all <code>Permission</code> the command requires user to have to execute the command.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example on how to assign permission to a Command.</p>
+</div>
+<div class="listingblock">
+<div class="title">AddCommand.java</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> AddCommand(Person person) {
+    requireNonNull(person);
+    requiredPermission.addPermissions(<span class="predefined-type">Permission</span>.ADD_EMPLOYEE); <i class="conum" data-value="1"></i><b>(1)</b>
+    toAdd = person;
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The method to assign permission to a command</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The code to ensure that each command is only executed by user with the correct permission is located in <code>Command#execute</code>.</p>
+</div>
+<div class="paragraph">
+<p>When any command executes, the command will first check if the logged in user possess the correct authorization by comparing <code>requiredPermission</code> with the user&#8217;s <code>permissionSet</code> object, before performing the command.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario of how commands will be executed.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters a command <code>delete 1</code> into the CLI.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The system retrieves current user&#8217;s <code>PermissionSet</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3. The system compares user&#8217;s <code>PermissionSet</code> with <code>DeleteCommand</code> 's <code>requiredPermission</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Two different cases</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User have required permissions, execute command.</p>
+</li>
+<li>
+<p>User don&#8217;t have required permissions, show error message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user excutes a command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/permissionCommandActivityDiagram.png" alt="permissionCommandActivityDiagram" width="450">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Assign permission to each individual user, and restrict commands executable by user based on permission assigned.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to control the commands a user can access.</p>
+</li>
+<li>
+<p>Cons: Need to ensure that there is at least 1 user that can assign permissions to other users. Implementation requires knowledge of multiple components of OASIS.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2 : Create subclass of <code>Person</code> to be used to identify the role of the user. E.g. <code>Employee</code> and <code>Manager</code> class.
+The commands executable by the user will depend on their class.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Only require small modification in existing classes.</p>
+</li>
+<li>
+<p>Cons: Commands cannot be freely assigned to users as it is now dependent on which subclass the user is. E.g. we cannot create an <code>Employee</code> with a subset of the commands available to <code>Manager</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="supporting-commands-for-permission-system"><a class="link" href="#supporting-commands-for-permission-system">Supporting commands for Permission System</a></h3>
+<div class="paragraph">
+<p>The following are commands that have been implemented to support the Permission System.</p>
+</div>
+<div class="sect3">
+<h4 id="modify-permissions-of-employee"><a class="link" href="#modify-permissions-of-employee">Modify Permissions of employee</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to change the Permission that have been allocated to an employee.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature can only be performed by users that have <code>ASSIGN_PERMISSION</code> permission.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h5>
+<div class="paragraph">
+<p>This feature allows the user to indicate what permission to add and remove based on the prefix.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-a PERMISSION_TO_ADD</code> to add permission</p>
+</li>
+<li>
+<p><code>-r PERMISSION_TO_REMOVE</code> to remove permission</p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="aspect-logic-2"><a class="link" href="#aspect-logic-2">Aspect: Logic</a></h6>
+<div class="paragraph">
+<p>To implement this new command syntax, <code>ModifyPermissionCommandParser</code> utilises <code>ArgumentTokenizer#tokenize</code> to generate a <code>ArgumentMultiMap</code>. The <code>ArgumentMultiMap</code> 's <code>key</code> contains the prefix, and <code>value</code> contains the list of keywords that succeeded the prefix. There will also be a <code>preamble</code> which is used to retrieve the <code>index</code> of the targeted employee.</p>
+</div>
+<div class="paragraph">
+<p>All the keywords is then added to either <code>permissionToAdd:Set&lt;Permission&gt;</code> or <code>permissionToRemove:Set&lt;Permission&gt;</code> depending on their prefix. The 2 sets, together with the index, will be then be used to create <code>ModifyPermissionCommand</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A ParseException will be thrown if any of the permission names are invalid.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When <code>ModifyPermissionCommand</code> is executed, it will then modify the permission of targeted employee, adding permission in <code>permissionToAdd</code> and removing permissions in <code>permissionToRemove</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The command will be executed successfully if at least one permission is added or removed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following is a sequence diagram that visualizes how this operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/modifyPermissionSequenceDiagram.png" alt="modifyPermissionSequenceDiagram" width=""350">
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Allow both adding and removing of multiple permissions with one command with the use of prefixes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only need to learn how to use 1 command. Can perform both adding and removing of permissions with a single command.</p>
+</li>
+<li>
+<p>Cons: Harder to implement then other alternatives.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Create 2 separate commands to handle adding and removing of permission. (E.g. <code>AddPermissionCommand</code> and <code>RemovePermissionCommand</code>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: User will have to remember 2 commands. In addition to this, User also have to execute at least 2 commands if they wish to both add and remove permission.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-permissions-of-employee"><a class="link" href="#view-permissions-of-employee">View Permissions of employee</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to view the permissions that have been allocated to an employee.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This feature can only be performed by users that have <code>ASSIGN_PERMISSION</code> permission.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h5>
+<div class="paragraph">
+<p>To use this command, the user only have to give an <code>INDEX</code> parameter.</p>
+</div>
+<div class="sect5">
+<h6 id="aspect-logic-3"><a class="link" href="#aspect-logic-3">Aspect: Logic</a></h6>
+<div class="paragraph">
+<p>To process this command, <code>ViewPermissionCommandParser</code> simply utilise <code>ParserUtil#parseIndex</code> to parse the argument into the <code>index</code> of the target employee.</p>
+</div>
+<div class="paragraph">
+<p>The index will then be used to create a <code>ViewPermissionCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>When <code>ViewPermissionCommand</code> is executed, it will retrieve the targeted employee from the <code>Model</code>, and print out the list of permission that the employee possesses.</p>
+</div>
+<div class="paragraph">
+<p>The following is a sequence diagram that visualizes how this operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/viewPermissionSequenceDiagram.png" alt="viewPermissionSequenceDiagram" width=""350">
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Display permissions in the command box result text field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Can only view permissions of a single employee at a time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Display all permissions in the Person card.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to view all permissions, of all employee in one go.</p>
+</li>
+<li>
+<p>Pros: No commands required.</p>
+</li>
+<li>
+<p>Cons: Person card can get very cluttered if employee have many permissions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-auto-complete"><a class="link" href="#command-auto-complete">Command Auto Complete</a></h3>
+<div class="paragraph">
+<p>When user type in the command box, OASIS will predict what commands the user is going to run, and display a drop down list containing all suggestions.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Auto complete functionality in OASIS is supported by both <code>org.controlsfx.control.textfield.TextFields</code> API and <code>AutoCompleteCommandHelper</code> class.</p>
+</div>
+<div class="paragraph">
+<p>When text is typed into the Command Box (<code>commandTextField</code> object), it will display a drop down list of possible commands, that is retrieved from <code>AutoCompleteCommandHelper</code> class.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>org.controlsfx.control.textfield.TextFields</code> API is utilised to display the drop down list.</p>
+</li>
+<li>
+<p><code>AutoCompleteCommandHelper</code> class is used to generate the <code>Set</code> of possible commands with the input given in <code>CommandBox</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="aspect-logic-ui"><a class="link" href="#aspect-logic-ui">Aspect: Logic &amp; UI</a></h5>
+<div class="paragraph">
+<p>When <code>CommandBox</code> class is being constructed, <code>bindAutoCompletion</code> method provided by <code>TextFields</code> API will be utilised to create an auto-completion binding between the <code>commandTextField</code> object and <code>AutoCompleteCommandHelper#autoCompleteWord</code> method.</p>
+</div>
+<div class="paragraph">
+<p>With this binding, whenever <code>commandTextField</code> is updated, it will display a drop down list of possible commands retrieved from <code>AutoCompleteCommandHelper#autoCompleteWord</code> if it exist.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): Make use of <code>TextFields</code> API</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Pros: Can view ALL possible commands.</p>
+</li>
+<li>
+<p>Cons: There is a slight delay before the drop down list appear. Can potentially slow down users who type fast.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: Immediately place predicted command as text into <code>commandTextField</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No delay, predicted command is immediately displayed.</p>
+</li>
+<li>
+<p>Cons: Only able to view 1 possible command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 13:28:27 UTC</div></div></div></body></html>
