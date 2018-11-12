@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Office Assistance Specialized Integration System (OASIS) is all-in-one management software that helps [target] manage resources efficiently. [do what]Unlike any other management softwares, OASIS has adopts Command Line Interface(CLI) while still having the benefits of Graphical User Interface. If you can type fast, OASIS can get you manage office related work quickly and efficiently.</p>
+<p>OASIS is an employee management application that brings your office together. It is an all-in-one tool for office administration and communication that runs on any computer. With the use of primarily textual commands coupled with a beautiful user interface, you can get your administrative jobs done faster than with traditional point-and-click applications. Some of the main features that you can look forward to using are employee records management, authentication and permissions, assignment management, and leave management. Sounds good? Jump to Section 2, <a href="#Quick Start">Quickstart</a> to get started. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -18,34 +18,106 @@
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following section highlights my contributions to OASIS.</p>
+<p>The following section highlights my contributions to OASIS:</p>
+</div>
+<div class="paragraph">
+<p><strong>Code Contributed:</strong> [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=rnardha&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-11&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Link</a>]</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the function to add assignment/project</strong></p>
+<p><strong>Major enhancement: Assignment Management</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It allows the user with <code>Create_Assignment</code> permission to create new assignment into the system.</p>
+<p>Adding new assignment: <code>addasignment</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This allows authorized users to create new assignment.</p>
 </li>
 <li>
-<p>Justification: OASIS is meant for small to medium companies. Within the companies there will be assignments that needs to be completed. Therefore to organize the assignments, it can be added into the system. This also allows the companies to have records of past and present assignments.</p>
+<p>Justification: Within a company there will be many assignment being done concurrently and the documents
+of the assignments could get messy. Howerver, with OASIS the information related to the assignments
+will be computirized. Therefore, managing assignments will be more efficient.</p>
 </li>
 <li>
-<p>Highlights: [technical skill gotten]This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: In order to implement and store the assignment, prior understanding the existing components relation
+and how information is stored is needed.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a shortcut key feature to allow quick input of commands.</p>
+<p>Delete assignment: <code>deleteassignment</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This allows authorized users to delete assignment from the system when it is no longer needed.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: Having an overwhealming number of data might not necessarily be good.
+Especially, when the data is no longer important. Therefore, when the assignment data is
+not used anymore, it can be remove from the system.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Edit assignment: <code>editassignment</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This allows authorized users to make changes to existing
+document.</p>
+</li>
+<li>
+<p>Justification: It is normal to make changes as the assignment is ongoing to
+make the final product better. Therefore, there is a need authorized users to make
+changes to the assignments in the system.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>List assignments: <code>listassignments</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This allows the user to view all the existing assignments in
+the system.</p>
+</li>
+<li>
+<p>Justification: This will enable the users to search for infomation of the assignment
+they are working on.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Keyboard Shortcuts</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: With valid key combinations, command word corresponding to the
+key pressed will be inserted into the command box.</p>
+</li>
+<li>
+<p>Justification: Frequent users could get the command word of commonly used
+command quickly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -56,7 +128,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.1</code> - <code>v1.4</code> (4 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -66,20 +138,11 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Update <code>AddCommand</code> to accept new person with assignment, if and only if
+the assignments exist withing the system.(Pull requests <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/184">#1</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Wrote additional tests for existing features implemented by me.(Pull requests <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/116">#1</a>)</p>
 </li>
 </ul>
 </div>
@@ -89,29 +152,14 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class
+(examples:  <a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/175">#1</a>,
+<a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/152">#2</a>,
+<a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/154">#3</a>,
+<a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/156">#4</a>,
+<a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/159">#5</a>,
+<a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/161">#6</a>,
+<a href="https://github.com/CS2103-AY1819S1-T13-4/main/issues/168">#7</a>)</p>
 </li>
 </ul>
 </div>
@@ -120,9 +168,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -139,6 +184,145 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="add-an-assignment-code-addassignment-code"><a class="link" href="#add-an-assignment-code-addassignment-code">Add an assignment : <code>addassignment</code></a></h3>
+<div class="paragraph">
+<p>Adds an assignment into the system.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>addassignment -an ASSIGNMENT_NAME -au AUTHOR -de DESCRIPTION</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in with "ADD_ASSIGNMENT" permissions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addassignment -an KRYPTONE -au Jhonny English -de Data encription application.</code></p>
+</li>
+<li>
+<p><code>addassignment -n IRobot -au Tom Smith -de Autonomous robotic vacuum cleaner which has intelligent programming.</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-all-assignments-code-listassignments-code"><a class="link" href="#list-all-assignments-code-listassignments-code">List all assignments : <code>listassignments</code></a></h3>
+<div class="paragraph">
+<p>Displays a list of assignments that are in the system.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>listassignments</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-an-assignment-code-deleteassignmnet-code"><a class="link" href="#removing-an-assignment-code-deleteassignmnet-code">Removing an assignment : <code>deleteassignmnet</code></a></h3>
+<div class="paragraph">
+<p>Removes an assignment from the system.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deleteassignment INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in and have the "DELETE_ASSIGNMENT" permission.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteassignment 3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="edit-assignment-details-code-editassignment-code"><a class="link" href="#edit-assignment-details-code-editassignment-code">Edit assignment details : <code>editassignment</code></a></h3>
+<div class="paragraph">
+<p>Changes assignment details (such as description).</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>editassignment INDEX [-an ASSIGNMENT NAME] [-au AUTHOR] [-de DESCRIPTION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>To use this command, you must be logged in and have the "EDIT_ASSIGNMENT" permission.</p>
+</li>
+<li>
+<p>Edit the assignment at the specified INDEX. The index refers to the number shown in the displayed assignment list.
+The index must be a positive integer 1, 2, 3, …​</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="keyboard-shortcuts"><a class="link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + A</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List employees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + L</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + S</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + F</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + Q</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -154,14 +338,195 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="assignment-management"><a class="link" href="#assignment-management">Assignment Management</a></h3>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>There are four commands related to assignments. The four commands are <code>addassignment</code>,
+<code>listassignments</code>, <code>deleteassignment</code> and <code>editassignment</code>.</p>
+</div>
+<div class="paragraph">
+<p>These commands could only be executed by user with the appropriate permission.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>An assignment is represented by <code>Assignment</code> model object. <code>Assignment</code> object stores the information
+of <code>AssignmentName</code>, <code>Author</code> and <code>Description</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows the classes to model <code>Assignment</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AssignmentModel.png" alt="AssignmentModel" width="450">
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:47:37 UTC</div></div></div></body></html>
+<div class="sect4">
+<h5 id="add-assignment"><a class="link" href="#add-assignment">Add Assignment</a></h5>
+<div class="paragraph">
+<p>The following sequence diagram shows how adding an assignment works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddAssignmentSequenceDiagram.png" alt="AddAssignmentSequenceDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Below is an example oh how add assignment mechanism behaves when a new assignment
+is added.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When user executes <code>addassignment -au ASSIGNMENTNAME -au AUTHOR -de DESCRIPTION</code> command,
+new <code>Assignment</code> object will be initialized. It will then be compared to the existing assignments
+in the system with <code>hasAssignment(toAdd)</code> method. If the new object is unique, then it will be added
+into the system. However, if there is duplicate, the system will throw <code>DuplicateAssignmentException</code>.</p>
+</li>
+<li>
+<p>The new <code>Assignment</code> will then be copied and transformed to become <code>XmlAdaptedAssignment</code> object,
+which is then saved into a file by the <a href="#25-storage-component">Storage</a> component.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="delete-assignment"><a class="link" href="#delete-assignment">Delete Assignment</a></h5>
+<div class="paragraph">
+<p>The following sequence diagram shows how deleting an assignment works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteAssignmentSequenceDiagram.png" alt="DeleteAssignmentSequenceDiagram" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>Given is an example of how deleting an assignment mechanism behaves when it is executed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When user executes the <code>deleteassignment INDEX</code> command, <code>DeleteAssignmentCommand</code> object will be created.
+It then checks if the current user has the required permission to execute the command. If the user
+does not have the required permission, then and error message will be displayed.</p>
+</li>
+<li>
+<p>Meanwhile, if the user has the required permission, system gets the <code>Assignment</code> object to be deleted from list of assignments
+and finally delete it. It will then update the list in the <a href="#25-storage-component">Storage</a> component.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="list-assignment"><a class="link" href="#list-assignment">List Assignment</a></h5>
+<div class="paragraph">
+<p>The sequence of listing all assignments is similar to deleting an assignment. In addition, there is no permission
+required to run <code>listassignment</code> command.</p>
+</div>
+<div class="paragraph">
+<p>When user executes <code>listassignment</code> command, system will retrieve all assignment data in the <a href="#25-storage-component">Storage</a>
+component and list all the assignments.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="edit-assignment"><a class="link" href="#edit-assignment">Edit Assignment</a></h5>
+<div class="paragraph">
+<p>The way edit assignment parse information is similar to <code>deleteassignment</code> command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When user executes <code>editassignment 1 -an ASSIGNMENTNAME</code> command, the command will be parsed. The given prefix and field indicate that the corresponding field of <code>Assignment</code> should be edited with the new field.
+To do so, <code>EditAssignmentDescriptor</code> object will be produce. This object has the newly edited <code>Assignment</code> object.</p>
+</li>
+<li>
+<p>After, the 'Permission' of the user will be check. If the user does not have the appropriate permission, error message will be displayed.</p>
+</li>
+<li>
+<p>While if the user has the appropriate permission, the old <code>Assignment</code> object will be replaced with the new <code>Assignment</code> object.</p>
+</li>
+<li>
+<p>The list of the assignments will then be updated in the <a href="#25-storage-component">Storage</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-code-assignment-code-object-is-stored"><a class="link" href="#aspect-how-the-code-assignment-code-object-is-stored">Aspect: How the <code>Assignment</code> object is stored</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Alternative 1 (Current Implementation): store assignment information in Xml file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Xml file has extensibility, as it has no fixed set of tags. Allowing future developers to enhance the information of the assignment.</p>
+</li>
+<li>
+<p>Cons: Inefficient retrieval of information of the assignment when the storage size gets too big.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Alternative 2: store the assignment information using database system.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Fast and efficient retrieval of information, even when the amount of data is massive.</p>
+</li>
+<li>
+<p>Cons: Separated system needs to be set up to store information. Thus, might result in additional cost.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-shortcuts"><a class="link" href="#command-shortcuts">Command Shortcuts</a></h3>
+<div class="paragraph">
+<p>With various keyboard combinations user will be able to invoke commands' keyword.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Keyboard shortcuts in OASIS is implemented in the KeyEvent handler within the <code>CommandBox</code> class.</p>
+</div>
+<div class="paragraph">
+<p>When valid key combination is pressed, the text in the Command Box will be replaced with the corresponding command word.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-logic-ui"><a class="link" href="#aspect-logic-ui">Aspect: Logic &amp; UI</a></h4>
+<div class="paragraph">
+<p>Within the <code>CommandBox</code> class, there is KeyEvent handler method which will detect keyboard strokes. If the key pressed is a valid
+combination, then the text in the command box will be replaced with the text corresponding to one of the existing commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="paragraph">
+<p>Current Implementation: Use the KeyEvent handler in the <code>CommandBox</code> class.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy and simple to implement.</p>
+</li>
+<li>
+<p>Cons: As the number of commands increase, there might not be
+enough key combination to accommodate all the commands.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:54:20 UTC</div></div></div></body></html>
