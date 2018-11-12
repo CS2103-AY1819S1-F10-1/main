@@ -36,13 +36,10 @@
 <p>Justification: This leave management system provides an extremely quick and easy way for employees to apply for leave and view the status of their current applications. It also consolidates all employee leave applications into one place, and is thus very useful for managers who have many employees under them. Furthermore, it also provides a clean and fast way for managers to approve or reject employee leave applications.</p>
 </li>
 <li>
-<p>Highlights: This enhancement required careful deliberation of how it was to be designed. It was necessary to have an in-depth understanding of the existing code-base and how the many components worked together, so that I could consider the pros and cons of each design alternative that I conceptualized.</p>
+<p>Highlights: Being the first time I was working in a medium-scale collaboration software engineering project, I picked up many technical skills that include writing tests, writing clear documentation, continuous integration, and the Git workflow. I also learnt about how the Event-driven architecture is implemented.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>:</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: see on <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=elliottan">Reposense</a></p>
@@ -168,14 +165,30 @@
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example: <code>leaveapply -de Family holiday -da 2018-10-18 -da 2018-10-19</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>leaveapply -de Family holiday -da 2018-10-18 -da 2018-10-19</code></p>
+<p>The system will display a success message and you will also be able to view the new leave application using the <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> command. You should see something as follows: <span class="image"><img src="../images/LeaveApplyResult.PNG" alt="LeaveApplyResult" width="800"></span></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you do not see your list of leave applications, run the <code>leavelist</code> command.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -185,6 +198,20 @@
 </div>
 <div class="paragraph">
 <p>Format: <code>leavelist</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>leavelist</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A list of your leave application records will be displayed in the panel on the left. An example of what you should expect to see is shown below: <span class="image"><img src="../images/LeaveListResult.PNG" alt="LeaveListResult" width="800"></span></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -238,14 +265,18 @@
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example: <code>leaveaprove 8</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>leaveapprove 2</code></p>
+<p>The status of the 8th leave application displayed when <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> is used is changed to <code>APPROVED</code>, as shown below: <span class="image"><img src="../images/LeaveApproveResult.PNG" alt="LeaveApproveResult" width="800"></span></p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -285,14 +316,18 @@
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example: <code>leavereject 7</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>leavereject 1</code></p>
+<p>The status of the 7th leave application displayed when <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> is used is changed to <code>REJECTED</code>, as shown below: <span class="image"><img src="../images/LeaveRejectResult.PNG" alt="LeaveRejectResult" width="800"></span></p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -575,4 +610,4 @@ Alternative 2 is actually cleaner to implement and understand. However, Alternat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:39:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 09:12:06 UTC</div></div></div></body></html>
