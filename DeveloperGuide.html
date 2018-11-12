@@ -84,9 +84,11 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
-<li><a href="#leave-management">F.3. Leave management</a></li>
-<li><a href="#saving-data">F.4. Saving data</a></li>
+<li><a href="#logging-into-the-system">F.2. Logging into the system.</a></li>
+<li><a href="#logging-out-of-the-system">F.3. Logging out of the system</a></li>
+<li><a href="#deleting-a-person">F.4. Deleting a person</a></li>
+<li><a href="#leave-management">F.5. Leave management</a></li>
+<li><a href="#saving-data">F.6. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -3514,7 +3516,62 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.2. Deleting a person</a></h3>
+<h3 id="logging-into-the-system"><a class="link" href="#logging-into-the-system">F.2. Logging into the system.</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logging in as an admin.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>After opening OASIS, enter in "Admin" and "Pa55w0rd" as the password.</p>
+</li>
+<li>
+<p>Click submit or press enter.<br>
+Expected: You should now be logged in as an admin.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Logging in as a User.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Delete the data folder to have OASIS start with the sample data set</p>
+</li>
+<li>
+<p>Open OASIS.</p>
+</li>
+<li>
+<p>Enter in "David Li" for the username and "Pa55w0rd" as the password. (David Li is only of the sample people loaded when no data file is found)</p>
+</li>
+<li>
+<p>Click submit or press enter.<br>
+Expected: You should now be logged in as David Li.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-out-of-the-system"><a class="link" href="#logging-out-of-the-system">F.3. Logging out of the system</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Firstly, perform the steps stated in "Logging into the system".</p>
+</li>
+<li>
+<p>Type in "Logout" into the command box, then press enter.<br>
+Expected: You should now be logged out. OASIS should now show the login screen.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.4. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3565,7 +3622,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-management"><a class="link" href="#leave-management">F.3. Leave management</a></h3>
+<h3 id="leave-management"><a class="link" href="#leave-management">F.5. Leave management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3634,7 +3691,7 @@ Expected: Status message shows that the leave list index is invalid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.4. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.6. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3642,7 +3699,23 @@ Expected: Status message shows that the leave list index is invalid.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>The data files are located under data folder. For example, data/addressbook.xml contains data of everyone stored in the system.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Data is only witten to disk if there is any change in the system. If OASIS was simply opened and closed with no changes made, no data file would be written.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>To modify the data files to simulate missing or corrupted data files, the element&#8217;s tag may be modified. Note that information between the tag may also be modified, but it could still remain valid and would not be detected as an error.<br>
+Expected: If a missing or corrupted data file is used, OASIS will then begin with an empty system instead.</p>
 </li>
 </ol>
 </div>
@@ -3651,4 +3724,4 @@ Expected: Status message shows that the leave list index is invalid.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:40:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:45:59 UTC</div></div></div></body></html>
