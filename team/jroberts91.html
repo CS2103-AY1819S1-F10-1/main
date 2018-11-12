@@ -21,14 +21,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Code contributed</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>[<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=jroberts91">Functional code</a>]</p>
-</li>
-</ul>
-</div>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=jroberts91">Link to reposense</a>]</p>
 </li>
 <li>
 <p><strong>Major enhancement</strong>: Added <strong>the ability to archive and restore employees</strong></p>
@@ -181,6 +174,56 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">View deleted employee archive : <code>archive</code></a></h3>
+<div class="paragraph">
+<p>Displays the list of active employees removed from the system. To delete an employee from the OASIS completely simply remove it from archive list again.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>archive</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Replaces current view on the left panel to the archive list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="restoring-employee-to-active-list-code-restore-code"><a class="link" href="#restoring-employee-to-active-list-code-restore-code">Restoring employee to active list: <code>restore</code></a></h3>
+<div class="paragraph">
+<p>Restores an employee to active list from the archived list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>restore INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Restored employee will be moved back to the active list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>restore 1</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -222,7 +265,7 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <p>Step 4. OASIS shows delete person in step 2 in the archive list</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes remove and restore command:</p>
+<p>The following activity diagram summarizes what happens when a user executes delete and restore command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -318,6 +361,123 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <p>Pros: Only need to change 1 attribute when an employee is deleted.</p>
 </li>
 <li>
+<p>Cons: "Archive" is an unusual attribute for a person and it will be time consuming to view the archive list as you have to go through all employees to check the archive attribute.
+=== Restore employee feature
+Employees with the "Restore_employee" permissions can restore employees from the archive list into the active list - related to hiring back old employees in real life. The restored employee will be moved back to the active list and removed from the archive list. Employees with “Delete_employee” permissions can also completely remove employees in the archive list, permanently removing them from OASIS.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">Proposed implementation</a></h4>
+<div class="paragraph">
+<p>The Restore or completely remove employee feature is facilitated by <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code> behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedArchiveList</code> and <code>VersionedAddressBook</code> will be initialized with the initial archive list and address book state. The <code>UniquePersonList</code> in both classes will be populated with data from read by storage.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes archive command to change view from active list to the archive list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a1. The user executes restore 1 command to restore the first person in the archive list. The selected Person object from the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> will be transferred to the <code>UniquePersonList</code> in <code>VersionedAddressBook</code> and be back in the active list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a2. The user executes list command to change view from archive list to active list.</p>
+</div>
+<div class="paragraph">
+<p>Step 3a3. The employee restored in Step 3a1 is shown in active list</p>
+</div>
+<div class="paragraph">
+<p>Step 3b1. The user executes delete 1 command to completely remove the first person in the archive list from OASIS. The selected Person object from the <code>UniquePersonList</code> in <code>VersionedArchiveList</code> will be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Step3b2. Archive list updated and deleted employee is removed.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes remove and restore command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/archiveActivityDiagram.PNG" alt="archiveActivityDiagram" width=""350">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the archive operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/restoreSequenceDiagram.jpg" alt="restoreSequenceDiagram" width=""350">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-lifetime-of-objects-in-archive-list-2"><a class="link" href="#aspect-lifetime-of-objects-in-archive-list-2">Aspect: Lifetime of objects in Archive list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Deleted permanently after being removed by user again.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Guaranteed no loss of data if an employee is accidentally deleted.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage as employee records stored a few years back could still be stored.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Deleted after a certain number of time has passed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More efficient memory usage wont store old employee records which could cause high memory usage.</p>
+</li>
+<li>
+<p>Cons: Loss of data possible if an employee is accidentally deleted and not restored right away.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-archive-commands-2"><a class="link" href="#aspect-data-structure-to-support-the-archive-commands-2">Aspect: Data structure to support the archive commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the archived employee objects.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Only require small modification in existing classes. Faster access to archive list as you don&#8217;t have to search every employee in the system to get the employees archived.</p>
+</li>
+<li>
+<p>Cons: We must maintain a separate list for archived objects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Assign an archive attribute to each employee object in the addressbook and show only in the system if archived attribute is false. In contrast show in the archive display list if archive attribute is true.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only need to change 1 attribute when an employee is deleted.</p>
+</li>
+<li>
 <p>Cons: "Archive" is an unusual attribute for a person and it will be time consuming to view the archive list as you have to go through all employees to check the archive attribute.</p>
 </li>
 </ul>
@@ -329,4 +489,4 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 02:50:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:10:47 UTC</div></div></div></body></html>
