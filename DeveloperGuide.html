@@ -86,9 +86,10 @@
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#logging-into-the-system">F.2. Logging into the system.</a></li>
 <li><a href="#logging-out-of-the-system">F.3. Logging out of the system</a></li>
-<li><a href="#deleting-a-person">F.4. Deleting a person</a></li>
-<li><a href="#leave-management">F.5. Leave management</a></li>
-<li><a href="#saving-data">F.6. Saving data</a></li>
+<li><a href="#editing-details-of-currently-logged-in-user">F.4. Editing details of currently logged in user</a></li>
+<li><a href="#deleting-a-person">F.5. Deleting a person</a></li>
+<li><a href="#leave-management">F.6. Leave management</a></li>
+<li><a href="#saving-data">F.7. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -3561,7 +3562,7 @@ Expected: You should now be logged in as David Li.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Firstly, perform the steps stated in "Logging into the system".</p>
+<p>Prerequisities: The user is currently logged in.</p>
 </li>
 <li>
 <p>Type in "Logout" into the command box, then press enter.<br>
@@ -3571,7 +3572,42 @@ Expected: You should now be logged out. OASIS should now show the login screen.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.4. Deleting a person</a></h3>
+<h3 id="editing-details-of-currently-logged-in-user"><a class="link" href="#editing-details-of-currently-logged-in-user">F.4. Editing details of currently logged in user</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a valid user.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The user is currently logged in as a valid user in the system, not as an admin.</p>
+</li>
+<li>
+<p>Test case: <code>myself -p 99900999</code><br>
+Expected: The currently logged in user&#8217;s phone number is changed to 99900999</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Attempting to edit the admin user</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: The user is currently logged in as admin.</p>
+</li>
+<li>
+<p>Test cases: `myself -p 999009991<br>
+Expected: An error message saying that you cannot edit the admin account.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.5. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3622,7 +3658,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-management"><a class="link" href="#leave-management">F.5. Leave management</a></h3>
+<h3 id="leave-management"><a class="link" href="#leave-management">F.6. Leave management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3691,7 +3727,7 @@ Expected: Status message shows that the leave list index is invalid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.6. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.7. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3724,4 +3760,4 @@ Expected: If a missing or corrupted data file is used, OASIS will then begin wit
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:48:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:19:56 UTC</div></div></div></body></html>
