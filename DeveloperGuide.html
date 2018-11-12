@@ -1258,22 +1258,22 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 <div class="sect2">
 <h3 id="command-shortcuts"><a class="link" href="#command-shortcuts">4.5. Command Shortcuts</a></h3>
 <div class="paragraph">
-<p>With various keyboard combinations user will be able to invoke commands' keyword.</p>
+<p>With various keyboard combinations user will be able to access command keywords quickly.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Keyboard shortcuts in OASIS is implemented in the KeyEvent handler within the <code>CommandBox</code> class.</p>
+<p>Keyboard shortcuts in OASIS is implemented using KeyEvent handler within the <code>CommandBox</code> class.</p>
 </div>
 <div class="paragraph">
-<p>When valid key combination is pressed, the text in the Command Box will be replaced with the corresponding command word.</p>
+<p>When valid key combination is pressed, the text in the command box will be replaced with the corresponding command word.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="aspect-logic-ui-2"><a class="link" href="#aspect-logic-ui-2">4.5.2. Aspect: Logic &amp; UI</a></h4>
 <div class="paragraph">
-<p>Within the <code>CommandBox</code> class, there is KeyEvent handler method which will detect keyboard strokes. If the key pressed is a valid
-combination, then the text in the command box will be replaced with the text corresponding to one of the existing commands.</p>
+<p>Within the <code>CommandBox</code> class, there is KeyEvent handler method which handles keyboard’s input. If the key pressed is a valid
+combination, then the text field in command box will be replaced with the command corresponding to one of the existing commands.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1328,16 +1328,21 @@ of <code>AssignmentName</code>, <code>Author</code> and <code>Description</code>
 </div>
 </div>
 <div class="paragraph">
-<p>Below is an example oh how add assignment mechanism behaves when a new assignment
+<p>Below is an example on how addassignment mechanism behaves when a new assignment
 is added.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When user executes <code>addassignment -au ASSIGNMENTNAME -au AUTHOR -de DESCRIPTION</code> command,
-new <code>Assignment</code> object will be initialized. It will then be compared to the existing assignments
-in the system with <code>hasAssignment(toAdd)</code> method. If the new object is unique, then it will be added
-into the system. However, if there is duplicate, the system will throw <code>DuplicateAssignmentException</code>.</p>
+<p>When user executes <code>addassignment -au ASSIGNMENTNAME -au AUTHOR -de DESCRIPTION</code> command, it
+will be parsed, then new <code>Assignment</code> object will be initialized. If the current user does not have
+the permission to add new assignment, error message will be thrown.</p>
+</li>
+<li>
+<p>If user has the required permission, then the current <code>Assignment</code> object will
+be compared to the existing assignments in the system with <code>hasAssignment(toAdd)</code>
+method. If the new object is unique, then it will be added into the system. However,
+if there is duplicate, the system will throw <code>DuplicateAssignmentException</code>.</p>
 </li>
 <li>
 <p>The new <code>Assignment</code> will then be copied and transformed to become <code>XmlAdaptedAssignment</code> object,
@@ -1348,6 +1353,18 @@ which is then saved into a file by the <a href="#25-storage-component">Storage</
 </div>
 <div class="sect4">
 <h5 id="delete-assignment"><a class="link" href="#delete-assignment">Delete Assignment</a></h5>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Deleting an assignment form the system will remove it permanently!
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The following sequence diagram shows how deleting an assignment works:</p>
 </div>
@@ -1376,18 +1393,37 @@ and finally delete it. It will then update the list in the <a href="#25-storage-
 <div class="sect4">
 <h5 id="list-assignment"><a class="link" href="#list-assignment">List Assignment</a></h5>
 <div class="paragraph">
-<p>The sequence of listing all assignments is similar to deleting an assignment. In addition, there is no permission
+<p>The parsing sequence of listing all assignments is similar to adding and deleting an assignment. In addition, there is no permission
 required to run <code>listassignment</code> command.</p>
 </div>
 <div class="paragraph">
 <p>When user executes <code>listassignment</code> command, system will retrieve all assignment data in the <a href="#25-storage-component">Storage</a>
-component and list all the assignments.</p>
+component using <code>updateFilteredAssignmentList()</code> and update the User Interface to list all the assignments.</p>
+</div>
+<div class="listingblock">
+<div class="title">ListAssignmentCommand.java</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CommandResult runBody(Model model, CommandHistory history) {
+        requireNonNull(model);
+        model.updateFilteredAssignmentList(PREDICATE_SHOW_ALL_ASSIGNMENTS);<i class="conum" data-value="1"></i><b>(1)</b>
+        EventsCenter.getInstance().post(<span class="keyword">new</span> AssignmentListEvent());
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
+    }</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The method to retrieve all assignments.</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="edit-assignment"><a class="link" href="#edit-assignment">Edit Assignment</a></h5>
 <div class="paragraph">
-<p>The way edit assignment parse information is similar to <code>deleteassignment</code> command.</p>
+<p>Parsing the command when executing <code>editassignment</code> is similar to <code>deleteassignment</code> command.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3420,8 +3456,8 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist">
+<ul>
 <li>
 <p>1a. The format is invalid</p>
 <div class="ulist">
@@ -3429,18 +3465,18 @@ b. Require developers to download those libraries manually (this creates extra w
 <li>
 <p>1a1. OASIS shows an error message</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>User case ends.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>2a. The user has permissions to be able to view all employee leaves.</p>
+<p>2a. The user has permission to be able to view all employee leaves.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>2a1. OASIS lists all leave applications of all users</p>
+<p>2a1. OASIS lists all the leaves allplicationsof all users</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3479,8 +3515,8 @@ b. Require developers to download those libraries manually (this creates extra w
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="ulist none">
-<ul class="none">
+<div class="ulist">
+<ul>
 <li>
 <p>2a. The format is invalid</p>
 <div class="ulist">
@@ -3515,6 +3551,223 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </li>
 </ul>
+</div>
+<h3 id="use-case-add-new-assignment" class="discrete">Use case: Add new assignment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User login to the system</p>
+</li>
+<li>
+<p>Oasis shows home page</p>
+</li>
+<li>
+<p>User enters assignment name, author and description</p>
+</li>
+<li>
+<p>Oasis displays confirmation message</p>
+</li>
+<li>
+<p>User enters confirm</p>
+</li>
+<li>
+<p>Oasis sends the application to the manager</p>
+</li>
+<li>
+<p>Oasis shows success message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The credentials are invalid</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The format is invalid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. OASIS shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>5a. The user chooses to cancel</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-list-assignments" class="discrete">Use case: List assignments</h3>
+<div class="paragraph">
+<p>Precondition: user is logged in</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enterscommand to view list of assignments</p>
+</li>
+<li>
+<p>OASIS lists all the assignments in the system</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format is invalid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. OASIS shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-assignment" class="discrete">Use case: Delete assignment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User login to the system</p>
+</li>
+<li>
+<p>User <a href="#use-case-list-assignments">lists assignments (Use case: List assignments)</a></p>
+</li>
+<li>
+<p>Employee executes delete command on selected assignment</p>
+</li>
+<li>
+<p>Oasis deletes the assignment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The credentials are invalid</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>2a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. Employee does not have the required permissions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. Oasis shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-edit-assignment" class="discrete">Use case: Edit assignment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Employee login to the system</p>
+</li>
+<li>
+<p>User <a href="#use-case-list-assignments">lists assignments (Use case: List assignments)</a></p>
+</li>
+<li>
+<p>Emplyee executes edit command on selected assignment</p>
+</li>
+<li>
+<p>OASIS edits the assignment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The credentials are invalid</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>2a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. Employee does not have the required permissions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. Oasis shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -3943,4 +4196,4 @@ Expected: If a missing or corrupted data file is used, OASIS will then begin wit
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:44:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:53:25 UTC</div></div></div></body></html>
