@@ -1327,6 +1327,31 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply for leave</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapply -de DESCRIPTION -da DATE [-da DATE]&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapply -de Family holiday -da 2018-11-01 -da 2018-11-02</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">passwd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">passwd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit details of the currently logged in user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">myself</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">myself -p 99900999 -e <a href="mailto:a@b.com">a@b.com</a> -a Somewhere over the rainbow</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filter employees by criteria</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter -CRITERIA FILTER_CRITERIA [-CRITERIA FILTER_CRITERIA]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter -n Jeremy Choo -d Development</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Help</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
@@ -1337,70 +1362,14 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List all employees</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">List all assignments</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">listassignments</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">listassignments</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit details of the currently logged in user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myself</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">myself -p 99900999 -e <a href="mailto:a@b.com">a@b.com</a> -a Somewhere over the rainbow</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sort employee display list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort -CRITERIA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort -df</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Select an employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">select INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">select 1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Search employees by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find NAME</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find Joshua</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Filter employees by criteria</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">filter -CRITERIA FILTER_CRITERIA [-CRITERIA FILTER_CRITERIA]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">filter -n Jeremy Choo
- -d Development</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Change password</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">passwd</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">passwd</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View archived employees</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">archive</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">archive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Apply for leave</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapply -de DESCRIPTION -da DATE [-da DATE]&#8230;&#8203;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapply -de Family holiday -da 2018-11-01 -da 2018-11-02</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">View your own leave application list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leavelist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leavelist</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Undo commands</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redo commands</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all employees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Logout from the system</p></td>
@@ -1408,9 +1377,39 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <td class="tableblock halign-left valign-top"><p class="tableblock">logout</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Search employees by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find NAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find Joshua</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Select an employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort employee display list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort -CRITERIA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort -df</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View archived employees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">archive</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">archive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View your own leave application list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leavelist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leavelist</p></td>
 </tr>
 </tbody>
 </table>
@@ -1434,29 +1433,22 @@ Once this command is ran, the history log of the commands and undo or redo histo
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add an assignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADD_ASSIGNMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addassignment -an ASSIGNMENT_NAME -au AUTHOR -d DESCRIPTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addassignment -an KRYPTONE -au Jhonny English -d Data encription application.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add employee</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ADD_EMPLOYEE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add -n NAME -e EMAIL -p NUMBER -s SALARY [-t ASSIGNMENT]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add -n Joshua -s 15000 -e <a href="mailto:josh@gmail.com">josh@gmail.com</a> -n
- 81234567 -a 81 Joshua&#8217;s Road  Singapore 123456</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add -n Joshua -s 15000 -e <a href="mailto:josh@gmail.com">josh@gmail.com</a> -n 81234567 -a 81 Joshua&#8217;s Road  Singapore 123456</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE_EMPLOYEE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete 1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Restore employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RESTORE_EMPLOYEE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">restore INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">restore 2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_EMPLOYEE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY] [-t ASSIGNMENT]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit 1 -p 91234567 -e <a href="mailto:johndoe@example.com">johndoe@example.com</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Approve a leave application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APPROVE_LEAVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapprove INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapprove 2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
@@ -1465,10 +1457,46 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an assignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE_ASSIGNMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deleteassignment INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deleteassignment 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE_EMPLOYEE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit an assignment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_ASSIGNMENT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editassignment INDEX [-an ASSIGNMENT NAME] [-au AUTHOR] [-de DESCRIPTION]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editassignment 1 -an OASIS v2.0 -au MARY GOSLOW</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edit employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_EMPLOYEE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit INDEX [-n NAME] [-p PHONE] [-e EMAIL] [-a ADDRESS] [-s SALARY] [-t ASSIGNMENT]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit 1 -p 91234567 -e <a href="mailto:johndoe@example.com">johndoe@example.com</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Modify Permission</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ASSIGN_PERMISSION</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">modifypermission INDEX [-a PERMISSION_TO_ADD]&#8230;&#8203; [-r PERMISSION_TO_REMOVE]&#8230;&#8203;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">modifypermission 2 -a DELETE_EMPLOYEE -r ADD_EMPLOYEE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reject a leave application</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APPROVE_LEAVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leavereject INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leavereject 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restore employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RESTORE_EMPLOYEE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">restore INDEX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">restore 2</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View all Permissions of employee</p></td>
@@ -1481,36 +1509,6 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <td class="tableblock halign-left valign-top"><p class="tableblock">VIEW_EMPLOYEE_LEAVE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">leavelist</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">leavelist</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Approve a leave application</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APPROVE_LEAVE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapprove INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leaveapprove 2</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Reject a leave application</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APPROVE_LEAVE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leavereject INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leavereject 1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Add an assignment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ADD_ASSIGNMENT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">addassignment -an ASSIGNMENT_NAME -au AUTHOR -d DESCRIPTION</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">addassignment -an KRYPTONE -au Jhonny English -d Data encription application.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an assignment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE_ASSIGNMENT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">deleteassignment INDEX</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">deleteassignment 1</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Edit an assignment</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EDIT_ASSIGNMENT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">editassignment INDEX [-an ASSIGNMENT NAME] [-au AUTHOR] [-de DESCRIPTION]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">editassignment 1 -an OASIS v2.0 -au MARY GOSLOW</p></td>
 </tr>
 </tbody>
 </table>
@@ -1534,6 +1532,14 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + A</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + Q</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find employee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + F</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">List employees</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + L</p></td>
 </tr>
@@ -1541,16 +1547,8 @@ Once this command is ran, the history log of the commands and undo or redo histo
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + S</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Find employee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + F</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Exit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CTRL + Q</p></td>
-</tr>
 </tbody>
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:09:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:14:38 UTC</div></div></div></body></html>
