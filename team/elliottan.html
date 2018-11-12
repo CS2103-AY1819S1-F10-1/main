@@ -30,13 +30,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: this feature allows an employee to apply for leave on specified dates. Also, it allows the user to view his/her own leave applications with their current approval status. Finally, it allows a user, with the required permissions, to view all employee leave applications and the ability to approve or reject them.</p>
+<p>What it does: this feature allows an employee to apply for leave on specified dates. Also, it allows the user to view his/her own leave applications with their current status. Finally, it allows a user, with the required permissions, to view all employee leave applications and the ability to approve or reject them.</p>
 </li>
 <li>
-<p>Justification: This leave management system provides an extremely quick and easy way for employees to apply for leave and view the status of their current applications. It also consolidates all employee leave applications into one place, and is thus very useful for managers who have many employees under them. Furthermore, it also provides a clean and fast way for managers to approve or reject employee leave applications.</p>
+<p>Justification: This leave management system provides an extremely quick and easy way for employees to apply for leave and view the status of their current applications. It also consolidates all employee leave applications into one place, and is thus very useful for managers who have many employees under them. It also provides a simple way for managers to approve or reject employee leave applications.</p>
 </li>
 <li>
-<p>Highlights: Being the first time I was working in a medium-scale collaboration software engineering project, I picked up many technical skills that include writing tests, writing clear documentation, continuous integration, and the Git workflow. I also learnt about how the Event-driven architecture is implemented.</p>
+<p>Highlights: I picked up many technical skills that include writing tests, writing clear documentation, continuous integration, and the Git workflow. I also learnt about how the Event-driven architecture is implemented and utilized.</p>
 </li>
 </ul>
 </div>
@@ -140,7 +140,7 @@
 <p>Format of date: YYYY-MM-DD (Dashes are required, and the month and day must have both digits)</p>
 </li>
 <li>
-<p>Your leave will be applied for all the dates specified after each <code>-da</code>. You must specify at least 1 <code>DATE</code>.</p>
+<p>Your leave will be for all the dates specified after each <code>-da</code>. You must specify at least 1 <code>DATE</code>.</p>
 </li>
 </ul>
 </div>
@@ -162,7 +162,7 @@ If the <code>DATE</code> is of an illegal format, the command will be rejected.
 <p>Example: <code>leaveapply -de Family holiday -da 2018-10-18 -da 2018-10-19</code></p>
 </div>
 <div class="paragraph">
-<p>The system will display a message indicating a succesful creation of the new leave. You should see something as follows:</p>
+<p>The system will display a message indicating a succesful creation of the new leave, as shown:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../images/LeaveApplyResult.PNG" alt="LeaveApplyResult" width="800"></span></p>
@@ -189,7 +189,7 @@ If you do not see your list of leave applications, run the <code>leavelist</code
 <p>Format: <code>leavelist</code></p>
 </div>
 <div class="paragraph">
-<p>A list of your leave records will be displayed in the panel on the left. An example of what you should see is shown below:</p>
+<p>A list of your leave records will be displayed in the left panel. An example is shown below:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../images/LeaveListResult.PNG" alt="LeaveListResult" width="800"></span></p>
@@ -245,7 +245,7 @@ To use this command, you must have "APPROVE_LEAVE" permissions.
 <p>Example: <code>leaveaprove 8</code></p>
 </div>
 <div class="paragraph">
-<p>The status of the 8th leave application displayed when <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> is used is changed to <code>APPROVED</code>, as shown below:</p>
+<p>The status of the 8th leave application displayed with <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> is changed to <code>APPROVED</code>, as shown:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../images/LeaveApproveResult.PNG" alt="LeaveApproveResult" width="800"></span></p>
@@ -289,7 +289,7 @@ To use this command, you must have "APPROVE_LEAVE" permissions.
 <p>Example: <code>leavereject 7</code></p>
 </div>
 <div class="paragraph">
-<p>The status of the 7th leave application displayed when <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> is used is changed to <code>REJECTED</code>, as shown below:</p>
+<p>The status of the 7th leave application displayed with <a href="#view-a-list-of-leave-applications-code-leavelist-code"><code>leavelist</code></a> is changed to <code>REJECTED</code>, as shown:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="../images/LeaveRejectResult.PNG" alt="LeaveRejectResult" width="800"></span></p>
@@ -328,7 +328,7 @@ To use this command, you must have "APPROVE_LEAVE" permissions.
 </div>
 <div class="paragraph">
 <p><strong>API</strong>: <a href="https://github.com/CS2103-AY1819S1-F10-1/main/blob/master/src/main/java/seedu/address/model/leaveapplication/LeaveApplication.java"><code>LeaveApplication.java</code></a>
-A leave applications consists of a description, a status (<code>PENDING</code>, <code>APPROVED</code>, or <code>REJECTED</code>), and one of more dates.</p>
+A leave applications contains a description, status (<code>PENDING</code>, <code>APPROVED</code>, or <code>REJECTED</code>), and one of more dates.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -337,7 +337,7 @@ A leave applications consists of a description, a status (<code>PENDING</code>, 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-During creation, the <code>LeaveApplication</code> constructor removes duplicate dates, and orders all the dates in ascending order.
+The <code>LeaveApplication</code> constructor removes duplicates, and orders all dates in ascending order.
 </td>
 </tr>
 </table>
@@ -375,7 +375,7 @@ There are further interactions of the EventCenter reacting to the event raised w
 <div class="content">
 <img src="../images/LeaveApplicationSequenceDiagram.png" alt="LeaveApplicationSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 3. Interactions in the Logic Component when a <code>leaveapply -de family holiday -da 2018-11-11</code> command is issued</div>
+<div class="title">Figure 3. The Logic Component when <code>leaveapply -de family holiday -da 2018-11-11</code> is executed</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -384,7 +384,7 @@ There are further interactions of the EventCenter reacting to the event raised w
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are further interactions within the Model component, and beyond, that are omitted in this diagram.
+There are further interactions within the Model component that are omitted.
 </td>
 </tr>
 </table>
@@ -417,7 +417,7 @@ There are further interactions within the Model component, and beyond, that are 
 <p>The user executes the <code>leavelist</code> command.</p>
 </li>
 <li>
-<p>The system checks if the user is an Admin, or has the required permissions (<code>VIEW_EMPLOYEE_LEAVE</code> or <code>APPROVE_LEAVE</code>). If either one of the aforementioned conditions are satisfied, all leave applications of all other users will be displayed. If not, only the current logged-in user&#8217;s own leave application records will be shown.</p>
+<p>The system checks if the user is an Admin, or has the required permissions (<code>VIEW_EMPLOYEE_LEAVE</code> or <code>APPROVE_LEAVE</code>). If so, all leave applications of all other users will be displayed. If not, only the current logged-in user&#8217;s own leave application records will be shown.</p>
 </li>
 </ol>
 </div>
@@ -575,4 +575,4 @@ Alternative 2 is actually cleaner to implement and understand. However, Alternat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:27:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:34:44 UTC</div></div></div></body></html>

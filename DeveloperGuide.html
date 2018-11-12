@@ -85,7 +85,8 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#deleting-a-person">F.2. Deleting a person</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#leave-management">F.3. Leave management</a></li>
+<li><a href="#saving-data">F.4. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -2137,7 +2138,7 @@ When checking if 2 Passwords are the same, it is better to call <code>isSamePass
 </div>
 <div class="paragraph">
 <p><strong>API</strong>: <a href="https://github.com/CS2103-AY1819S1-F10-1/main/blob/master/src/main/java/seedu/address/model/leaveapplication/LeaveApplication.java"><code>LeaveApplication.java</code></a>
-A leave applications consists of a description, a status (<code>PENDING</code>, <code>APPROVED</code>, or <code>REJECTED</code>), and one of more dates.</p>
+A leave applications contains a description, status (<code>PENDING</code>, <code>APPROVED</code>, or <code>REJECTED</code>), and one of more dates.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2146,7 +2147,7 @@ A leave applications consists of a description, a status (<code>PENDING</code>, 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-During creation, the <code>LeaveApplication</code> constructor removes duplicate dates, and orders all the dates in ascending order.
+The <code>LeaveApplication</code> constructor removes duplicates, and orders all dates in ascending order.
 </td>
 </tr>
 </table>
@@ -2184,7 +2185,7 @@ There are further interactions of the EventCenter reacting to the event raised w
 <div class="content">
 <img src="images/LeaveApplicationSequenceDiagram.png" alt="LeaveApplicationSequenceDiagram" width="1000">
 </div>
-<div class="title">Figure 14. Interactions in the Logic Component when a <code>leaveapply -de family holiday -da 2018-11-11</code> command is issued</div>
+<div class="title">Figure 14. The Logic Component when <code>leaveapply -de family holiday -da 2018-11-11</code> is executed</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2193,7 +2194,7 @@ There are further interactions of the EventCenter reacting to the event raised w
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are further interactions within the Model component, and beyond, that are omitted in this diagram.
+There are further interactions within the Model component that are omitted.
 </td>
 </tr>
 </table>
@@ -2226,7 +2227,7 @@ There are further interactions within the Model component, and beyond, that are 
 <p>The user executes the <code>leavelist</code> command.</p>
 </li>
 <li>
-<p>The system checks if the user is an Admin, or has the required permissions (<code>VIEW_EMPLOYEE_LEAVE</code> or <code>APPROVE_LEAVE</code>). If either one of the aforementioned conditions are satisfied, all leave applications of all other users will be displayed. If not, only the current logged-in user&#8217;s own leave application records will be shown.</p>
+<p>The system checks if the user is an Admin, or has the required permissions (<code>VIEW_EMPLOYEE_LEAVE</code> or <code>APPROVE_LEAVE</code>). If so, all leave applications of all other users will be displayed. If not, only the current logged-in user&#8217;s own leave application records will be shown.</p>
 </li>
 </ol>
 </div>
@@ -3564,7 +3565,76 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
+<h3 id="leave-management"><a class="link" href="#leave-management">F.3. Leave management</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Applying for leave while leave applications are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all leave applications using the <code>leavelist</code> command. There need not be any leave applications in the list.</p>
+</li>
+<li>
+<p>Test case: <code>leaveapply -de Family holiday -da 2018-12-05 -da 2018-12-06</code><br>
+Expected: A new leave application record with the description "Family holiday" and the dates "2018-12-05" and "2018-12-06" appears in the list. Details of the new leave application shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>leaveapply -de Second family holiday -da 2018-12-16 -da 2018-12-15 -da 2018-12-15</code><br>
+Expected: A new leave application record with the description "Second family holiday" and the dates "2018-12-15" and "2018-12-16" in this order appears in the list. Details of the new leave application shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Incorrect <code>leaveapply</code> commands to try: <code>leaveapply -de -da 2018-12-15</code> (empty description), <code>leaveapply -de Family holiday -da 2018-4-5</code> (date format not YYYY-MM-DD).<br>
+Expected: Status message shows that the command format is invalid.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Approving or rejecting leave applications as a user without either "VIEW_EMPLOYEE_LEAVE" or "APPROVE_LEAVE" permissions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Login with a user that has neither "VIEW_EMPLOYEE_LEAVE" or "APPROVE_LEAVE" permissions (in a fresh install, the default username "Alex Yeoh" and password "Pa55w0rd" will suffice). List all leave applications using the <code>leavelist</code> command. There should be at least one leave application shown. Perform one leave application with <code>leaveapply</code> if there isn&#8217;t.</p>
+</li>
+<li>
+<p>Test case: <code>leaveapprove 1</code> or <code>leavereject 1</code><br>
+Expected: The status of the leave applications do not change. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Incorrect <code>leaveapply</code> commands to try: <code>leaveapply -de -da 2018-12-15</code> (empty description), <code>leaveapply -de Family holiday -da 2018-4-5</code> (date format not YYYY-MM-DD).<br>
+Expected: Status message shows that the command format is invalid.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Approving or rejecting leave applications as a user with either "VIEW_EMPLOYEE_LEAVE" or "APPROVE_LEAVE" permissions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Login with the Admin account (the default username "Admin" and password "Pa55w0rd"). List all leave applications using the <code>leavelist</code> command. There should be at least one leave application shown. Perform one leave application with a non-admin user with <code>leaveapply</code> if there isn&#8217;t.</p>
+</li>
+<li>
+<p>Test case: <code>leaveapprove 1</code> or <code>leavereject 1</code><br>
+Expected: The status of the first leave application changes to "APPROVED" or "REJECTED", depending on the command issued. Status message indicates that the leave has been approved. Timestamp in status bar is updated.</p>
+</li>
+<li>
+<p>Incorrect <code>leaveapprove</code> commands to try: <code>leaveapprove 0</code> (non-positive integer index)<br>
+Expected: Status message shows that the command format is invalid.</p>
+</li>
+<li>
+<p>Incorrect <code>leaveapprove</code> commands to try: <code>leaveapprove 1000</code> (index larger than displayed list size).<br>
+Expected: Status message shows that the leave list index is invalid.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">F.4. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3581,4 +3651,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:27:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:34:44 UTC</div></div></div></body></html>
