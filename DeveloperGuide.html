@@ -80,16 +80,15 @@
 <li><a href="#use-cases">Appendix B: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix C: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix D: Glossary</a></li>
-<li><a href="#product-survey">Appendix E: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix E: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#logging-into-the-system">F.2. Logging into the system.</a></li>
-<li><a href="#logging-out-of-the-system">F.3. Logging out of the system</a></li>
-<li><a href="#editing-details-of-currently-logged-in-user">F.4. Editing details of currently logged in user</a></li>
-<li><a href="#deleting-a-person">F.5. Deleting a person</a></li>
-<li><a href="#leave-management">F.6. Leave management</a></li>
-<li><a href="#saving-data">F.7. Saving data</a></li>
+<li><a href="#launch-and-shutdown">E.1. Launch and Shutdown</a></li>
+<li><a href="#logging-into-the-system">E.2. Logging into the system.</a></li>
+<li><a href="#logging-out-of-the-system">E.3. Logging out of the system</a></li>
+<li><a href="#editing-details-of-currently-logged-in-user">E.4. Editing details of currently logged in user</a></li>
+<li><a href="#deleting-a-person">E.5. Deleting a person</a></li>
+<li><a href="#leave-management">E.6. Leave management</a></li>
+<li><a href="#saving-data">E.7. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -2896,13 +2895,13 @@ b. Require developers to download those libraries manually (this creates extra w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Department Manager" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with add employee permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add a new employee into my department</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have the new hire listed in the system</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Department Manager" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with delete employee permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delete an employee from my department</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove employees that have left or have been fired</p></td>
 </tr>
@@ -2926,37 +2925,37 @@ b. Require developers to download those libraries manually (this creates extra w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Department Manager" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with view employee leave permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View leave application of employees in my department</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">See who has applied for leave</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Department Manager" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with approve leave permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Approve or reject employee requests for leave</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Plan out future projects</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Project Leader" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with add project permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Create a new project</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have the new project listed in the application</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Project Leader" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with add project permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add an employee from any department into a project I created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have the employee listed in the project team</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Project Leader" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with add project permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Remove an employee from a project I created</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have the employee removed from the project team</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Project Leader" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with add project permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Assign a task to an employee in one of my projects</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Delegate the required work in a project to the team</p></td>
 </tr>
@@ -3004,7 +3003,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Department Manager" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with view employee leave permissions</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View summary of approved leaves taken by employees in my department in the upcoming months</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Better plan upcoming projects and manpower distribution</p></td>
 </tr>
@@ -3040,7 +3039,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Employee with "Department Manager" permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Employee</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">View the list of past employees that have been removed from the system</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Check the archives for information about previous employees</p></td>
 </tr>
@@ -3324,22 +3323,22 @@ b. Require developers to download those libraries manually (this creates extra w
 <p>User login to the system</p>
 </li>
 <li>
-<p>Oasis shows home page</p>
+<p>OASIS shows home page</p>
 </li>
 <li>
-<p>User enters leave, start date and end date</p>
+<p>User enters description, start date and end date</p>
 </li>
 <li>
-<p>Oasis displays confirmation message</p>
+<p>OASIS displays confirmation message</p>
 </li>
 <li>
 <p>User enters confirm</p>
 </li>
 <li>
-<p>Oasis sends the application to the manager</p>
+<p>OASIS sends the application to the manager</p>
 </li>
 <li>
-<p>Oasi shows success message</p>
+<p>OASIS shows success message</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3378,8 +3377,124 @@ b. Require developers to download those libraries manually (this creates extra w
 </li>
 </ul>
 </div>
+<h3 id="use-case-list-leave-applications" class="discrete">Use case: List leave applications</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p>Preconditions: user is logged in</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to view leave applications</p>
+</li>
+<li>
+<p>OASIS lists all leave applications of the user</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format is invalid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. OASIS shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. The user has permissions to be able to view all employee leaves.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. OASIS lists all leave applications of all users</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-approve-a-leave-application" class="discrete">Use case: Approve a leave application</h3>
+<div class="paragraph">
+<p>Preconditions: user is logged in</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User <a href="#use-case-list-leave-applications">lists leave applications (Use case: List leave applications)</a></p>
+</li>
+<li>
+<p>User enters command to approve a leave, and chooses the leave application to approve</p>
+</li>
+<li>
+<p>OASIS approves the leave application</p>
+</li>
+<li>
+<p>OASIS shows success message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The format is invalid</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. OASIS shows an error message</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2b. The index is does not exist</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2b1. OASIS shows an error message</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2c. The user does not have the permissions to approve leaves</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2c1. OASIS shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -3427,44 +3542,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix E: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix E: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -3482,7 +3560,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">E.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3517,7 +3595,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-into-the-system"><a class="link" href="#logging-into-the-system">F.2. Logging into the system.</a></h3>
+<h3 id="logging-into-the-system"><a class="link" href="#logging-into-the-system">E.2. Logging into the system.</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3558,7 +3636,7 @@ Expected: You should now be logged in as David Li.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-out-of-the-system"><a class="link" href="#logging-out-of-the-system">F.3. Logging out of the system</a></h3>
+<h3 id="logging-out-of-the-system"><a class="link" href="#logging-out-of-the-system">E.3. Logging out of the system</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3572,7 +3650,7 @@ Expected: You should now be logged out. OASIS should now show the login screen.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-details-of-currently-logged-in-user"><a class="link" href="#editing-details-of-currently-logged-in-user">F.4. Editing details of currently logged in user</a></h3>
+<h3 id="editing-details-of-currently-logged-in-user"><a class="link" href="#editing-details-of-currently-logged-in-user">E.4. Editing details of currently logged in user</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3607,7 +3685,7 @@ Expected: An error message saying that you cannot edit the admin account.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">F.5. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">E.5. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3658,7 +3736,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-management"><a class="link" href="#leave-management">F.6. Leave management</a></h3>
+<h3 id="leave-management"><a class="link" href="#leave-management">E.6. Leave management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3727,7 +3805,7 @@ Expected: Status message shows that the leave list index is invalid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.7. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">E.7. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3760,4 +3838,4 @@ Expected: If a missing or corrupted data file is used, OASIS will then begin wit
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:21:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:39:05 UTC</div></div></div></body></html>
