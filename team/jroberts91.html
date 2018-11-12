@@ -16,13 +16,16 @@
 <p>OASIS is an employee management application catered for small-to-medium sized enterprises. With the use of primarily textual commands coupled with a beautiful user interface, you can get your administrative jobs done faster than with traditional point-and-click applications. OASIS comes with many efficient problem-solving features that solve employee management problems of today, some of these features are: employee records management, authentication and permissions, assignment management, archiving of employees, and leave management.</p>
 </div>
 <div class="paragraph">
-<p>This document summarizes my contribution of work done in OASIS.</p>
+<p>My team consists of 4 other year 2 Computer Science students taking CS2103T and this document summarizes my contribution of work done in OASIS.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section shows in detail my contributions to the project, namely my major enhancement, my minor enhancement and other notable contributions to OASIS.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -181,9 +184,9 @@ This feature improves OASIS significantly as it removes unwanted employee inform
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="view-deleted-employee-archive-code-archive-code"><a class="link" href="#view-deleted-employee-archive-code-archive-code">View deleted employee archive : <code>archive</code></a></h3>
+<h3 id="to-view-deleted-employee-archive-code-archive-code"><a class="link" href="#to-view-deleted-employee-archive-code-archive-code">To view deleted employee archive : <code>archive</code></a></h3>
 <div class="paragraph">
-<p>Displays the list of archive employees.</p>
+<p>Displays all active employees in OASIS.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -211,11 +214,15 @@ Archived employees will remain in archive list until they are restored which wil
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Type in <code>archive</code> command in the command box at the top of the application and hit enter, you will be shown the following screen shown below:
+<span class="image"><img src="../images/archiveUserGuide.png" alt="archiveUserGuide" width="800"></span></p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="restoring-employee-to-active-list-code-restore-code"><a class="link" href="#restoring-employee-to-active-list-code-restore-code">Restoring employee to active list : <code>restore</code></a></h3>
+<h3 id="to-restore-employee-to-active-list-code-restore-code"><a class="link" href="#to-restore-employee-to-active-list-code-restore-code">To restore employee to active list : <code>restore</code></a></h3>
 <div class="paragraph">
-<p>Restores an employee to active list from the archived list.</p>
+<p>Adds the restored employee to the active list and remove the employee from the archive list.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>restore INDEX</code></p>
@@ -243,7 +250,22 @@ Archived employees will remain in archive list until they are restored which wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>restore 2</code></p>
+<p><code>restore 2</code> to delete second employee from the archive list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sample output when <code>restore 2</code> command is executed show below:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Step 1: Type <code>archive</code> command in the command box on the top of the application and click enter. You will be taken to the archive list shown below:
+<span class="image"><img src="../images/restoreUserGuide1.png" alt="restoreUserGuide1" width="800"></span></p>
+</li>
+<li>
+<p>Step 2: Type <code>restore 2</code> command in the same command box as Step 1 and you will see the following output on your screen:
+<span class="image"><img src="../images/restoreUserGuide2.png" alt="restoreUserGuide2" width="800"></span></p>
 </li>
 </ul>
 </div>
@@ -266,7 +288,7 @@ Archived employees will remain in archive list until they are restored which wil
 <div class="sect2">
 <h3 id="archive-employee-feature"><a class="link" href="#archive-employee-feature">Archive employee feature</a></h3>
 <div class="paragraph">
-<p>Employees with the "DELETE_EMPLOYEE" permissions can delete employees in the system - related to firing employees in real life. Deleted employees from the active list will be moved to the archived list.</p>
+<p>Employees with the "DELETE_EMPLOYEE" permissions can delete employees in the system - related to firing employees in real life. Deleted employees from the active list will be moved to the archived list. This feature allows an employee to view the archive list of employees.</p>
 </div>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed implementation</a></h4>
@@ -286,7 +308,7 @@ Archived employees will remain in archive list until they are restored which wil
 <p>Step 3. The user executes archive command to change view from active list to the archive list.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. OASIS shows delete person in step 2 in the archive list</p>
+<p>Step 4. OASIS shows delete person in step 2 in the archive list on the left panel.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes delete and restore command:</p>
@@ -295,6 +317,13 @@ Archived employees will remain in archive list until they are restored which wil
 <div class="content">
 <img src="../images/archiveActivityDiagram.PNG" alt="archiveActivityDiagram" width=""350">
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changes-to-architecture"><a class="link" href="#changes-to-architecture">Changes to architecture</a></h3>
+<div class="paragraph">
+<p>This section documents the changes made to the architecture and its components.</p>
 </div>
 <div class="sect4">
 <h5 id="aspect-model"><a class="link" href="#aspect-model">Aspect: Model</a></h5>
@@ -324,9 +353,11 @@ Archived employees will remain in archive list until they are restored which wil
 </div>
 </div>
 </div>
-</div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="paragraph">
+<p>This section documents the considerations that were carefully studied for implementing this feature. The selected implementation method is denoted by "(current choice)" .</p>
+</div>
 <div class="sect4">
 <h5 id="aspect-lifetime-of-objects-in-archive-list"><a class="link" href="#aspect-lifetime-of-objects-in-archive-list">Aspect: Lifetime of objects in Archive list</a></h5>
 <div class="ulist">
@@ -398,9 +429,12 @@ Archived employees will remain in archive list until they are restored which wil
 <div class="sect2">
 <h3 id="restore-employee-feature"><a class="link" href="#restore-employee-feature">Restore employee feature</a></h3>
 <div class="paragraph">
-<p>Employees with the "RESTORE_EMPLOYEE" permissions can restore employees from the archive list into the active list - related to hiring back old employees in real life. The restored employee will be moved back to the active list and removed from the archive list. Employees with “DELETE_EMPLOYEE” permissions can also completely remove employees in the archive list, permanently removing them from OASIS.
-==== Proposed implementation
-The Restore or completely remove employee feature is facilitated by <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code>.</p>
+<p>Employees with the "RESTORE_EMPLOYEE" permissions can restore employees from the archive list into the active list - related to hiring back old employees in real life. The restored employee will be moved back to the active list and removed from the archive list. Employees with “DELETE_EMPLOYEE” permissions can also completely remove employees in the archive list, permanently removing them from OASIS.</p>
+</div>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">Proposed implementation</a></h4>
+<div class="paragraph">
+<p>The Restore or completely remove employee feature is facilitated by <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the <code>VersionedArchiveList</code>, <code>VersionedAddressBook</code> and <code>UniquePersonList</code> behaves at each step.</p>
@@ -435,21 +469,25 @@ The Restore or completely remove employee feature is facilitated by <code>Versio
 </div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the archive operation works:</p>
+<p>The following sequence diagram shows the method calls when the restore command is executed:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/restoreSequenceDiagram.jpg" alt="restoreSequenceDiagram" width=""350">
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h4>
+<div class="paragraph">
+<p>This section documents the considerations that were carefully studied for implementing this feature. The selected implementation method is denoted by "(current choice)" .</p>
+</div>
 <div class="sect4">
 <h5 id="aspect-data-restored-from-employee"><a class="link" href="#aspect-data-restored-from-employee">Aspect: Data restored from employee</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> All data from the time when the employee was deleted will be restored when the employee object is restored.** Pros: Guaranteed no loss of data if an employee is accidentally deleted.</p>
+<p><strong>Alternative 1 (current choice):</strong> All data from the time when the employee was deleted will be restored when the employee object is restored.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -480,4 +518,4 @@ The Restore or completely remove employee feature is facilitated by <code>Versio
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:22:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:24:49 UTC</div></div></div></body></html>
