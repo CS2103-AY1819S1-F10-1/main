@@ -87,8 +87,9 @@
 <li><a href="#logging-out-of-the-system">E.3. Logging out of the system</a></li>
 <li><a href="#editing-details-of-currently-logged-in-user">E.4. Editing details of currently logged in user</a></li>
 <li><a href="#deleting-a-person">E.5. Deleting a person</a></li>
-<li><a href="#leave-management">E.6. Leave management</a></li>
-<li><a href="#saving-data">E.7. Saving data</a></li>
+<li><a href="#modify-permission-of-an-employee">E.6. Modify permission of an employee</a></li>
+<li><a href="#leave-management">E.7. Leave management</a></li>
+<li><a href="#saving-data">E.8. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -100,7 +101,7 @@
 <div class="sect2">
 <h3 id="what-is-oasis"><a class="link" href="#what-is-oasis">1.1. What is OASIS?</a></h3>
 <div class="paragraph">
-<p>Office Assistance Specialized Integration System (OASIS) is an all-in-one office management software. It has the common of management system and additional features that would make managing efficient, quick and fun. Unlike any other management software, OASIS adopts Command Line Interface.</p>
+<p>OASIS is an employee management application that brings your office together. It is an all-in-one tool for office administration and communication that runs on any computer. With the use of primarily textual commands coupled with a beautiful user interface, you can get your administrative jobs done faster than with traditional point-and-click applications. Some of the main features that you can look forward to using are employee records management, authentication and permissions, assignment management, and leave management.</p>
 </div>
 </div>
 <div class="sect2">
@@ -903,7 +904,7 @@ Permission system is used to ensure that each user are only able to perform comm
 <p>Model of a person have been changed to reflect the permission that each user possesses.</p>
 </div>
 <div class="paragraph">
-<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
+<p>The class highlighted in Red in the following diagram represents the classes that have been created to support the Permission system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -942,7 +943,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 <p>Permission have to be stored in the addressbook where the information for <code>Person</code> is stored. This is achieved through creation of <code>XmlAdaptedPermission</code>, which was utilised by <code>XmlAdaptedPerson</code> to store the information in an xml file.</p>
 </div>
 <div class="paragraph">
-<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
+<p>The class highlighted in Red in the following diagram represents the classes that have been created to support the Permission system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1012,7 +1013,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 </ul>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user excutes a command.</p>
+<p>The following activity diagram summarizes what happens when a user executes a command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1026,7 +1027,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (Current Implementation): Assign permission to each individual user, and restrict commands executable by user based on permission assigned.</p>
+<p>Alternative 1 (Current Implementation): Assign permission to each individual user and restrict commands executable by user based on permission assigned.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1039,7 +1040,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 </div>
 </li>
 <li>
-<p>Alternative 2 : Create subclass of <code>Person</code> to be used to identify the role of the user. E.g. <code>Employee</code> and <code>Manager</code> class.
+<p>Alternative 2: Create subclass of <code>Person</code> to be used to identify the role of the user. E.g. <code>Employee</code> and <code>Manager</code> class.
 The commands executable by the user will depend on their class.</p>
 <div class="ulist">
 <ul>
@@ -1114,7 +1115,7 @@ A ParseException will be thrown if any of the permission names are invalid.
 </table>
 </div>
 <div class="paragraph">
-<p>When <code>ModifyPermissionCommand</code> is executed, it will then modify the permission of targeted employee, adding permission in <code>permissionToAdd</code> and removing permissions in <code>permissionToRemove</code>.</p>
+<p>When <code>ModifyPermissionCommand</code> is executed, it will then modify the permission of targeted employee, adding permission from <code>permissionToAdd</code> and removing permissions from <code>permissionToRemove</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1163,14 +1164,17 @@ The command will be executed successfully if at least one permission is added or
 <p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Cons: User will have to remember 2 commands. In addition to this, User also have to execute at least 2 commands if they wish to both add and remove permission.
-==== View Permissions of employee</p>
+<p>Cons: User will have to remember 2 commands. In addition to this, User also have to execute at least 2 commands if they wish to both add and remove permission.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-permissions-of-employee"><a class="link" href="#view-permissions-of-employee">4.4.2. View Permissions of employee</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to view the permissions that have been allocated to an employee.</p>
 </div>
@@ -1185,7 +1189,6 @@ This feature can only be performed by users that have <code>ASSIGN_PERMISSION</c
 </td>
 </tr>
 </table>
-</div>
 </div>
 <div class="sect4">
 <h5 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h5>
@@ -3736,7 +3739,92 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="leave-management"><a class="link" href="#leave-management">E.6. Leave management</a></h3>
+<h3 id="modify-permission-of-an-employee"><a class="link" href="#modify-permission-of-an-employee">E.6. Modify permission of an employee</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add or remove employee&#8217;s permission using <code>modifypermission</code> command while active persons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Adding one permission</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Prerequisites: Logged in as a user with <code>ASSIGN_PERMISSION</code> permission. List all persons using the <code>active</code> command. At least one person in the list. Employee at index 1 without <code>ADD_EMPLOYEE</code>.</p>
+</li>
+<li>
+<p>Test case: <code>modifypermission 1 -a ADD_EMPLOYEE</code><br>
+Expected: ADD_EMPLOYEE permission is granted to employee at index 1. List of updated permission shown in status message. Timestamp in status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding multiple permission</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Prerequisites: Logged in as a user with <code>ASSIGN_PERMISSION</code> permission. List all persons using the <code>active</code> command. At least one person in the list. Employee at index 1 without <code>DELETE_EMPLOYEE</code> and <code>EDIT_EMPLOYEE</code> permission.</p>
+</li>
+<li>
+<p>Test case: <code>modifypermission 1 -a DELETE_EMPLOYEE -a EDIT_EMPLOYEE</code><br>
+Expected: DELETE_EMPLOYEE &amp; EDIT_EMPLOYEE permission is granted to employee at index 1. List of updated permission shown in status message. Timestamp in status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing multiple permission</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Prerequisites: Logged in as a user with <code>ASSIGN_PERMISSION</code> permission. List all persons using the <code>active</code> command. At least one person in the list. Employee at index 1 with <code>DELETE_EMPLOYEE</code> and <code>EDIT_EMPLOYEE</code> permission.</p>
+</li>
+<li>
+<p>Test case: <code>modifypermission 1 -r DELETE_EMPLOYEE -r EDIT_EMPLOYEE</code><br>
+Expected: DELETE_EMPLOYEE &amp; EDIT_EMPLOYEE permission is removed from employee at index 1. List of updated permission shown in status message. Timestamp in status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding and removing permission</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Prerequisites: Logged in as a user with <code>ASSIGN_PERMISSION</code> permission. List all persons using the <code>active</code> command. At least one person in the list. Employee at index 1 with only <code>ADD_EMPLOYEE</code> permission.</p>
+</li>
+<li>
+<p>Test case: <code>modifypermission 1 -a DELETE_EMPLOYEE -r ADD_EMPLOYEE</code><br>
+Expected: Employee at index 1 only has <code>DELETE_EMPLOYEE</code> permission. List of updated permission shown in status message. Timestamp in status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Incorrect <code>modifypermission</code> commands to try:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p><code>modifypermission 1 -a INVALID_PERMISSION</code>, <code>modifypermission 1 -a DELETE_EMPLOYEE -r INVALID_PERMISSION</code><br>
+Expected: Status message shows that permission name is invalid.</p>
+</li>
+<li>
+<p><code>modifypermission</code>, <code>modifypermission -a DELETE_EMPLOYEE -a EDIT_EMPLOYEE</code><br>
+Expected: Status message shows that the command format is invalid.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="leave-management"><a class="link" href="#leave-management">E.7. Leave management</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3805,7 +3893,7 @@ Expected: Status message shows that the leave list index is invalid.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">E.7. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">E.8. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3838,4 +3926,4 @@ Expected: If a missing or corrupted data file is used, OASIS will then begin wit
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:46:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:22:47 UTC</div></div></div></body></html>

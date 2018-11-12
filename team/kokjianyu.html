@@ -10,7 +10,7 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>OASIS is an employee management application that brings your office together. It is an all-in-one tool for office administration and communication that runs on any computer. With the use of primarily textual commands coupled with a beautiful user interface, you can get your administrative jobs done faster than with traditional point-and-click applications. Some of the main features that you can look forward to using are employee records management, authentication and permissions, assignment management, and leave management.</p>
+<p><a href="https://github.com/CS2103-AY1819S1-F10-1/main">OASIS</a> is an employee management application that brings your office together. It is an all-in-one tool for office administration and communication that runs on any computer. With the use of primarily textual commands coupled with a beautiful user interface, you can get your administrative jobs done faster than with traditional point-and-click applications. Some of the main features that you can look forward to using are employee records management, authentication and permissions, assignment management, and leave management.</p>
 </div>
 <div class="paragraph">
 <p>This portfolio serves as a summary to showcase my contribution for <a href="https://github.com/CS2103-AY1819S1-F10-1/main">OASIS</a>.</p>
@@ -27,11 +27,7 @@
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=kokjianyu&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-11&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Link to RepoSense</a>]</p>
 </div>
 <div class="sect2">
-<h3 id="major-enhancement-permission-system"><a class="link" href="#major-enhancement-permission-system">Major Enhancement: Permission System</a></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Added <strong>ability to control the commands</strong> each employee can <strong>perform</strong> through usage of Permissions.</p>
+<h3 id="major-enhancement-implemented-permission-system-to-control-what-commands-each-employee-can-use-in-oasis"><a class="link" href="#major-enhancement-implemented-permission-system-to-control-what-commands-each-employee-can-use-in-oasis">Major Enhancement: Implemented Permission System to control what commands each employee can use in OASIS</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -39,7 +35,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Ensures that commands are executed only by employees with the permission required for it.</p>
+<p>Ensures that commands are executed only by employees with the permission required for it. It also allow users with the required permission(<code>ASSIGN_PERMISSION</code> permission), to view and modify the permissions other employees have.</p>
 </li>
 </ul>
 </div>
@@ -71,71 +67,13 @@ Therefore, implementation was challenging as it requires in-depth knowledge of t
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Added ability to <strong>modify the permissions</strong> granted to an employee</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Modify the permissions of the employee.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Justification:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>An employee might get promoted or demoted, and might gain/lose access to previously accessible/restricted commands. Allowing permission to be modified will allow OASIS to be updated about the change in the employee&#8217;s authorization.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Added ability to <strong>view the permissions</strong> granted to an employee</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Display the list of permissions that an employee have.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Justification:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Users might need to know the permissions that have been assigned to an employee. This enhancement
-give them a method to check it easily.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor Enhancement:</a></h3>
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor Enhancement</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Enhancement</strong>: Added Command Auto-Complete feature</p>
+<p>Added <strong>Command Auto-Complete</strong> feature</p>
 <div class="ulist">
 <ul>
 <li>
@@ -195,9 +133,34 @@ give them a method to check it easily.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/137">1</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/136">2</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/134">3</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/135">4</a>,
-<a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/133">5</a>,
-<a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/141">6</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/137">#1</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/136">#2</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/134">#3</a>, <a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/135">#4</a>,
+<a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/133">#5</a>,
+<a href="https://github.com/CS2103-AY1819S1-T10-3/main/issues/141">#6</a>)</p>
+</li>
+<li>
+<p>Provided feedback on forum issues(example: <a href="https://github.com/CS2103-AY1819S1-F10-1/main/issues/169">#1</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added documentation for <a href="https://cs2103-ay1819s1-f10-1.github.io/main/DeveloperGuide.html#permission-system">Permission System</a> in the Developer guide.</p>
+</li>
+<li>
+<p>Added documentation for <a href="https://cs2103-ay1819s1-f10-1.github.io/main/DeveloperGuide.html#supporting-commands-for-permission-system">Supporting commands for Permission System Section</a> in the Developer guide</p>
+</li>
+<li>
+<p>Added documentation for Command Auto Complete feature in OASIS at <a href="https://cs2103-ay1819s1-f10-1.github.io/main/UserGuide.html#Commands">Commands Section</a> in User guide.</p>
+</li>
+<li>
+<p>Added documentation for the following commands in UserGuide. <a href="https://cs2103-ay1819s1-f10-1.github.io/main/UserGuide.html#modify-permissions-of-an-emplyee-code-modifypermission-code">Modify Permission</a> and <a href="https://cs2103-ay1819s1-f10-1.github.io/main/UserGuide.html#view-all-the-permissions-that-an-employee-has-code-viewpermission-code">View Permission</a>.</p>
+</li>
+<li>
+<p>Added <a href="https://cs2103-ay1819s1-f10-1.github.io/main/UserGuide.html#command-summary">Command Summary</a> into User Guide.</p>
 </li>
 </ul>
 </div>
@@ -393,7 +356,7 @@ Permission system is used to ensure that each user are only able to perform comm
 <p>Model of a person have been changed to reflect the permission that each user possesses.</p>
 </div>
 <div class="paragraph">
-<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
+<p>The class highlighted in Red in the following diagram represents the classes that have been created to support the Permission system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -432,7 +395,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 <p>Permission have to be stored in the addressbook where the information for <code>Person</code> is stored. This is achieved through creation of <code>XmlAdaptedPermission</code>, which was utilised by <code>XmlAdaptedPerson</code> to store the information in an xml file.</p>
 </div>
 <div class="paragraph">
-<p>The class highlighted in Red in the following diagram represents the class that have been created to support the Permission system.</p>
+<p>The class highlighted in Red in the following diagram represents the classes that have been created to support the Permission system.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -502,7 +465,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 </ul>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user excutes a command.</p>
+<p>The following activity diagram summarizes what happens when a user executes a command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -516,7 +479,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 <div class="ulist">
 <ul>
 <li>
-<p>Alternative 1 (Current Implementation): Assign permission to each individual user, and restrict commands executable by user based on permission assigned.</p>
+<p>Alternative 1 (Current Implementation): Assign permission to each individual user and restrict commands executable by user based on permission assigned.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -529,7 +492,7 @@ As of v1.4, <code>PresetPermission</code> only contains the following preset: <c
 </div>
 </li>
 <li>
-<p>Alternative 2 : Create subclass of <code>Person</code> to be used to identify the role of the user. E.g. <code>Employee</code> and <code>Manager</code> class.
+<p>Alternative 2: Create subclass of <code>Person</code> to be used to identify the role of the user. E.g. <code>Employee</code> and <code>Manager</code> class.
 The commands executable by the user will depend on their class.</p>
 <div class="ulist">
 <ul>
@@ -604,7 +567,7 @@ A ParseException will be thrown if any of the permission names are invalid.
 </table>
 </div>
 <div class="paragraph">
-<p>When <code>ModifyPermissionCommand</code> is executed, it will then modify the permission of targeted employee, adding permission in <code>permissionToAdd</code> and removing permissions in <code>permissionToRemove</code>.</p>
+<p>When <code>ModifyPermissionCommand</code> is executed, it will then modify the permission of targeted employee, adding permission from <code>permissionToAdd</code> and removing permissions from <code>permissionToRemove</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -664,4 +627,4 @@ The command will be executed successfully if at least one permission is added or
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:46:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:22:47 UTC</div></div></div></body></html>
