@@ -37,10 +37,7 @@ Allows a user with <code>Delete_employee</code> permission to delete an active e
 </li>
 <li>
 <p>Justification:
-This feature improves OASIS significantly as it mimics firing of employees and keeping their information which is an important aspect of employee management.</p>
-</li>
-<li>
-<p>Highlights:</p>
+This feature improves OASIS significantly as it mimics the scenario when an employee leaves the company but data of the employee must be kept for future references, which is an important aspect of employee management.</p>
 </li>
 </ul>
 </div>
@@ -55,10 +52,7 @@ Allows a user with <code>Restore_employee</code> permission to restore an archiv
 </li>
 <li>
 <p>Justification:
-This feature improves OASIS significantly as it mimics firing of employees and keeping their information which is an important aspect of employee management.</p>
-</li>
-<li>
-<p>Highlights:</p>
+This feature improves OASIS significantly as it allows rehired ex-employees to be added back to the active employee list with all their past information.</p>
 </li>
 </ul>
 </div>
@@ -73,10 +67,17 @@ Allows a user with <code>Delete_employee</code> permission to permanently remove
 </li>
 <li>
 <p>Justification:
-This feature improves OASIS significantly as it mimics firing of employees and keeping their information which is an important aspect of employee management.</p>
+This feature improves OASIS significantly as it removes unwanted employee information when they leave the company or when their data is no longer needed.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Highlights:</p>
+<p>Highlights</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This feature required enhancements to the 4 major components of the application, namely: Logic, Model, Storage and UI. Implementing the feature was challenging as an in depth knowledge of the entire project design must be needed to achieve success.</p>
 </li>
 </ul>
 </div>
@@ -103,7 +104,7 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases v1.1 - v1.2 on GitHub</p>
+<p>Managed releases v1.1 - v1.4 on GitHub</p>
 </li>
 </ul>
 </div>
@@ -113,10 +114,16 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme for every <code>Person</code> card (Pull requests <a href="https://github.com">#1</a>)</p>
+<p>Updated the GUI to show a <code>ListPicker</code> to toggle between active and archive list. (Pull requests)</p>
 </li>
 <li>
-<p>Updated the GUI to show a <code>ListPicker</code> to toggle between active and archive list. (Pull requests)</p>
+<p>Updated <code>DeleteCommand</code> to delete from either active or archive list depending on which list the user is on.</p>
+</li>
+<li>
+<p>Updated <code>ClearCommand</code> to clear all employees in OASIS, both active and archive.</p>
+</li>
+<li>
+<p>Wrote tests for features. Pull requests <a href="https://github.com/CS2103-AY1819S1-F10-1/main/pull/183">#183</a></p>
 </li>
 </ul>
 </div>
@@ -125,9 +132,6 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
-<li>
-<p>Input initial contents of User Guide: <a href="https://github.com">#1</a></p>
-</li>
 <li>
 <p>Updated class diagrams for <code>UI</code> and <code>Model</code> component in the Developer Guide.</p>
 </li>
@@ -144,16 +148,6 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103-AY1819S1-W12-3/main/issues/125">1</a>, <a href="https://github.com/CS2103-AY1819S1-W12-3/main/issues/124">2</a>, <a href="https://github.com/CS2103-AY1819S1-W12-3/main/issues/139">3</a>,
 <a href="https://github.com/CS2103-AY1819S1-W12-3/main/issues/135">4</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated Travis CI, AppVeyor and Coveralls to the team repo</p>
 </li>
 </ul>
 </div>
@@ -365,9 +359,7 @@ This feature improves OASIS significantly as it mimics firing of employees and k
 <p>Pros: Only need to change 1 attribute when an employee is deleted.</p>
 </li>
 <li>
-<p>Cons: "Archive" is an unusual attribute for a person and it will be time consuming to view the archive list as you have to go through all employees to check the archive attribute.
-=== Restore employee feature
-Employees with the "Restore_employee" permissions can restore employees from the archive list into the active list - related to hiring back old employees in real life. The restored employee will be moved back to the active list and removed from the archive list. Employees with “Delete_employee” permissions can also completely remove employees in the archive list, permanently removing them from OASIS.</p>
+<p>Cons: "Archive" is an unusual attribute for a person and it will be time consuming to view the archive list as you have to go through all employees to check the archive attribute.</p>
 </li>
 </ul>
 </div>
@@ -375,6 +367,12 @@ Employees with the "Restore_employee" permissions can restore employees from the
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="restore-employee-feature"><a class="link" href="#restore-employee-feature">Restore employee feature</a></h3>
+<div class="paragraph">
+<p>Employees with the "Restore_employee" permissions can restore employees from the archive list into the active list - related to hiring back old employees in real life. The restored employee will be moved back to the active list and removed from the archive list. Employees with “Delete_employee” permissions can also completely remove employees in the archive list, permanently removing them from OASIS.</p>
 </div>
 <div class="sect3">
 <h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">Proposed implementation</a></h4>
@@ -493,4 +491,4 @@ Employees with the "Restore_employee" permissions can restore employees from the
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:33:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:47:37 UTC</div></div></div></body></html>
