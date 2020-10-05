@@ -128,11 +128,10 @@ public class LogicManager extends ComponentManager implements Logic {
                 User admin = User.getAdminUser();
                 model.setLoggedInUser(admin);
                 raise(new SuccessfulLoginEvent(admin));
-                return;
             } else {
                 raise(new FailedLoginEvent(FailedLoginEvent.INVALID_PASSWORD));
-                return;
             }
+            return;
         }
 
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
@@ -141,6 +140,7 @@ public class LogicManager extends ComponentManager implements Logic {
         boolean someoneFound = false;
         for (Person p : people) {
             if (p.getUsername().username.equals(username)) {
+                someoneFound = true;
                 if (p.getPassword().matches(password)) {
                     User loggedInUser = new User(p);
                     model.setLoggedInUser(loggedInUser);
@@ -148,7 +148,6 @@ public class LogicManager extends ComponentManager implements Logic {
                 } else {
                     raise(new FailedLoginEvent(FailedLoginEvent.INVALID_PASSWORD));
                 }
-                someoneFound = true;
                 break;
             }
         }
@@ -170,27 +169,21 @@ public class LogicManager extends ComponentManager implements Logic {
         if (event.getNewSelection() == 2) {
             try {
                 execute("archive");
-            } catch (CommandException e) {
-                System.out.println(e.getMessage());
-            } catch (ParseException e) {
+            } catch (CommandException | ParseException e) {
                 System.out.println(e.getMessage());
             }
         }
         if (event.getNewSelection() == 1) {
             try {
                 execute("list");
-            } catch (CommandException e) {
-                System.out.println(e.getMessage());
-            } catch (ParseException e) {
+            } catch (CommandException | ParseException e) {
                 System.out.println(e.getMessage());
             }
         }
         if (event.getNewSelection() == 3) {
             try {
                 execute("listassignments");
-            } catch (CommandException e) {
-                System.out.println(e.getMessage());
-            } catch (ParseException e) {
+            } catch (CommandException | ParseException e) {
                 System.out.println(e.getMessage());
             }
         }
