@@ -49,4 +49,8 @@ public class Salary {
         return value.hashCode();
     }
 
+    public int getValue() {
+        return Integer.parseInt(value);
+    }
+
 }
