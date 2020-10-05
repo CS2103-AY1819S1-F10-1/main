@@ -84,9 +84,9 @@ public class Assignment {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getAssignmentName())
-                .append(" Author: ")
+                .append(", Author: ")
                 .append(getAuthor())
-                .append(" Description: ")
+                .append(", Description: ")
                 .append(getDescription());
         return builder.toString();
     }
